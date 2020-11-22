@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from learnplus.frontendmatter.com/ui-tree.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:41:36 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tree Views - Components</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Simplebar -->
+    <link type="text/css" href="assets/vendor/simplebar.css" rel="stylesheet">
+
+    <!-- Material Design Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Roboto Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+
+    <!-- MDK -->
+    <link type="text/css" href="assets/vendor/material-design-kit.css" rel="stylesheet">
+
+    <!-- Sidebar Collapse -->
+    <link type="text/css" href="assets/vendor/sidebar-collapse.min.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/style.css" rel="stylesheet">
+
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="../cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/fancytree.css">
+
+
+
+
+</head>
+
+<body>
+
+    <div class="d-flex flex-column h-100">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand navbar-dark bg-primary m-0">
+
+            <!-- Toggle sidebar -->
+            <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
+    <span class="material-icons">menu</span>
+  </button>
+
+            <!-- Brand -->
+            <a href="student-dashboard.html" class="navbar-brand"><i class="material-icons">school</i> LearnPlus</a>
+
+            <!-- Search -->
+            <form class="navbar-search-form d-none d-md-flex">
+                <input type="text" class="form-control" placeholder="Search">
+                <button class="btn" type="button"><i class="material-icons">search</i></button>
+            </form>
+            <!-- // END Search -->
+
+            <div class="navbar-spacer"></div>
+
+            <!-- Menu -->
+            <ul class="nav navbar-nav d-none d-md-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="student-forum.html">Forum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="student-help-center.html">Get Help</a>
+                </li>
+            </ul>
+
+            <!-- Menu -->
+            <ul class="nav navbar-nav">
+
+                <li class="nav-item">
+                    <a href="student-cart.html" class="nav-link">
+        <i class="material-icons">shopping_cart</i>
+      </a>
+                </li>
+
+                <!-- User dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button"><img src="assets/images/people/50/guy-6.jpg" alt="Avatar" class="rounded-circle" width="40"></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="student-account-edit.html">
+      <i class="material-icons">edit</i> Edit Account
+    </a>
+                        <a class="dropdown-item" href="student-profile.html">
+      <i class="material-icons">person</i> Public Profile
+    </a>
+                        <a class="dropdown-item" href="guest-login.html">
+      <i class="material-icons">lock</i> Logout
+    </a>
+                    </div>
+                </li>
+                <!-- // END User dropdown -->
+
+            </ul>
+            <!-- // END Menu -->
+
+        </nav>
+        <!-- // END Navbar -->
+
+        <div class="mdk-drawer-layout js-mdk-drawer-layout" data-fullbleed data-push data-has-scrolling-region>
+            <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
+                <div class="container-fluid">
+
+                    <!-- Breadcrumb -->
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">Tree</li>
+                    </ol>
+                    <!-- // END Breadcrumb -->
+
+                    <!-- Jumbotron -->
+                    <div class="jumbotron">
+                        <h1>Fancytree</h1>
+                        <p class="lead">Fancytree is a JavaScript dynamic tree view plugin for jQuery with support for persistence, keyboard, checkboxes, tables, drag and drop, and lazy loading. Fancytree is a sequel of the popular DynaTree plugin.</p>
+                    </div>
+                    <!-- // END Jumbotron -->
+
+                    <h4>Tree</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <div data-toggle="tree">
+                                <ul style="display: none;">
+                                    <li>item1</li>
+                                    <li>item2</li>
+                                    <li class="folder">
+                                        Folder <em>with some</em> children
+                                        <ul>
+                                            <li>Sub-item 3.1
+                                                <ul>
+                                                    <li>Sub-item 3.1.1</li>
+                                                    <li>Sub-item 3.1.2</li>
+                                                </ul>
+                                            </li>
+                                            <li>Sub-item 3.2
+                                                <ul>
+                                                    <li>Sub-item 3.2.1</li>
+                                                    <li>Sub-item 3.2.2</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="expanded">
+                                        Document with some children (expanded on init)
+                                        <ul>
+                                            <li class="active focused expanded">Sub-item 4.1 (expanded, active and focused on init)
+                                                <ul>
+                                                    <li>Sub-item 4.1.1</li>
+                                                    <li>Sub-item 4.1.2</li>
+                                                </ul>
+                                            </li>
+                                            <li>Sub-item 4.2
+                                                <ul>
+                                                    <li>Sub-item 4.2.1</li>
+                                                    <li>Sub-item 4.2.2</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>With Multiple Selection</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <div data-toggle="tree" data-tree-checkbox data-tree-select="3">
+                                <ul style="display: none;">
+                                    <li>item1</li>
+                                    <li class="selected">item2 (selected on init)</li>
+                                    <li class="folder">
+                                        Folder <em>with some</em> children
+                                        <ul>
+                                            <li>Sub-item 3.1
+                                                <ul>
+                                                    <li>Sub-item 3.1.1</li>
+                                                    <li>Sub-item 3.1.2</li>
+                                                </ul>
+                                            </li>
+                                            <li>Sub-item 3.2
+                                                <ul>
+                                                    <li>Sub-item 3.2.1</li>
+                                                    <li>Sub-item 3.2.2</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="expanded">
+                                        Document with some children (expanded on init)
+                                        <ul>
+                                            <li class="expanded">
+                                                Sub-item 4.1 (expanded on init)
+                                                <ul>
+                                                    <li class="selected">Sub-item 4.1.1 (selected on init)</li>
+                                                    <li class="selected">Sub-item 4.1.2 (selected on init)</li>
+                                                </ul>
+                                            </li>
+                                            <li>Sub-item 4.2
+                                                <ul>
+                                                    <li>Sub-item 4.2.1</li>
+                                                    <li>Sub-item 4.2.2</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>With Single Selection</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <div data-toggle="tree" data-tree-checkbox data-tree-select="1">
+                                <ul style="display: none;">
+                                    <li>item1</li>
+                                    <li class="selected">item2 (selected on init)</li>
+                                    <li class="folder">
+                                        Folder <em>with some</em> children
+                                        <ul>
+                                            <li>Sub-item 3.1
+                                                <ul>
+                                                    <li>Sub-item 3.1.1</li>
+                                                    <li>Sub-item 3.1.2</li>
+                                                </ul>
+                                            </li>
+                                            <li>Sub-item 3.2
+                                                <ul>
+                                                    <li>Sub-item 3.2.1</li>
+                                                    <li>Sub-item 3.2.2</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="expanded">
+                                        Document with some children (expanded on init)
+                                        <ul>
+                                            <li class="expanded">Sub-item 4.1 (expanded on init)
+                                                <ul>
+                                                    <li>Sub-item 4.1.1</li>
+                                                    <li>Sub-item 4.1.2</li>
+                                                </ul>
+                                            </li>
+                                            <li>Sub-item 4.2
+                                                <ul>
+                                                    <li>Sub-item 4.2.1</li>
+                                                    <li>Sub-item 4.2.2</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4>With Drag &amp; Drop</h4>
+                    <div class="card">
+                        <div class="card-body">
+                            <div data-toggle="tree" data-tree-dnd>
+                                <ul style="display: none;">
+                                    <li>item1</li>
+                                    <li class="selected">item2 (selected on init)</li>
+                                    <li class="folder">
+                                        Folder <em>with some</em> children
+                                        <ul>
+                                            <li>Sub-item 3.1
+                                                <ul>
+                                                    <li>Sub-item 3.1.1</li>
+                                                    <li>Sub-item 3.1.2</li>
+                                                </ul>
+                                            </li>
+                                            <li>Sub-item 3.2
+                                                <ul>
+                                                    <li>Sub-item 3.2.1</li>
+                                                    <li>Sub-item 3.2.2</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="expanded">
+                                        Document with some children (expanded on init)
+                                        <ul>
+                                            <li class="expanded">Sub-item 4.1 (expanded on init)
+                                                <ul>
+                                                    <li>Sub-item 4.1.1</li>
+                                                    <li>Sub-item 4.1.2</li>
+                                                </ul>
+                                            </li>
+                                            <li>Sub-item 4.2
+                                                <ul>
+                                                    <li>Sub-item 4.2.1</li>
+                                                    <li>Sub-item 4.2.2</li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                <div class="mdk-drawer__content ">
+                    <div class="sidebar sidebar-left sidebar-light sidebar-transparent-sm-up o-hidden">
+                        <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
+                            <div class="sidebar-heading">Applications</div>
+                            <ul class="sidebar-menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="student-dashboard.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i> Student
+            </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="instructor-dashboard.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">school</i> Instructor
+            </a>
+                                </li>
+                            </ul>
+                            <!-- Components menu -->
+                            <div class="sidebar-heading">UI Components</div>
+                            <ul class="sidebar-menu">
+                                <li class="sidebar-menu-item open">
+                                    <a class="sidebar-menu-button sidebar-js-collapse" data-toggle="collapse" href="#ui-components">
+      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">tune</i> 
+      UI Components
+      <span class="ml-auto sidebar-menu-toggle-icon"></span>
+    </a>
+                                    <ul class="sidebar-submenu sm-condensed collapse show" id="ui-components">
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-buttons.html">Buttons</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-cards.html">Cards</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-tabs.html">Tabs</a>
+                                        </li>
+                                        <li class="sidebar-menu-item active">
+                                            <a class="sidebar-menu-button" href="ui-tree.html">Tree</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-nestable.html">Nestable</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-notifications.html">Notifications</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-progress.html">Progress Bars</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-forms.html">Forms</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-tables.html">Tables</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-charts.html">Charts</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-calendar.html">Calendar</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-maps-vector.html">Maps Vector</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- // END Components Menu -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Simplebar -->
+    <!-- Used for adding a custom scrollbar to the drawer -->
+    <script src="assets/vendor/simplebar.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- Sidebar Collapse -->
+    <script src="assets/vendor/sidebar-collapse.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/main.js"></script>
+
+
+    <!-- TREE JS -->
+    <script src="../cdn.jsdelivr.net/jquery.ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="assets/vendor/jquery.fancytree-all.min.js"></script>
+
+
+
+    <!-- Initialize tree -->
+    <script src="assets/js/fancytree.js"></script>
+
+
+
+
+</body>
+
+
+<!-- Mirrored from learnplus.frontendmatter.com/ui-tree.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:41:40 GMT -->
+</html>

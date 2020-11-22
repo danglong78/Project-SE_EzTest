@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from learnplus.frontendmatter.com/ui-tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:41:46 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Tables - Components</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Simplebar -->
+    <link type="text/css" href="assets/vendor/simplebar.css" rel="stylesheet">
+
+    <!-- Material Design Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Roboto Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+
+    <!-- MDK -->
+    <link type="text/css" href="assets/vendor/material-design-kit.css" rel="stylesheet">
+
+    <!-- Sidebar Collapse -->
+    <link type="text/css" href="assets/vendor/sidebar-collapse.min.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="assets/css/style.css" rel="stylesheet">
+
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="../cdn.jsdelivr.net/fontawesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/datatables.css">
+
+
+
+
+</head>
+
+<body>
+
+    <div class="d-flex flex-column h-100">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand navbar-dark bg-primary m-0">
+
+            <!-- Toggle sidebar -->
+            <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
+    <span class="material-icons">menu</span>
+  </button>
+
+            <!-- Brand -->
+            <a href="student-dashboard.html" class="navbar-brand"><i class="material-icons">school</i> LearnPlus</a>
+
+            <!-- Search -->
+            <form class="navbar-search-form d-none d-md-flex">
+                <input type="text" class="form-control" placeholder="Search">
+                <button class="btn" type="button"><i class="material-icons">search</i></button>
+            </form>
+            <!-- // END Search -->
+
+            <div class="navbar-spacer"></div>
+
+            <!-- Menu -->
+            <ul class="nav navbar-nav d-none d-md-flex">
+                <li class="nav-item">
+                    <a class="nav-link" href="student-forum.html">Forum</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="student-help-center.html">Get Help</a>
+                </li>
+            </ul>
+
+            <!-- Menu -->
+            <ul class="nav navbar-nav">
+
+                <li class="nav-item">
+                    <a href="student-cart.html" class="nav-link">
+        <i class="material-icons">shopping_cart</i>
+      </a>
+                </li>
+
+                <!-- User dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button"><img src="assets/images/people/50/guy-6.jpg" alt="Avatar" class="rounded-circle" width="40"></a>
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="student-account-edit.html">
+      <i class="material-icons">edit</i> Edit Account
+    </a>
+                        <a class="dropdown-item" href="student-profile.html">
+      <i class="material-icons">person</i> Public Profile
+    </a>
+                        <a class="dropdown-item" href="guest-login.html">
+      <i class="material-icons">lock</i> Logout
+    </a>
+                    </div>
+                </li>
+                <!-- // END User dropdown -->
+
+            </ul>
+            <!-- // END Menu -->
+
+        </nav>
+        <!-- // END Navbar -->
+
+        <div class="mdk-drawer-layout js-mdk-drawer-layout" data-fullbleed data-push data-has-scrolling-region>
+            <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
+                <div class="container-fluid">
+
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">Tables</li>
+                    </ol>
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title">Data Tables</h5>
+                        </div>
+                        <table id="datatable-example" class="table table-striped table-hover table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Extn.</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
+                        </table>
+                        <div class="clearfix"></div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">Basic Table</div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Larry</td>
+                                    <td>the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">Bordered Table</div>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@TwBootstrap</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>Jacob</td>
+                                    <td>Thornton</td>
+                                    <td>@fat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td colspan="2">Larry the Bird</td>
+                                    <td>@twitter</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">Contextual Classes</div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Column heading</th>
+                                    <th>Column heading</th>
+                                    <th>Column heading</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-active">
+                                    <th scope="row">1</th>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                </tr>
+                                <tr class="table-success">
+                                    <th scope="row">3</th>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">4</th>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                </tr>
+                                <tr class="table-info">
+                                    <th scope="row">5</th>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">6</th>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                </tr>
+                                <tr class="table-warning">
+                                    <th scope="row">7</th>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">8</th>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                </tr>
+                                <tr class="table-danger">
+                                    <th scope="row">9</th>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                    <td>Column content</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                <div class="mdk-drawer__content ">
+                    <div class="sidebar sidebar-left sidebar-light sidebar-transparent-sm-up o-hidden">
+                        <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
+                            <div class="sidebar-heading">Applications</div>
+                            <ul class="sidebar-menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="student-dashboard.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i> Student
+            </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="instructor-dashboard.html">
+              <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">school</i> Instructor
+            </a>
+                                </li>
+                            </ul>
+                            <!-- Components menu -->
+                            <div class="sidebar-heading">UI Components</div>
+                            <ul class="sidebar-menu">
+                                <li class="sidebar-menu-item open">
+                                    <a class="sidebar-menu-button sidebar-js-collapse" data-toggle="collapse" href="#ui-components">
+      <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">tune</i> 
+      UI Components
+      <span class="ml-auto sidebar-menu-toggle-icon"></span>
+    </a>
+                                    <ul class="sidebar-submenu sm-condensed collapse show" id="ui-components">
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-buttons.html">Buttons</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-cards.html">Cards</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-tabs.html">Tabs</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-tree.html">Tree</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-nestable.html">Nestable</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-notifications.html">Notifications</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-progress.html">Progress Bars</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-forms.html">Forms</a>
+                                        </li>
+                                        <li class="sidebar-menu-item active">
+                                            <a class="sidebar-menu-button" href="ui-tables.html">Tables</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-charts.html">Charts</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-calendar.html">Calendar</a>
+                                        </li>
+                                        <li class="sidebar-menu-item">
+                                            <a class="sidebar-menu-button" href="ui-maps-vector.html">Maps Vector</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <!-- // END Components Menu -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="assets/vendor/jquery.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/vendor/popper.min.js"></script>
+    <script src="assets/vendor/bootstrap.min.js"></script>
+
+    <!-- Simplebar -->
+    <!-- Used for adding a custom scrollbar to the drawer -->
+    <script src="assets/vendor/simplebar.js"></script>
+
+    <!-- MDK -->
+    <script src="assets/vendor/dom-factory.js"></script>
+    <script src="assets/vendor/material-design-kit.js"></script>
+
+    <!-- Sidebar Collapse -->
+    <script src="assets/vendor/sidebar-collapse.js"></script>
+
+    <!-- App JS -->
+    <script src="assets/js/main.js"></script>
+
+
+    <!-- Vendor JS -->
+    <script src="assets/vendor/jquery.dataTables.js"></script>
+    <script src="assets/vendor/dataTables.bootstrap.js"></script>
+
+
+
+    <!-- Initialize -->
+    <script src="assets/js/datatables.js"></script>
+
+
+
+
+</body>
+
+
+<!-- Mirrored from learnplus.frontendmatter.com/ui-tables.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:41:47 GMT -->
+</html>
