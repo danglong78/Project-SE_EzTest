@@ -33,6 +33,10 @@
         <!-- App CSS -->
         <link type="text/css" href="assets/css/style.css" rel="stylesheet">
 
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
 
     </head>
 
@@ -75,9 +79,10 @@
                 <ul class="nav navbar-nav">
                     <!-- User dropdown -->
                     <li class="nav-item dropdown">
-                        <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button"><img
-                                src="assets/images/people/50/guy-6.jpg" alt="Avatar" class="rounded-circle"
-                                width="40"></a>
+                        <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                            <i class="material-icons ">face</i>
+
+                        </a>
                         <div class="dropdown-menu dropdown-menu-right">
                             <a class="dropdown-item" href="account-edit.html">
                                 <i class="material-icons">edit</i> Edit Account
@@ -102,6 +107,31 @@
                 <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
                     <div class="container-fluid">
                         <div class="row">
+                            <div class="col-lg">
+                                <div class="card">
+                                    <div class="card-header bg-white">
+                                        <h4 class="card-title font-weight-bold">What is it?</h4>
+                                        <p class="card-subtitle">EzTest is a cost-effective, scalable
+                                            way to convert traditional pen and paper-based exams to online and paperless
+                                            mode.</p>
+                                    </div>
+                                    <!-- <div class="card-body text-center">
+                                        <div class="btn btn-primary btn-circle"><i class="material-icons">
+                                                thumb_up</i></div>
+                                        <div class="btn btn-danger btn-circle"><i class="material-icons">
+                                                grade</i></div>
+                                        <div class="btn btn-success btn-circle"><i class="material-icons">
+                                                bubble_chart</i></div>
+                                        <div class="btn btn-warning btn-circle"><i class="material-icons">
+                                                keyboard_voice</i></div>
+                                        <div class="btn btn-info btn-circle"><i class="material-icons">
+                                                event_available</i></div>
+                                    </div> -->
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row">
                             <div class="col-lg-7">
                                 <div class="card">
                                     <div class="card-header bg-light">
@@ -121,23 +151,22 @@
                                                         Title of quiz goes here?</a>
                                                     <br>
 
-                                                    <span class="badge badge-pill badge-info" data-toggle="tooltip"
-                                                        data-placement="top" title="Views">10</span>
-                                                    <span class="badge badge-pill badge-info" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Math</span>
-                                                    <span class="badge badge-pill badge-danger" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Paid</span>
-                                                    <span class="badge badge-pill badge-success" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Free</span>
+                                                    <span class="badge badge-pill badge-info">10</span>
+                                                    <span class="badge badge-pill badge-info">Math</span>
+                                                    <span class="badge badge-pill badge-danger">Paid</span>
+                                                    <span class="badge badge-pill badge-success">Free</span>
 
 
                                                 </div>
-                                                <button type="button" class="btn btn-white btn-circle"
-                                                    data-toggle="tooltip" data-placement="top" title="Preview">
+                                                <button type="button" class="btn btn-white btn-circle">
                                                     <i class="material-icons preview" data-target="#editQuiz"
-                                                        data-toggle="modal">
+                                                        data-toggle="modal" id="preview1">
                                                         visibility
                                                     </i>
+
+                                                    <span class="mdk-tooltip js-mdk-tooltip" data-for="preview1">
+                                                        Take a look
+                                                    </span>
                                                 </button>
 
                                             </div>
@@ -150,23 +179,22 @@
                                                         Title of quiz goes here?</a>
                                                     <br>
 
-                                                    <span class="badge badge-pill badge-info" data-toggle="tooltip"
-                                                        data-placement="top" title="Views">10</span>
-                                                    <span class="badge badge-pill badge-info" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Math</span>
-                                                    <span class="badge badge-pill badge-danger" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Paid</span>
-                                                    <span class="badge badge-pill badge-success" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Free</span>
+                                                    <span class="badge badge-pill badge-info">10</span>
+                                                    <span class="badge badge-pill badge-info">Math</span>
+                                                    <span class="badge badge-pill badge-danger">Paid</span>
+                                                    <span class="badge badge-pill badge-success">Free</span>
 
 
                                                 </div>
-                                                <button type="button" class="btn btn-white btn-circle"
-                                                    data-toggle="tooltip" data-placement="top" title="Preview">
+                                                <button type="button" class="btn btn-white btn-circle">
                                                     <i class="material-icons preview" data-target="#editQuiz"
-                                                        data-toggle="modal">
+                                                        data-toggle="modal" id="preview2">
                                                         visibility
                                                     </i>
+
+                                                    <span class="mdk-tooltip js-mdk-tooltip" data-for="preview2">
+                                                        Take a look
+                                                    </span>
                                                 </button>
 
                                             </div>
@@ -194,23 +222,22 @@
                                                         Title of quiz goes here?</a>
                                                     <br>
 
-                                                    <span class="badge badge-pill badge-info" data-toggle="tooltip"
-                                                        data-placement="top" title="Views">10</span>
-                                                    <span class="badge badge-pill badge-info" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Math</span>
-                                                    <span class="badge badge-pill badge-danger" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Paid</span>
-                                                    <span class="badge badge-pill badge-success" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Free</span>
+                                                    <span class="badge badge-pill badge-info">10</span>
+                                                    <span class="badge badge-pill badge-info">Math</span>
+                                                    <span class="badge badge-pill badge-danger">Paid</span>
+                                                    <span class="badge badge-pill badge-success">Free</span>
 
 
                                                 </div>
-                                                <button type="button" class="btn btn-white btn-circle"
-                                                    data-toggle="tooltip" data-placement="top" title="Preview">
+                                                <button type="button" class="btn btn-white btn-circle">
                                                     <i class="material-icons preview" data-target="#editQuiz"
-                                                        data-toggle="modal">
+                                                        data-toggle="modal" id="preview3">
                                                         visibility
                                                     </i>
+
+                                                    <span class="mdk-tooltip js-mdk-tooltip" data-for="preview3">
+                                                        Take a look
+                                                    </span>
                                                 </button>
 
                                             </div>
@@ -223,23 +250,22 @@
                                                         Title of quiz goes here?</a>
                                                     <br>
 
-                                                    <span class="badge badge-pill badge-info" data-toggle="tooltip"
-                                                        data-placement="top" title="Views">10</span>
-                                                    <span class="badge badge-pill badge-info" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Math</span>
-                                                    <span class="badge badge-pill badge-danger" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Paid</span>
-                                                    <span class="badge badge-pill badge-success" data-toggle="tooltip"
-                                                        data-placement="top" title="Tag">Free</span>
+                                                    <span class="badge badge-pill badge-info">10</span>
+                                                    <span class="badge badge-pill badge-info">Math</span>
+                                                    <span class="badge badge-pill badge-danger">Paid</span>
+                                                    <span class="badge badge-pill badge-success">Free</span>
 
 
                                                 </div>
-                                                <button type="button" class="btn btn-white btn-circle"
-                                                    data-toggle="tooltip" data-placement="top" title="Preview">
+                                                <button type="button" class="btn btn-white btn-circle">
                                                     <i class="material-icons preview" data-target="#editQuiz"
-                                                        data-toggle="modal">
+                                                        data-toggle="modal" id="preview4">
                                                         visibility
                                                     </i>
+
+                                                    <span class="mdk-tooltip js-mdk-tooltip" data-for="preview4">
+                                                        Take a look
+                                                    </span>
                                                 </button>
 
                                             </div>
@@ -250,24 +276,8 @@
                             </div>
 
                             <div class="col-lg-5">
-                                <div class="card">
-                                    <div class="card-header bg-white">
-                                        <h4 class="card-title">Phần thưởng</h4>
-                                        <p class="card-subtitle">Thành tựu mới nhất của bạn</p>
-                                    </div>
-                                    <div class="card-body text-center">
-                                        <div class="btn btn-primary btn-circle"><i class="material-icons">
-                                                thumb_up</i></div>
-                                        <div class="btn btn-danger btn-circle"><i class="material-icons">
-                                                grade</i></div>
-                                        <div class="btn btn-success btn-circle"><i class="material-icons">
-                                                bubble_chart</i></div>
-                                        <div class="btn btn-warning btn-circle"><i class="material-icons">
-                                                keyboard_voice</i></div>
-                                        <div class="btn btn-info btn-circle"><i class="material-icons">
-                                                event_available</i></div>
-                                    </div>
-                                </div>
+
+
                                 <div class="card">
                                     <div class="card-header bg-primary">
                                         <div class="media">
@@ -279,84 +289,113 @@
                                         </div>
                                     </div>
                                     <ul class="list-group list-group-fit">
-                                        <li class="list-group-item forum-thread">
+                                        <li class="list-group-item">
                                             <div class="media align-items-center">
                                                 <div class="media-left">
-                                                    <div class="forum-icon-wrapper" id="forum-item-1">
-                                                        <a href="forum-thread.html" class="forum-thread-icon">
-                                                            <i class="material-icons">description</i>
-                                                        </a>
-                                                        <a href="#public-profile" class="forum-thread-user">
-                                                            <img src="assets/images/people/50/guy-7.jpg" alt=""
-                                                                width="20" class="rounded-circle">
-                                                        </a>
-                                                    </div>
-                                                    <span class="mdk-tooltip js-mdk-tooltip" data-for="forum-item-1">
-                                                        replied by Brian S.
+                                                    <span class="fa-stack fa-1x">
+
+                                                        <i class="fa fa-certificate fa-stack-2x"
+                                                            style="color:#ffbb33"></i>
+                                                        <strong class="fa-stack-1x" style="color:white">1</strong>
                                                     </span>
+
                                                 </div>
                                                 <div class="media-body">
-                                                    <a href="forum-thread.html">
-                                                        Am I learning the right way?</a>
+                                                    Username
                                                 </div>
                                                 <div class="media-right">
                                                     <div style="width:80px; text-align: right;">
-                                                        <small class="text-muted-light">
-                                                            5 min ago</small>
+                                                        <strong class="text-muted-light">
+                                                            9669 tests</strong>
                                                     </div>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="list-group-item forum-thread">
+                                        <li class="list-group-item">
                                             <div class="media align-items-center">
                                                 <div class="media-left">
-                                                    <div class="forum-icon-wrapper" id="forum-item-2">
-                                                        <a href="forum-thread.html" class="forum-thread-icon">
-                                                            <i class="material-icons">description</i>
-                                                        </a>
-                                                        <a href="#public-profile" class="forum-thread-user">
-                                                            <img src="assets/images/people/50/guy-4.jpg" alt=""
-                                                                width="20" class="rounded-circle">
-                                                        </a>
-                                                    </div>
-                                                    <span class="mdk-tooltip js-mdk-tooltip" data-for="forum-item-2">
-                                                        posted by Adrian D.
+                                                    <span class="fa-stack fa-1x">
+
+                                                        <i class="fa fa-certificate fa-stack-2x"
+                                                            style="color:#ffbb33"></i>
+                                                        <strong class="fa-stack-1x" style="color:white">2</strong>
                                                     </span>
+
                                                 </div>
                                                 <div class="media-body">
-                                                    <a href="forum-thread.html">
-                                                        Can someone help me with the
-                                                        basic Setup?</a>
+                                                    Username
                                                 </div>
                                                 <div class="media-right">
                                                     <div style="width:80px; text-align: right;">
-                                                        <small class="text-muted-light">
-                                                            5 min ago</small>
+                                                        <strong class="text-muted-light">
+                                                            9669 tests</strong>
                                                     </div>
                                                 </div>
                                             </div>
                                         </li>
-                                        <li class="list-group-item forum-thread">
+                                        <li class="list-group-item">
                                             <div class="media align-items-center">
                                                 <div class="media-left">
-                                                    <div class="forum-icon-wrapper" id="forum-item-3">
-                                                        <a href="forum-thread.html" class="forum-thread-icon">
-                                                            <i class="material-icons">description</i>
-                                                            <img src="assets/images/people/50/guy-2.jpg" alt=""
-                                                                width="20" class="forum-thread-user rounded-circle">
-                                                        </a>
-                                                    </div>
-                                                    <span class="mdk-tooltip js-mdk-tooltip" data-for="forum-item-3">
-                                                        replied by Michael D.
+                                                    <span class="fa-stack fa-1x">
+
+                                                        <i class="fa fa-certificate fa-stack-2x"
+                                                            style="color:#ffbb33"></i>
+                                                        <strong class="fa-stack-1x" style="color:white">3</strong>
                                                     </span>
+
                                                 </div>
                                                 <div class="media-body">
-                                                    <a href="forum-thread.html">
-                                                        I think this is the right way?</a>
+                                                    Username
                                                 </div>
-                                                <div class="media-right text-right" style="min-width: 80px;">
-                                                    <small class="text-muted-light">
-                                                        5 min ago</small>
+                                                <div class="media-right">
+                                                    <div style="width:80px; text-align: right;">
+                                                        <strong class="text-muted-light">
+                                                            9669 tests</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="media align-items-center">
+                                                <div class="media-left">
+                                                    <span class="fa-stack fa-1x">
+
+                                                        <i class="fa fa-certificate fa-stack-2x"
+                                                            style="color:#ffbb33"></i>
+                                                        <strong class="fa-stack-1x" style="color:white">4</strong>
+                                                    </span>
+
+                                                </div>
+                                                <div class="media-body">
+                                                    Username
+                                                </div>
+                                                <div class="media-right">
+                                                    <div style="width:80px; text-align: right;">
+                                                        <strong class="text-muted-light">
+                                                            9669 tests</strong>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div class="media align-items-center">
+                                                <div class="media-left">
+                                                    <span class="fa-stack fa-1x">
+
+                                                        <i class="fa fa-certificate fa-stack-2x"
+                                                            style="color:#ffbb33"></i>
+                                                        <strong class="fa-stack-1x" style="color:white">5</strong>
+                                                    </span>
+
+                                                </div>
+                                                <div class="media-body">
+                                                    Username
+                                                </div>
+                                                <div class="media-right">
+                                                    <div style="width:80px; text-align: right;">
+                                                        <strong class="text-muted-light">
+                                                            9669 tests</strong>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </li>
@@ -385,12 +424,7 @@
                                             Dashboard
                                         </a>
                                     </li>
-                                    <li class="sidebar-menu-item">
-                                        <a class="sidebar-menu-button" href="take-quiz.html">
-                                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                                            Take a Quiz
-                                        </a>
-                                    </li>
+
                                     <li class="sidebar-menu-item">
                                         <a class="sidebar-menu-button" href="quiz-results.html">
                                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">poll</i>
