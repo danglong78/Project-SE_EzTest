@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Search Results</title>
+
+        <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+        <meta name="robots" content="noindex">
+
+        <!-- Simplebar -->
+        <link type="text/css" href="assets/vendor/simplebar.css" rel="stylesheet">
+
+        <!-- Material Design Icons  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Roboto Web Font -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+            rel="stylesheet">
+
+        <!-- MDK -->
+        <link type="text/css" href="assets/vendor/material-design-kit.css" rel="stylesheet">
+
+        <!-- Sidebar Collapse -->
+        <link type="text/css" href="assets/vendor/sidebar-collapse.min.css" rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css" href="assets/css/style.css" rel="stylesheet">
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+    </head>
+
+    <body>
+
+        <div class="d-flex flex-column h-100">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand navbar-dark bg-primary m-0">
+
+                <!-- Toggle sidebar -->
+                <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
+                    <span class="material-icons">menu</span>
+                </button>
+
+                <!-- Brand -->
+                <a href="dashboard.html" class="navbar-brand"><i class="material-icons">
+                        school</i> EzTest</a>
+
+                <!-- Search -->
+                <form class="navbar-search-form d-none d-md-flex">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <button class="btn" type="button"><i class="material-icons">
+                            search</i></button>
+                </form>
+                <!-- // END Search -->
+
+                <div class="navbar-spacer"></div>
+
+                <!-- Menu -->
+                <ul class="nav navbar-nav d-none d-md-flex">
+                    <li class="nav-item">
+                        <a class="nav-link" href="forum.html">Forum</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="help-center.html">Get Help</a>
+                    </li>
+                </ul>
+
+                <!-- Menu -->
+                <ul class="nav navbar-nav">
+                    <!-- User dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button">
+                            <i class="material-icons ">face</i>
+
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="account-edit.html">
+                                <i class="material-icons">edit</i> Edit Account
+                            </a>
+                            <a class="dropdown-item" href="profile.html">
+                                <i class="material-icons">person</i> Profile
+                            </a>
+                            <a class="dropdown-item" href="guest-login.html">
+                                <i class="material-icons">lock</i> Logout
+                            </a>
+                        </div>
+                    </li>
+                    <!-- // END User dropdown -->
+
+                </ul>
+                <!-- // END Menu -->
+
+            </nav>
+            <!-- // END Navbar -->
+
+            <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push data-has-scrolling-region>
+                <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
+                    <div class="container-fluid">
+
+                        <div class="row">
+
+                            <div class="col-lg">
+                                <div class="card">
+                                    <div class="card-header bg-light">
+                                        <div class="media">
+                                            <div class="media-body">
+                                                <h4 class="card-title ">Search results for: </h4>
+                                                <p class="card-subtitle font-weight-bold">keywords</p>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <ul class="list-group list-group-fit mb-0">
+                                        <li class="list-group-item">
+                                            <div class="media align-items-center">
+                                                <div class="media-body">
+                                                    <a href="quiz-results.html">
+                                                        Title of quiz goes here?</a>
+                                                    <br>
+
+                                                    <span class="badge badge-pill badge-info">10</span>
+                                                    <span class="badge badge-pill badge-info">Math</span>
+                                                    <span class="badge badge-pill badge-danger">Paid</span>
+                                                    <span class="badge badge-pill badge-success">Free</span>
+
+
+                                                </div>
+                                                <button type="button" class="btn btn-white btn-circle">
+                                                    <i class="material-icons preview" data-target="#editQuiz"
+                                                        data-toggle="modal" id="preview1">
+                                                        visibility
+                                                    </i>
+
+                                                    <span class="mdk-tooltip js-mdk-tooltip" data-for="preview1">
+                                                        Take a look
+                                                    </span>
+                                                </button>
+
+                                            </div>
+                                        </li>
+
+                                        <li class="list-group-item">
+                                            <div class="media align-items-center">
+                                                <div class="media-body">
+                                                    <a href="quiz-results.html">
+                                                        Title of quiz goes here?</a>
+                                                    <br>
+
+                                                    <span class="badge badge-pill badge-info">10</span>
+                                                    <span class="badge badge-pill badge-info">Math</span>
+                                                    <span class="badge badge-pill badge-danger">Paid</span>
+                                                    <span class="badge badge-pill badge-success">Free</span>
+
+
+                                                </div>
+                                                <button type="button" class="btn btn-white btn-circle">
+                                                    <i class="material-icons preview" data-target="#editQuiz"
+                                                        data-toggle="modal" id="preview2">
+                                                        visibility
+                                                    </i>
+
+                                                    <span class="mdk-tooltip js-mdk-tooltip" data-for="preview2">
+                                                        Take a look
+                                                    </span>
+                                                </button>
+
+                                            </div>
+                                        </li>
+
+                                    </ul>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                    <div class="mdk-drawer__content ">
+                        <div class="sidebar sidebar-left sidebar-light sidebar-transparent-sm-up o-hidden">
+                            <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
+
+                                <ul class="sidebar-menu">
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="dashboard.html">
+                                            <i
+                                                class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dashboard</i>
+                                            Dashboard
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="quiz-results.html">
+                                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">poll</i>
+                                            Quiz Results
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="quizzes.html">
+                                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">help</i>
+                                            Quiz Manager
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="account-edit.html">
+                                            <i
+                                                class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i>
+                                            Account Settings
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="statement.html">
+                                            <i
+                                                class="sidebar-menu-icon sidebar-menu-icon--left material-icons">receipt</i>
+                                            Statement
+                                        </a>
+                                    </li>
+
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="billing.html">
+                                            <i
+                                                class="sidebar-menu-icon sidebar-menu-icon--left material-icons">monetization_on</i>
+                                            Billing
+                                            <span class="sidebar-menu-badge badge badge-default ml-auto">$25</span>
+                                        </a>
+                                    </li>
+                                    <li class="sidebar-menu-item">
+                                        <a class="sidebar-menu-button" href="guest-login.html">
+                                            <i
+                                                class="sidebar-menu-icon sidebar-menu-icon--left material-icons">lock_open</i>
+                                            Logout
+                                        </a>
+                                    </li>
+                                </ul>
+                                <!-- // END Components Menu -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="modal fade" id="editQuiz">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title">Preview</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push
+                            data-has-scrolling-region>
+                            <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
+                                <div class="container-fluid">
+
+                                    <div class="card-group">
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h4 class="mb-0"><strong>25</strong></h4>
+                                                <small class="text-muted-light">TOTAL</small>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h4 class="text-success mb-0"><strong>3</strong></h4>
+                                                <small class="text-muted-light">CORECT</small>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h4 class="text-danger mb-0"><strong>5</strong></h4>
+                                                <small class="text-muted-light">WRONG</small>
+                                            </div>
+                                        </div>
+                                        <div class="card">
+                                            <div class="card-body text-center">
+                                                <h4 class="text-primary mb-0"><strong>17</strong></h4>
+                                                <small class="text-muted-light">LEFT</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card">
+                                        <div id="9" class="card-header bg-white">
+                                            <div class="media align-items-center">
+                                                <div class="media-left">
+                                                    <h4 class="mb-0"><strong>Question 1</strong></h4>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="card-title"> Github command
+                                                        to deploy comits?
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">git push</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">git commit -m
+                                                        &quot;message&quot;</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">git pull</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="card">
+                                        <div id="10" class="card-header bg-white">
+                                            <div class="media align-items-center">
+                                                <div class="media-left">
+                                                    <h4 class="mb-0"><strong>Question 10</strong></h4>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="card-title">
+                                                        Github command to deploy comits?
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <div class="form-group">
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">git push</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">git commit -m
+                                                        &quot;message&quot;</span>
+                                                </label>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">git pull</span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Sidebar -->
+                            <div class="mdk-drawer js-mdk-drawer" data-align="end">
+                                <div class="mdk-drawer__content">
+
+                                </div>
+                            </div>
+                            <!-- // END Sidebar -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="assets/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="assets/vendor/popper.min.js"></script>
+        <script src="assets/vendor/bootstrap.min.js"></script>
+
+        <!-- Simplebar -->
+        <!-- Used for adding a custom scrollbar to the drawer -->
+        <script src="assets/vendor/simplebar.js"></script>
+
+        <!-- MDK -->
+        <script src="assets/vendor/dom-factory.js"></script>
+        <script src="assets/vendor/material-design-kit.js"></script>
+
+        <!-- Sidebar Collapse -->
+        <script src="assets/vendor/sidebar-collapse.js"></script>
+
+        <!-- App JS -->
+        <script src="assets/js/main.js"></script>
+
+
+
+
+
+
+    </body>
+
+
+    <!-- Mirrored from learnplus.frontendmatter.com/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:41:28 GMT -->
+
+</html>
