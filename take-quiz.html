@@ -58,6 +58,11 @@
 				search</i></button>
             </form>
             <!-- // END Search -->
+            <div class="nav navbar-nav d-none d-md-flex bg-light rounded ">
+                <div class="sidebar-heading" >Time left</div>
+                <div class="countdown sidebar-p-x" data-value="0.5" data-unit="hour"></div>
+            </div>
+            
 
             <div class="navbar-spacer"></div>
 
@@ -112,42 +117,18 @@
 						Home</a></li>
                         <li class="breadcrumb-item active">Quiz</li>
                     </ol>
-                    <div class="card-group">
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h4 class="mb-0"><strong>25</strong></h4>
-                                <small class="text-muted-light">TOTAL</small>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h4 class="text-success mb-0"><strong>3</strong></h4>
-                                <small class="text-muted-light">CORECT</small>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h4 class="text-danger mb-0"><strong>5</strong></h4>
-                                <small class="text-muted-light">WRONG</small>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-body text-center">
-                                <h4 class="text-primary mb-0"><strong>17</strong></h4>
-                                <small class="text-muted-light">LEFT</small>
-                            </div>
-                        </div>
+                    <div class="media-body media-middle">
+                        <h3 class="mb-0" style="text-align: center;font-weight: bolder;color: blue;"> TÍNH NHẨM</h3>
                     </div>
 
                     <div class="card">
-                        <div id="9" class="card-header bg-white">
+                        <div id="1" class="card-header bg-white">
                             <div class="media align-items-center">
                                 <div class="media-left">
                                     <h4 class="mb-0"><strong>Câu 1</strong></h4>
                                 </div>
                                 <div class="media-body">
-                                    <h4 class="card-title"> Github command 
-									to deploy comits?
+                                    <h4 class="card-title"> 1 + 1 = ?
                                     </h4>
                                 </div>
                             </div>
@@ -155,37 +136,36 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label class="custom-control custom-checkbox mb-0">
-        <input type="checkbox" class="custom-control-input">
-        <span class="custom-control-indicator"></span>
-        <span class="custom-control-description">git push</span>
-      </label>
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">11</span>
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label class="custom-control custom-checkbox mb-0">
-        <input type="checkbox" class="custom-control-input">
-        <span class="custom-control-indicator"></span>
-        <span class="custom-control-description">git commit -m &quot;message&quot;</span>
-      </label>
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">22</span>
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label class="custom-control custom-checkbox mb-0">
-        <input type="checkbox" class="custom-control-input">
-        <span class="custom-control-indicator"></span>
-        <span class="custom-control-description">git pull</span>
-      </label>
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">2</span>
+                                </label>
                             </div>
                         </div>
-                       
                     </div>
-<div class="card">
-                        <div id="10" class="card-header bg-white">
+                    <div class="card">
+                        <div id="2" class="card-header bg-white">
                             <div class="media align-items-center">
                                 <div class="media-left">
                                     <h4 class="mb-0"><strong>Câu 2</strong></h4>
                                 </div>
                                 <div class="media-body">
                                     <h4 class="card-title">
-                                        Github command to deploy comits?
+                                        2 x 2 = ?
                                     </h4>
                                 </div>
                             </div>
@@ -193,32 +173,327 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label class="custom-control custom-checkbox mb-0">
-        <input type="checkbox" class="custom-control-input">
-        <span class="custom-control-indicator"></span>
-        <span class="custom-control-description">git push</span>
-      </label>
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">222</span>
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label class="custom-control custom-checkbox mb-0">
-        <input type="checkbox" class="custom-control-input">
-        <span class="custom-control-indicator"></span>
-        <span class="custom-control-description">git commit -m &quot;message&quot;</span>
-      </label>
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">4</span>
+                                </label>
                             </div>
                             <div class="form-group">
                                 <label class="custom-control custom-checkbox mb-0">
-        <input type="checkbox" class="custom-control-input">
-        <span class="custom-control-indicator"></span>
-        <span class="custom-control-description">git pull</span>
-      </label>
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">10</span>
+                                </label>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-white">Skip</a>
-                            <a href="#" class="btn btn-success float-right">
-							Submit <i class="material-icons btn__icon--right">
-							send</i></a>
+                    </div>
+                    <div class="card">
+                        <div id="3" class="card-header bg-white">
+                            <div class="media align-items-center">
+                                <div class="media-left">
+                                    <h4 class="mb-0"><strong>Câu 3</strong></h4>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="card-title">
+                                        9 x 5 = ?
+                                    </h4>
+                                </div>
+                            </div>
                         </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">50</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">95</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">45</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="4" class="card-header bg-white">
+                            <div class="media align-items-center">
+                                <div class="media-left">
+                                    <h4 class="mb-0"><strong>Câu 4</strong></h4>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="card-title">
+                                        1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 = ?
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">123456789</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">987654321</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">0</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="5" class="card-header bg-white">
+                            <div class="media align-items-center">
+                                <div class="media-left">
+                                    <h4 class="mb-0"><strong>Câu 5</strong></h4>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="card-title">
+                                        Bạn thân của Thư là ai?
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Thu Hiền</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Hiền Lớn</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Hiền bạn gái của Hải</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="6" class="card-header bg-white">
+                            <div class="media align-items-center">
+                                <div class="media-left">
+                                    <h4 class="mb-0"><strong>Câu 6</strong></h4>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="card-title">
+                                        4 x 5 x 6 = ?
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">120</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">một hai không</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Một trăn hai mươi</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="7" class="card-header bg-white">
+                            <div class="media align-items-center">
+                                <div class="media-left">
+                                    <h4 class="mb-0"><strong>Câu 7</strong></h4>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="card-title">
+                                        4 x 5 x 6 = ?
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">120</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">một hai không</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Một trăn hai mươi</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="8" class="card-header bg-white">
+                            <div class="media align-items-center">
+                                <div class="media-left">
+                                    <h4 class="mb-0"><strong>Câu 8</strong></h4>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="card-title">
+                                        4 x 5 x 6 = ?
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">120</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">một hai không</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Một trăn hai mươi</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="9" class="card-header bg-white">
+                            <div class="media align-items-center">
+                                <div class="media-left">
+                                    <h4 class="mb-0"><strong>Câu 9</strong></h4>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="card-title">
+                                        4 x 5 x 6 = ?
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">120</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">một hai không</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Một trăn hai mươi</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div id="10" class="card-header bg-white">
+                            <div class="media align-items-center">
+                                <div class="media-left">
+                                    <h4 class="mb-0"><strong>Câu 10</strong></h4>
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="card-title">
+                                        4 x 5 x 6 = ?
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">120</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">một hai không</span>
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label class="custom-control custom-checkbox mb-0">
+                                    <input type="checkbox" class="custom-control-input">
+                                    <span class="custom-control-indicator"></span>
+                                    <span class="custom-control-description">Một trăn hai mươi</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-success float-right">
+                        Submit <i class="material-icons btn__icon--right">
+                        send</i></a>
                     </div>
                 </div>
             </div>
@@ -227,59 +502,127 @@
                 <div class="mdk-drawer__content">
                     <div class="sidebar sidebar-right sidebar-light bg-white o-hidden">
                         <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
-                            <div class="sidebar-heading">Time left</div>
-                            <div class="countdown sidebar-p-x" data-value="4" data-unit="hour"></div>
-
-                            <div class="sidebar-heading">Pending</div>
+                            <div class="sidebar-heading">Question</div>
                             <ul class="list-group list-group-fit">
                                 <li class="list-group-item active">
+                                    <a href="#1">
+                                        <span class="media">
+                                            <span class="media-left">
+                                            <span class="btn btn-white btn-circle">#1</span>
+                                            </span>
+                                            <span class="media-body media-middle">
+                  					            Câu 1
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item active">
+                                    <a href="#2">
+                                        <span class="media">
+                                            <span class="media-left">
+                                            <span class="btn btn-white btn-circle">#2</span>
+                                            </span>
+                                            <span class="media-body media-middle">
+                                                Câu 2
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item active">
+                                    <a href="#3">
+                                        <span class="media">
+                                            <span class="media-left">
+                                            <span class="btn btn-white btn-circle">#3</span>
+                                            </span>
+                                            <span class="media-body media-middle">
+                                                Câu 3
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item active">
+                                    <a href="#4">
+                                        <span class="media">
+                                            <span class="media-left">
+                                            <span class="btn btn-white btn-circle">#4</span>
+                                            </span>
+                                            <span class="media-body media-middle">
+                                                Câu 4
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item active">
+                                    <a href="#5">
+                                        <span class="media">
+                                            <span class="media-left">
+                                            <span class="btn btn-white btn-circle">#5</span>
+                                            </span>
+                                            <span class="media-body media-middle">
+                                                Câu 5
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item active">
+                                    <a href="#6">
+                                        <span class="media">
+                                            <span class="media-left">
+                                            <span class="btn btn-white btn-circle">#6</span>
+                                            </span>
+                                            <span class="media-body media-middle">
+                                                Câu 6
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item active">
+                                    <a href="#7">
+                                        <span class="media">
+                                            <span class="media-left">
+                                            <span class="btn btn-white btn-circle">#7</span>
+                                            </span>
+                                            <span class="media-body media-middle">
+                                                Câu 7
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item active">
+                                    <a href="#8">
+                                        <span class="media">
+                                            <span class="media-left">
+                                            <span class="btn btn-white btn-circle">#8</span>
+                                            </span>
+                                            <span class="media-body media-middle">
+                                                Câu 8
+                                            </span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="list-group-item active">
                                     <a href="#9">
-              <span class="media">
-                <span class="media-left">
-                  <span class="btn btn-white btn-circle">#9</span>
-                </span>
-                <span class="media-body media-middle">
-                  					Github command to deploy comits?
-                </span>
-              </span>
-            </a>
+                                        <span class="media">
+                                            <span class="media-left">
+                                            <span class="btn btn-white btn-circle">#9</span>
+                                            </span>
+                                            <span class="media-body media-middle">
+                                                Câu 9
+                                            </span>
+                                        </span>
+                                    </a>
                                 </li>
-                                <li class="list-group-item">
+                                <li class="list-group-item active">
                                     <a href="#10">
-                <span class="media">
-                  <span class="media-left">
-                    <span class="btn btn-white btn-circle">#10</span>
-                  </span>
-                  <span class="media-body media-middle">
-                    				What&#39;s the difference between private and 
-									public repos?
-                  </span>
-                </span>
-              </a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">
-              <span class="media">
-                <span class="media-left">
-                  <span class="btn btn-white btn-circle">#11</span>
-                </span>
-                <span class="media-body media-middle">
-                  					What is the purpose of a branch?
-                </span>
-              </span>
-            </a>
-                                </li>
-                                <li class="list-group-item">
-                                    <a href="#">
-              <span class="media">
-                <span class="media-left">
-                  <span class="btn btn-white btn-circle">#12</span>
-                </span>
-                <span class="media-body media-middle">
-                  					Final Question?
-                </span>
-              </span>
-            </a>
+                                        <span class="media">
+                                            <span class="media-left">
+                                            <span class="btn btn-white btn-circle">#10</span>
+                                            </span>
+                                            <span class="media-body media-middle">
+                                                Câu 10
+                                            </span>
+                                        </span>
+                                    </a>
                                 </li>
                             </ul>
                         </div>
