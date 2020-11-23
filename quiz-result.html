@@ -30,7 +30,11 @@
     <!-- App CSS -->
     <link type="text/css" href="assets/css/style.css" rel="stylesheet">
 
-
+    <style>
+        p{
+            color: #000;
+        }
+    </style>
 
 
 
@@ -231,7 +235,7 @@
                             <div class="card-header">
                                 <h4 class="card-title">Statictis</h4>
                             </div>
-                            <div class="card bg-primary text-white">
+                            <div class="card">
                                 <div class="card-body">
                                     <canvas class="chart" id="barChart" height="30%" width="100%"></canvas>
                                 </div>
@@ -357,35 +361,86 @@
             datasets: [{
                 label: 'Người làm đúng',
                 data: [1,2,3,4,5,6],
-                backgroundColor: [
-                    'rgba(255,255,255,1)',
-                    'rgba(255,255,255,1)',
-                    'rgba(255,255,255,1)',
-                    'rgba(255,255,255,1)',
-                    'rgba(255,255,255,1)',
-                    'rgba(255,255,255,1)'
-                ],
-                borderColor: [
-                    'rgba(255,255,255,1)',
-                    'rgba(255,255,255,1)',
-                    'rgba(255,255,255,1)',
-                    'rgba(255,255,255,1)',
-                    'rgba(255,255,255,1)',
-                    'rgba(255,255,255,1)'
-                ],
-                borderWidth: 1
+                backgroundColor: "rgba(159,170,174,0.8)",
+                borderWidth: 1,
+                hoverBackgroundColor: "rgba(232,105,90,0.8)",
+                hoverBorderColor: "orange",
+                scaleStepWidth: 1,
+
             }]
         },
-        options: {
+        options: { 
+            legend: {
+                labels: {
+                    fontColor: "blue",
+                    fontSize: 18
+                }
+            },
             scales: {
                 yAxes: [{
                     ticks: {
+                        fontColor: "green",
+                        fontSize: 18,
+                        stepSize: 1,
+                        beginAtZero: true
+                    }
+                }],
+                xAxes: [{
+                    ticks: {
+                        fontColor: "purple",
+                        fontSize: 14,
+                        stepSize: 1,
                         beginAtZero: true
                     }
                 }]
             }
         }
+            
+            
+        
     });
+    // var ctx = document.getElementById("barChart");
+    // var myChart = new Chart(ctx, {
+    //     type: "bar",
+    //     data: {
+    //         labels: ["label 1", "label 2"], 
+    //         datasets: [{
+    //             label: "My Label",
+    //             backgroundColor: "rgba(159,170,174,0.8)",
+    //             borderWidth: 1,
+    //             hoverBackgroundColor: "rgba(232,105,90,0.8)",
+    //             hoverBorderColor: "orange",
+    //             scaleStepWidth: 1,
+    //               data: [4, 5]
+    //         }]
+    //     },
+    //     options: { 
+    //         legend: {
+    //             labels: {
+    //                 fontColor: "blue",
+    //                 fontSize: 18
+    //             }
+    //         },
+    //         scales: {
+    //             yAxes: [{
+    //                 ticks: {
+    //                     fontColor: "green",
+    //                     fontSize: 18,
+    //                     stepSize: 1,
+    //                     beginAtZero: true
+    //                 }
+    //             }],
+    //             xAxes: [{
+    //                 ticks: {
+    //                     fontColor: "purple",
+    //                     fontSize: 14,
+    //                     stepSize: 1,
+    //                     beginAtZero: true
+    //                 }
+    //             }]
+    //         }
+    //     }
+    // });
     </script>
 
 
