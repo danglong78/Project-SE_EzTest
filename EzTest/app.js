@@ -15,7 +15,13 @@ app.use(bodyParser.json());
 
 app.use('/', Routes());
 
-Database.connect()
+// set up mongoose
+Database.connect().then(() => {
+    console.log('Database connected');
+})
+    .catch((error) => {
+        console.log('Error connecting to database');
+    });
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log(`Serving on port ${port}`)
