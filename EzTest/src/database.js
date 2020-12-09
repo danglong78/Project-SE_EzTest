@@ -1,7 +1,14 @@
 const mongoose = require('mongoose');
+const dbUrl = 'mongodb://localhost:27017/ez-test'
+
 
 module.exports = {
     connect() {
-        return mongoose.connect('mongodb+srv://tritri45:45454545@cluster0.yzqlv.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true });
+        return mongoose.connect(dbUrl, {
+            useNewUrlParser: true,
+            useCreateIndex: true,
+            useUnifiedTopology: true,
+            useFindAndModify: false
+        });
     }
 }

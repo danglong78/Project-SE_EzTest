@@ -1,10 +1,30 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
+const Schema = mongoose.Schema;
+const bcrypt = require('bcrypt');
 
 const userSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
-    name: String,
-    email: String,
+    name: {
+        type: String,
+        required: true
+    },
+
+    email: {
+        type: String,
+        required: true
+    },
+    password: {
+        type: String,
+    },
+    googleID: {
+        type: String,
+        unique: true
+    },
+    facebookID: {
+        type: String,
+        unique: true
+    },
+
     trust_lable: Boolean,
     test_taking: [{
         score: Number,
@@ -17,7 +37,7 @@ const userSchema = mongoose.Schema({
     test_uploading: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'quiz',
-    }],
+    }]
 });
 
 
@@ -58,8 +78,9 @@ var GetByEmail = function (req) {
 };
 
 module.exports = {
+    model: mongoose.model('User', userSchema),
     GetAllUser: GetAllUser,
     GetByID: GetByID,
-    GetByEmail: GetByEmail,
+    GetByEmail: GetByEmail
 }
 
