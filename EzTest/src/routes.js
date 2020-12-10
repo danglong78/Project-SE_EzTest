@@ -12,5 +12,10 @@ router.use('/login', loginRouter);
 router.get('/dashboard', isAuthenticated, (req, res) => {
     res.render('dashboard');
 });
-
+router.get('/quizzes', (req, res) => {
+    res.render('quizzes');
+});
+router.get('/quiz-edit', (req, res) => {
+    res.render('quiz-edit');
+});
 module.exports = router;

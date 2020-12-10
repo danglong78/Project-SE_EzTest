@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!-- Mirrored from learnplus.frontendmatter.com/dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:41:25 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Simplebar -->
+    <link type="text/css" href="/vendor/simplebar.css" rel="stylesheet">
+
+    <!-- Material Design Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Roboto Web Font -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+            rel="stylesheet">
+
+    <!-- MDK -->
+    <link type="text/css" href="/vendor/material-design-kit.css" rel="stylesheet">
+
+    <!-- Sidebar Collapse -->
+    <link type="text/css" href="/vendor/sidebar-collapse.min.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="/css/style.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+<div class="d-flex flex-column h-100">
+    <!-- Navbar -->
+    <%- include ('partials/navbar.ejs') %>
+
+
+    <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push data-has-scrolling-region>
+        <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
+            <div class="container-fluid">
+
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                    <li class="breadcrumb-item active">Quizzes</li>
+                </ol>
+                <div class="media align-items-center">
+                    <div class="media-body">
+                        <h1 class="page-heading h2">Quizzes</h1>
+                    </div>
+                    <div class="media-right">
+                        <a href="quiz-edit" class="btn btn-success">New Quiz <i class="material-icons btn__icon--right">add</i></a>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card-columns">
+                            <div class="card">
+                                <div class="card-body media">
+                                    <div class="media-left">
+                                        <a href="review-quiz">
+                                            <img src="/images/vuejs.png" alt="Card image cap" width="80" class="rounded">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="card-title mb-0"><a href="review-quiz">Vue.js Deploy Quiz</a></h4>
+                                        <small class="text-muted">25 Completed</small>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a href="review-quiz" class="btn btn-primary btn-sm float-left"><i class="material-icons btn__icon--left">playlist_add_check</i> Review <span class="badge text-primary bg-white btn__icon--right">5</span></a>
+                                    <a href="quiz-edit" class="btn btn-default btn-sm float-right"><i class="material-icons btn__icon--left">edit</i> Edit </a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body media">
+                                    <div class="media-left">
+                                        <a href="review-quiz">
+                                            <img src="/images/github.png" alt="Card image cap" width="80" class="rounded">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="card-title mb-0"><a href="review-quiz">GitHub Basic Setup</a></h4>
+                                        <small class="text-muted">410 Completed</small>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a href="review-quiz" class="btn btn-primary btn-sm float-left"><i class="material-icons btn__icon--left">playlist_add_check</i> Review <span class="badge text-primary bg-white btn__icon--right">5</span></a>
+                                    <a href="quiz-edit" class="btn btn-default btn-sm float-right"><i class="material-icons btn__icon--left">edit</i> Edit </a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-body media">
+                                    <div class="media-left">
+                                        <a href="review-quiz">
+                                            <img src="/images/gulp.png" alt="Card image cap" width="80" class="rounded">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <h4 class="card-title mb-0"><a href="review-quiz">Gulp Front-End Boilerplate</a></h4>
+                                        <small class="text-muted">50 Completed</small>
+                                    </div>
+                                </div>
+                                <div class="card-footer text-center">
+                                    <a href="review-quiz" class="btn btn-primary btn-sm float-left"><i class="material-icons btn__icon--left">playlist_add_check</i> Review <span class="badge text-primary bg-white btn__icon--right">5</span></a>
+                                    <a href="quiz-edit" class="btn btn-default btn-sm float-right"><i class="material-icons btn__icon--left">edit</i> Edit </a>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card">
+                            <ul class="list-group list-group-fit">
+                                <li class="list-group-item active">
+                                    <a href="#">All</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">Vue.js</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">NodeJs</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="#">GitHub</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class = "col-md-9">
+                        <div class="card">
+                            <div class="card-header bg-white media">
+                                <div class="media-body media-middle">
+                                    <h4 class="card-title">Latest Comment</h4>
+                                </div>
+                                <div class="media-right text-right" style="min-width: 80px;">
+                                    <a href="#" class="btn btn-outline-primary btn-sm"><i class="material-icons">keyboard_arrow_left</i></a>
+                                    <a href="#" class="btn btn-outline-primary btn-sm"><i class="material-icons">keyboard_arrow_right</i></a>
+                                </div>
+                            </div>
+                            <div class="card-body media">
+                                <div class="media-left">
+                                    <a href="#">
+                                        <img src="/images/people/110/guy-9.jpg" alt="Guy" width="40" class="rounded-circle">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <small class="text-muted">27 min ago</small><br>
+                                    <a href="profile">mosaicpro</a>
+                                    <small class="text-muted"> on your <a href="course-edit">Github Basics</a> course</small>
+                                    <p class="mb-0">How can I load Charts on a page?</p>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <input type="text" class="form-control" placeholder="Quick Reply">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <%- include ('partials/user_menu.ejs') %>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- jQuery -->
+<script src="/vendor/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="/vendor/popper.min.js"></script>
+<script src="/vendor/bootstrap.min.js"></script>
+
+<!-- Simplebar -->
+<!-- Used for adding a custom scrollbar to the drawer -->
+<script src="/vendor/simplebar.js"></script>
+
+<!-- MDK -->
+<script src="/vendor/dom-factory.js"></script>
+<script src="/vendor/material-design-kit.js"></script>
+
+<!-- Sidebar Collapse -->
+<script src="/vendor/sidebar-collapse.js"></script>
+
+<!-- App JS -->
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+</body>
+
+
+<!-- Mirrored from learnplus.frontendmatter.com/dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:41:28 GMT -->
+
+</html>
