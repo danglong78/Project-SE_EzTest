@@ -10,7 +10,7 @@ const router = express.Router();
 router.use('/login', loginRouter);
 // router.use('/user', userRoutes);
 // router.use('/test', testRoutes);
-//router.use('/quiz', quizRouter);
+router.use('/quiz', quizRouter);
 router.get('/dashboard', (req, res) => {
 
 
@@ -37,6 +37,13 @@ router.get('/take_quiz/:quizid', (req, res) => {
 });
 
 router.post('/quiz_result', (req, res) => {
+    var ans_string = req.body.ans_list;
+    var temp = ans_string.split(",");
+    var ans_list = [];
+    for (var i = 0; i < temp.length; i++) {
+        ans_list.push(parseInt(temp[i]));
+    }
+    var id = req.body.quiz_id;
     res.render('quiz-edit');
 });
 
