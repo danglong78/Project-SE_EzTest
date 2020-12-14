@@ -133,145 +133,148 @@
                         </h3>
                     </div>
                     <% for(var i=0;i<quiz.questions.length;i++){ %>
-                        <!-- 1 cau hoi -->
-                        <div class="card">
-                            <div id=<%=i%> class="card-header bg-white">
-                                <div class="media align-items-center">
-                                    <div class="media-left">
-                                        <h4 class="mb-0"><strong>Câu <%=(i+1)%></strong></h4>
-                                    </div>
-                                    <div class="media-body">
-                                        <h4 class="card-title">
-                                            <%=quiz.questions[i].question%>
-                                        </h4>
+                        <form id=question<%=i%>>
+                            <!-- 1 cau hoi -->
+                            <div class="card">
+                                <div id=<%=i%> class="card-header bg-white">
+                                    <div class="media align-items-center">
+                                        <div class="media-left">
+                                            <h4 class="mb-0"><strong>Câu <%=(i+1)%></strong></h4>
+                                        </div>
+                                        <div class="media-body">
+                                            <h4 class="card-title">
+                                                <%=quiz.questions[i].question%>
+                                            </h4>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="card-body">
-                                <%for(var z=0;z<quiz.questions[i].answers.length;z++){ %>
-                                    <!-- 1 answer -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name=ques<%=i%> id=ans<%=z%> value=
-                                            <%=z%>>
-                                                <label class="form-check-label" for=ans<%=z%>>
-                                                    <%=quiz.questions[i].answers[z]%>
-                                                </label>
-                                    </div>
-                                    <!-- end an answer -->
-                                    <%}%>
-                            </div>
-                        </div>
-                        <!-- het 1 cau hoi -->
-                        <%}%>
-                            <div class="card-footer">
-                                <a href="#" class="btn btn-success float-right">
-                                    Submit <i class="material-icons btn__icon--right">
-                                        send</i></a>
-                            </div>
+                                <div class="card-body">
+                                    <%for(var z=0;z<quiz.questions[i].answers.length;z++){ %>
+                                        <!-- 1 answer -->
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name=ques<%=i%> id=ans<%=z%>
+                                                value=<%=(z+1)%>>
+                                                    <label class="form-check-label" for=ans<%=z%>>
+                                                        <%=quiz.questions[i].answers[z]%>
+                                                    </label>
+                                        </div>
+                                        <!-- end an answer -->
+                                        <%}%>
+                                </div>
+                        </form>
+
                 </div>
-            </div>
-            <!-- Sidebar -->
-            <div class="mdk-drawer js-mdk-drawer" data-align="end">
-                <div class="mdk-drawer__content">
-                    <div class="sidebar sidebar-right sidebar-light bg-white o-hidden">
-                        <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
-                            <div class="sidebar-heading">Question</div>
-                            <ul class="list-group list-group-fit mb-0">
-                                <% for(var i=0;i<quiz.questions.length;i++){ %>
-                                    <!-- question tag -->
-                                    <a href=#<%=i%> class="list-group-item list-group-item-action card">
-                                        <span class="media align-items-center">
-                                            <div class="media-left">
-                                                <span class="fa-stack fa-1x">
+                <%}%>
+                    <!-- het 1 cau hoi -->
 
-                                                    <i class="fa fa-circle fa-stack-2x" style="color:rgb(5, 5, 5)"></i>
-                                                    <strong class="fa-stack-1x" style="color:white">
-                                                        <%=(i+1)%>
-                                                    </strong>
-                                                </span>
-
-                                            </div>
-                                            <span class="media-body media-middle">
-                                                Câu <%=(i+1)%>
-                                            </span>
-                                        </span>
-                                    </a>
-                                    <!-- end question tag -->
-                                    <%}%>
-                            </ul>
-                        </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-success float-right" id="submit">
+                            Submit <i class="material-icons btn__icon--right">
+                                send</i></a>
                     </div>
-                </div>
             </div>
-            <!-- // END Sidebar -->
         </div>
-
-
-
-
-        <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
-            <div class="mdk-drawer__content ls-top-navbar-xs-up">
-                <div class="sidebar sidebar-left sidebar-light bg-white o-hidden">
+        <!-- Sidebar -->
+        <div class="mdk-drawer js-mdk-drawer" data-align="end">
+            <div class="mdk-drawer__content">
+                <div class="sidebar sidebar-right sidebar-light bg-white o-hidden">
                     <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
-                        <ul class="sidebar-menu">
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="dashboard.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dashboard</i>
-                                    Dashboard
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item active">
-                                <a class="sidebar-menu-button" href="take-quiz.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                                    Take a Quiz
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="quiz-results.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">poll</i>
-                                    Quiz Results
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="quizzes.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">help</i> Quiz
-                                    Manager
-                                </a>
-                            </li>
+                        <div class="sidebar-heading">Question</div>
+                        <ul class="list-group list-group-fit mb-0">
+                            <% for(var i=0;i<quiz.questions.length;i++){ %>
+                                <!-- question tag -->
+                                <a href=#<%=i%> class="list-group-item list-group-item-action card">
+                                    <span class="media align-items-center">
+                                        <div class="media-left">
+                                            <span class="fa-stack fa-1x">
 
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="account-edit.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i>
-                                    Account Settings
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="statement.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">receipt</i>
-                                    Statement
-                                </a>
-                            </li>
+                                                <i class="fa fa-circle fa-stack-2x" style="color:rgb(5, 5, 5)"></i>
+                                                <strong class="fa-stack-1x" style="color:white">
+                                                    <%=(i+1)%>
+                                                </strong>
+                                            </span>
 
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="billing.html">
-                                    <i
-                                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons">monetization_on</i>
-                                    Billing
-                                    <span class="sidebar-menu-badge badge badge-default ml-auto">$25</span>
+                                        </div>
+                                        <span class="media-body media-middle">
+                                            Câu <%=(i+1)%>
+                                        </span>
+                                    </span>
                                 </a>
-                            </li>
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="guest-login.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">lock_open</i>
-                                    Logout
-                                </a>
-                            </li>
+                                <!-- end question tag -->
+                                <%}%>
                         </ul>
-                        <!-- // END Components Menu -->
                     </div>
                 </div>
             </div>
         </div>
+        <!-- // END Sidebar -->
+    </div>
+
+
+
+
+    <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+        <div class="mdk-drawer__content ls-top-navbar-xs-up">
+            <div class="sidebar sidebar-left sidebar-light bg-white o-hidden">
+                <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
+                    <ul class="sidebar-menu">
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="dashboard.html">
+                                <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dashboard</i>
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item active">
+                            <a class="sidebar-menu-button" href="take-quiz.html">
+                                <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                                Take a Quiz
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="quiz-results.html">
+                                <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">poll</i>
+                                Quiz Results
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="quizzes.html">
+                                <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">help</i> Quiz
+                                Manager
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="account-edit.html">
+                                <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i>
+                                Account Settings
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="statement.html">
+                                <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">receipt</i>
+                                Statement
+                            </a>
+                        </li>
+
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="billing.html">
+                                <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">monetization_on</i>
+                                Billing
+                                <span class="sidebar-menu-badge badge badge-default ml-auto">$25</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-menu-item">
+                            <a class="sidebar-menu-button" href="guest-login.html">
+                                <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">lock_open</i>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- // END Components Menu -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     </div>
 
@@ -307,8 +310,29 @@
     <!-- Init -->
     <script src="/js/countdown.js"></script>
 
+    <script>
+        var ans = [];
+        $(document).ready(function () {
+            $('#submit').click(function () {
+                var n = <%=quiz.questions.length%>;
+
+                for (var i = 0; i < n; i++) {
+                    var temp = $('input[name=ques' + i + ']:checked', '#question' + i).val();
+                    if (temp == undefined) {
+                        ans.push(0);
+                    } else {
+                        ans.push($('input[name=ques' + i + ']:checked', '#question' + i).val());
+                    }
+
+                }
+            });
+        });
+    </script>
+
 
 </body>
+
+
 
 
 <!-- Mirrored from learnplus.frontendmatter.com/take-quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:42:35 GMT -->
