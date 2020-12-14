@@ -2,7 +2,7 @@ const express = require('express');
 
 const loginRouter = require('./login/routes');
 const isAuthenticated = require('./login/controller/passport_strategies').isAuthenticated;
-const Quiz = require("./quiz/controller");
+const quiz_controller = require("./quiz/controller");
 const router = express.Router();
 
 router.use('/login', loginRouter);
@@ -31,7 +31,7 @@ router.get('/quiz-edit', (req, res) => {
 
 router.get('/take_quiz/:quizid', (req, res) => {
     var id = req.params.quizid;
-    Quiz.take_quiz(id, res);
+    quiz_controller.take_quiz(id, res);
 });
 
 module.exports = router;

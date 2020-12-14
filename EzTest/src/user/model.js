@@ -45,36 +45,18 @@ const userSchema = mongoose.Schema({
 
 const User = mongoose.model('User', userSchema);
 
-var GetAllUser = function () {
-    User.find()
-        .then((allUser) => {
-            return allUser;
-        })
-        .catch((err) => {
-            return null;
-        });
+var GetAllUser = async function () {
+    return await User.find();
 };
 
-var GetByID = function (req) {
-    const id = req.body.id;
-    User.findById(id)
-        .then((aUser) => {
-            return aUser[0];
-        })
-        .catch((err) => {
-            return null;
-        });
+var GetByID = async function (in_id) {
+    const id = in_id;
+    return await User.findById(id);
 };
 
-var GetByEmail = function (req) {
-    const mail = req.body.email;
-    User.find({ email: mail })
-        .then((aUser) => {
-            return aUser[0];
-        })
-        .catch((err) => {
-            return null;
-        });
+var GetByEmail = async function (in_email) {
+    const mail = in_email;
+    return await User.find({ email: mail })[0];
 };
 
 module.exports = {

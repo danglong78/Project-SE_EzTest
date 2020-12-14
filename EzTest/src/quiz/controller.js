@@ -1,14 +1,14 @@
 const model = require("./model");
-const quiz = require("./model").model;
+const GetByID = require("./model").GetByID;
 
-var Get_quiz_taking = function (id, res) {
-    quiz.findById(id)
-        .then((aQuiz) => {
-            res.render('quiz-take', { quiz: aQuiz });
-        })
-        .catch((err) => {
-            return null;
-        });
+var Get_quiz_taking = async function (id, res) {
+    try {
+        var quiz = await GetByID(id);
+        res.render('quiz-take', { quiz: quiz });
+    } catch (e) {
+        res.send("Load Quiz Error...");
+    }
+
 }
 
 

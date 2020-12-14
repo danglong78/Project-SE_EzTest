@@ -14,37 +14,19 @@ const loginSchema = mongoose.Schema({
 
 
 const Login = mongoose.model('login_data', loginSchema);
-var GetByUserID = function (req) {
-    const id = req.body.id;
-    Login.find({ userID: id })
-        .then((data) => {
-            return data[0];
-        })
-        .catch((err) => {
-            return null;
-        });
+var GetByUserID = async function (in_id) {
+    const id = in_id;
+    return await Login.find({ userID: id });
 };
 
-var GetByUsername = function (req) {
-    const name = req.body.username;
-    Login.find({ username: name })
-        .then((data) => {
-            return data[0];
-        })
-        .catch((err) => {
-            return null;
-        });
+var GetByUsername = async function (username) {
+    const name = username;
+    return await Login.find({ username: name })[0];
 };
 
-var GetByEmail = function (req) {
-    const mail = req.body.email;
-    Login.find({ email: mail })
-        .then((data) => {
-            return data[0];
-        })
-        .catch((err) => {
-            return null;
-        });
+var GetByEmail = async function (email) {
+    const mail = email;
+    return await Login.find({ email: mail })[0];
 };
 
 module.exports = {

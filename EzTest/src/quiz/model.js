@@ -54,56 +54,36 @@ const quizSchema = mongoose.Schema({
 const Quiz = mongoose.model('Quiz', quizSchema);
 
 
-var GetbyID = function (in_id) {
+var GetbyID = async function (in_id) {
     const id = in_id;
-    Quiz.findById(id)
-        .then((aQuiz) => {
-            return aQuiz;
-        })
-        .catch((err) => {
-            return null;
-        });
+    var aquiz = await Quiz.findById(id);
+    return aquiz;
 };
 
-var GetByUploader = function (req) {
-    const uploader_id = req.body.uploader_id;
-    Quiz.find({ uploader: uploader_id })
-        .then((quiz) => {
-            return quiz;
-        })
-        .catch((err) => {
-            return null;
-        });
+var GetByUploader = async function (up_id) {
+    // const id = req.body.uploader_id;
+    // Quiz.find({ uploader: uploader_id })
+    //     .then((quiz) => {
+    //         return quiz;
+    //     })
+    //     .catch((err) => {
+    //         return null;
+    //     });
+    const id = up_id;
+    var quizzes = await Quiz.find({ uploader: id })[0];
+    return quizzes;
 };
 
-var GetChecked = function () {
-    Quiz.find({ checked: true })
-        .then((quiz) => {
-            return quiz;
-        })
-        .catch((err) => {
-            return null;
-        })
+var GetChecked = async function () {
+    return await Quiz.find({ checked: true });
 };
 
-var GetUnchecked = function () {
-    Quiz.find({ checked: false })
-        .then((quiz) => {
-            return quiz;
-        })
-        .catch((err) => {
-            return null;
-        })
+var GetUnchecked = async function () {
+    return await Quiz.find({ checked: false });
 };
 
-var GetAll = function () {
-    Quiz.find()
-        .then((quiz) => {
-            return quiz;
-        })
-        .catch((err) => {
-            return null;
-        })
+var GetAll = async function () {
+    return await Quiz.find();
 };
 
 const GetLatestQuizzes = function () {
