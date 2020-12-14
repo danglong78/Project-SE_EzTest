@@ -28,7 +28,7 @@ app.set('views', path.join(__dirname, 'views'))
 app.use(express.static(path.join(__dirname, 'assets')))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-app.use(session({ secret: 'mysecret', cookie: { maxAge: 60000 } }));
+app.use(session({ secret: 'mysecret' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());

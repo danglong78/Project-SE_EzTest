@@ -37,7 +37,7 @@ const quizSchema = mongoose.Schema({
 
         right_answer: Number,
 
-        answers: [{ type: String }],
+        answers: [{ name: String }],
 
         comments: [{
             comment: String,

@@ -14,13 +14,34 @@ passport.serializeUser(function (user, done) {
     done(null, user._id);
 });
 
-passport.deserializeUser(function (id, done) {
-    User.findById({ _id: id }, function (err, user) {
-        console.log("Deserialize:");
+passport.deserializeUser(async (id, done) => {
+    try {
+        user = await User.findById({ _id: id });
+        console.log("\nDeserialize:");
         console.log(id);
-        done(err, user);
-    });
+        console.log(user);
+        done(null, user);
+    }
+    catch (err) {
+        done(err, null);
+    }
 });
+
+
+
+// aynsc (id, done) => {
+//     try {
+
+//         console.log("\nDeserialize:");
+//         console.log(id);
+//         console.log(user);
+//         done(null, user);
+//     }
+//     catch (err) {
+//         done(err, null);
+//     }
+
+// }
 
 module.exports.localStrategy = new LocalStrategy({
     usernameField: 'email',
