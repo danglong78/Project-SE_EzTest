@@ -33,7 +33,20 @@ router.get('/logout', isAuthenticated, (req, res) => {
 
 router.get('/take_quiz/:quizid', (req, res) => {
     var id = req.params.quizid;
-    quiz_controller.take_quiz(id, res);
+    quizController.take_quiz(id, res);
 });
+
+router.post('/quiz_result', (req, res) => {
+    var ans_string = req.body.ans_list;
+    var temp = ans_string.split(",");
+    var ans_list = [];
+    for (var i = 0; i < temp.length; i++) {
+        ans_list.push(parseInt(temp[i]));
+    }
+    var id = req.body.quiz_id;
+    res.render('quiz-edit');
+});
+
+
 
 module.exports = router;

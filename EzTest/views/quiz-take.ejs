@@ -168,7 +168,7 @@
                     <!-- het 1 cau hoi -->
 
                     <div class="card-footer">
-                        <a href="#" class="btn btn-success float-right" id="submit">
+                        <a class="btn btn-success float-right" id="submit">
                             Submit <i class="material-icons btn__icon--right">
                                 send</i></a>
                     </div>
@@ -323,8 +323,33 @@
                     } else {
                         ans.push($('input[name=ques' + i + ']:checked', '#question' + i).val());
                     }
-
                 }
+                var abc = "<%= quiz._id %>";
+
+                var rs = {
+                    ans_list: ans,
+                    quiz_id: abc
+                }
+                // $.ajax({
+                //     url: "http://localhost:3000/quiz/submit",
+                //     type: 'POST',
+                //     contentType: "application/json",
+                //     data: JSON.stringify(ans),
+                //     success: function () {
+
+                //     },
+                //     error: function (result) {
+                //         console.log('fail...');
+                //     }
+                // })
+                var $form = $("<form />");
+                $form.attr("action", "http://localhost:3000/quiz_result");
+                $form.attr("method", "POST");
+                $form.append('<input type="hidden" name="ans_list" value="' + rs.ans_list + '" />');
+                $form.append('<input type="hidden" name="quiz_id" value="' + rs.quiz_id + '" />');
+                $("body").append($form);
+                $form.submit();
+                console.log("done");
             });
         });
     </script>
