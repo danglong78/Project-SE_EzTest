@@ -17,12 +17,10 @@ const userSchema = mongoose.Schema({
         type: String,
     },
     googleID: {
-        type: String,
-        unique: true
+        type: String
     },
     facebookID: {
-        type: String,
-        unique: true
+        type: String
     },
 
     trust_lable: {

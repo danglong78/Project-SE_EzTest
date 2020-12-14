@@ -8,11 +8,16 @@ const User = require('../../user/model').model;
 
 
 passport.serializeUser(function (user, done) {
-    done(null, user.id);
+    console.log("Serialize:");
+    console.log(user);
+    console.log(user._id);
+    done(null, user._id);
 });
 
 passport.deserializeUser(function (id, done) {
     User.findById({ _id: id }, function (err, user) {
+        console.log("Deserialize:");
+        console.log(id);
         done(err, user);
     });
 });
@@ -24,7 +29,7 @@ module.exports.localStrategy = new LocalStrategy({
 },
     function (req, email, password, done) {
         User.findOne({ email: email }, async (err, user) => {
-            console.log(user);
+            // console.log(user);
             if (err) {
                 return done(err, false, req.flash('error', 'Something wrong happened. Try again!'));
             }
@@ -46,7 +51,7 @@ module.exports.googleStrategy = new GoogleStrategy({
     passReqToCallback: true
 },
     function (req, accessToken, refreshToken, profile, done) {
-        console.log(profile);
+        // console.log(profile);
         User.findOne({ googleID: profile.id }, async function (err, user) {
             if (err) {
                 return done(err, false, req.flash('error', 'Something wrong happened. Try again!'));
@@ -81,7 +86,7 @@ module.exports.facebookStrategy = new FacebookStrategy({
     profileFields: ['id', 'emails', "displayName"],
 },
     function (req, accessToken, refreshToken, profile, done) {
-        console.log(profile);
+        // console.log(profile);
         User.findOne({ facebookID: profile.id }, async function (err, user) {
             if (err) {
                 return done(err, false, req.flash('error', 'Something wrong happened. Try again!'));

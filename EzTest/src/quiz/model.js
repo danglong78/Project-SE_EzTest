@@ -86,30 +86,11 @@ var GetAll = async function () {
     return await Quiz.find();
 };
 
-const GetLatestQuizzes = function () {
+const GetLatestQuizzes = function (n) {
     Quiz.find()
         .sort({ _id: 1 })
-        .limit(10)
+        .limit(n)
         .then(quizzes => {
-            quizzes = quizzes.map(quiz => {
-                const avgRate = quiz.rate.reduce((a, b) => a + b.score, 0) / quiz.rate.length
-                const questions = quiz.questions.map(ques => {
-                    return {
-                        question: ques.question,
-                        answers: ques.answers
-                    };
-                });
-
-                return {
-                    _id: quiz._id,
-                    title: quiz.title,
-                    count_taker: quiz.count_taker,
-                    avgRate,
-                    labels: quiz.labels,
-                    description: quiz.description,
-                    questions
-                };
-            });
             return quizzes;
         })
         .catch((err) => {
@@ -123,5 +104,6 @@ module.exports = {
     GetChecked: GetChecked,
     GetUnchecked: GetUnchecked,
     GetAll: GetAll,
+    GetLatestQuizzes,
     model: Quiz
 }

@@ -11,6 +11,32 @@ var Get_quiz_taking = async function (id, res) {
 
 }
 
+const GetRecentQuizzes = () => {
+
+
+    quizzes => {
+        quizzes = quizzes.map(quiz => {
+            const avgRate = quiz.rate.reduce((a, b) => a + b.score, 0) / quiz.rate.length
+            const questions = quiz.questions.map(ques => {
+                return {
+                    question: ques.question,
+                    answers: ques.answers
+                };
+            });
+
+            return {
+                _id: quiz._id,
+                title: quiz.title,
+                count_taker: quiz.count_taker,
+                avgRate,
+                labels: quiz.labels,
+                description: quiz.description,
+                questions
+            };
+        });
+        return quizzes;
+    }
+}
 
 
 module.exports = {
