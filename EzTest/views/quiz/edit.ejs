@@ -58,8 +58,8 @@
         <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
             <div class="container-fluid">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-                    <li class="breadcrumb-item"><a href="quiz">Quiz Manager</a></li>
+                    <li class="breadcrumb-item"><a href="/dashboard/">Home</a></li>
+                    <li class="breadcrumb-item"><a href="/quiz/">Quiz Manager</a></li>
                     <li class="breadcrumb-item active">Edit Quiz</li>
                 </ol>
                 <div class="card">
@@ -104,13 +104,13 @@
                     <div class="nestable" id="nestable">
                         <ul class="list-group list-group-fit nestable-list-plain mb-0" id="nestlist" >
                             <% if(quiz.questions.length !=0 ){ %>
-                            <% quiz.questions.forEach(function (q) { %>>
+                            <% quiz.questions.forEach(function (q) { %>
                             <li class="list-group-item nestable-item">
                                 <div class="media quizLi">
                                     <div class="media-left media-middle">
                                         <a href="#" class="btn btn-default nestable-handle"><i class="material-icons">menu</i></a>
                                     </div>
-                                    <div class="media-body media-middle"><%q.question%>></div>
+                                    <div class="media-body media-middle titleTxt "> <%- (q.question)%> </div>
                                     <div class="media-right text-right">
                                         <div style="width: 80px;" class="clearfix">
                                             <a class="btn btn-primary btn-sm float-left launchModal editQuiz" href="#" data-toggle="modal" data-target="#editQuiz"><i class="material-icons">edit</i></a>
@@ -120,7 +120,7 @@
                                 </div>
                             </li>
                             <% });%>
-                            <% } %>>
+                            <% } %>
                         </ul>
                     </div>
                 </div>
@@ -182,7 +182,10 @@
     var countQuestion=0;
     var countAnswer=0;
     var answerList=[];
-    var questionList= <%= quiz.question %>;
+    var questionList=[];
+
+    <!--questionList= [JSON.parse(<%- JSON.stringify(quiz.questions) %>)];-->
+    questionList=[ <%- quiz.questions %>];
 
     $("input[name='timeframe']").TouchSpin({
         min: 0,
@@ -201,13 +204,13 @@
         }
     });
     $(document).ready(function(){
-        $("#editQuiz").on('shown.bs.modal', function(){
-            $(this).find('#titleTextAria').focus();
-        });
+        // $("#editQuiz").on('shown.bs.modal', function(){
+        //     $(this).find('#titleTextAria').focus();
+        // });
         $(".close").click(function (){
             if($(this).attr("id")=="closeQuiz")
             {
-                $('#titleTextAria').val("");
+                // $('#titleTextAria').val("");
                 $('#mathmltext').text("");
                 $('input[name="score"]').val("60");
                 $('#questionTextAria').html("");
@@ -290,10 +293,10 @@
             $('#editormodal').modal('hide');
         });
         $("#savequestionBtn").click(function (){
-            if($('#titleTextAria').val()=="")
-            {
-                $('#titleTextAria').tooltip("show");
-            }
+            // if($('#titleTextAria').val()=="")
+            // {
+            //     $('#titleTextAria').tooltip("show");
+            // }
             if($('input[name="score"]').val()=="")
             {
                 $('input[name="score"]').tooltip("show");
@@ -306,7 +309,7 @@
             {
                 alert("Please choose the right answer");
             }
-            if(($('#titleTextAria').val()!="") && ($('#mathmltext').text()!="") &&($('#touch-spin-2').val()!="")&& ($("input[name='answerradio']:checked").val()!=undefined))
+            if( ($('#mathmltext').text()!="") &&($('#touch-spin-2').val()!="")&& ($("input[name='answerradio']:checked").val()!=undefined))
             {
                 if($('#editQuiz').attr('data-id')!="editQuiz")
                 {
@@ -319,7 +322,7 @@
                                     )
                                 )
                             ).append(
-                                $.el('div',{'class':'media-body media-middle'}).text($('#titleTextAria').val())
+                                $.el('div',{'class':'media-body media-middle titleTxt'}).html(MathJax.mathml2chtml($('#mathmltext').text()))
                             ).append(
                                 $.el('div',{'class':'media-right text-right'}).append(
                                     $.el('div',{'style':'width:80px','class':'clearfix'}).append(
@@ -336,8 +339,12 @@
                         )
                     );
                 }
+                else{
+                    var x1= $('#editQuiz').attr('data-count');
+                    $('.titleTxt').eq(x1).html(MathJax.mathml2chtml($('#mathmltext').text()));
+                }
                 $('.answerRadio').each(function(){
-                    answerList.push({answer:$(this).val()});
+                    answerList.push($(this).val());
                 });
                 if($('#editQuiz').attr('data-id')!="editQuiz"){
                     questionList.push({
@@ -354,7 +361,7 @@
                         title:$('#titleTextAria').val(),
                         question:$('#mathmltext').text(),
                         answers:answerList,
-                        result:$(".answerRadio").index($(".answerRadio:checked")),
+                        right_answer:$(".answerRadio").index($(".answerRadio:checked")),
                         score:$('input[name="score"]').val()
                     }
                     questionList[x1]=n;
@@ -368,25 +375,27 @@
                 $('.answerLi').each(function(){
                     $(this).remove();
                 });
+                $('#editQuiz').attr('data-id',"");
                 $('#editQuiz').modal('hide');
             }
         });
         $('#nestlist').on('click','a.editQuiz',function () {
-            $('#editQuiz').attr('data-id',"edidQuiz");
+
+            $('#editQuiz').attr('data-id',"editQuiz");
             var id=$('.editQuiz').index($(this));
             $('#editQuiz').attr('data-count',id);
             $('#titleTextAria').val(questionList[id].title);
             $('#mathmltext').text(questionList[id].question);
             $('#questionTextAria').html((MathJax.mathml2chtml(questionList[id].question)));
             $('input[name="score"]').val(questionList[id].score);
-            for(x of questionList[id].answer)
+            for(x of questionList[id].answers)
             {
                 $('#answerList').append(
                     $.el('li',{'class':'list-group-item nestable-item answerLi'}).append(
                         $.el('div',{'class':'media form-check'}).append(
                             $.el('input',{'type':'radio','class':'form-check-input media-left media-middle answerRadio','name':'answerradio','value':x})
                         ).append(
-                            $.el('label',{'class':'form-check-label media-body media-middle answerArea'}).html(x)
+                            $.el('label',{'class':'form-check-label media-body media-middle answerArea'}).html(MathJax.mathml2chtml(x))
                         ).append(
                             $.el('div',{'class':'media-right text-right'}).append(
                                 $.el('div',{'style':'width:80px','class':'clearfix'}).append(
@@ -403,21 +412,25 @@
                     )
                 );
             }
-            $('.answerRadio').eq(questionList[id].result).prop( "checked", true );
+
+            $('.answerRadio').eq(questionList[id].right_answer).prop( "checked", true );
+            MathJax.startup.document.clear();
+            MathJax.startup.document.updateDocument();
         });
         $('#submitBtn').click(function (e) {
             var rs={
+                id: "<%= quiz._id%>",
                 title: $('input[name="title"]').val(),
                 timeframe: $('input[name="timeframe"]').val(),
                 questionList: questionList,
 
             }
             $.ajax({
-                url: "/quiz/add",
+                url: "/quiz/edit",
                 type: 'POST',
                 contentType: "application/json; charset=UTF-8",
                 data:JSON.stringify(rs),
-                success: function(data, textStatus) {
+                success: function() {
                     window.location.href = "/quiz";
                 },
                 error: function(result) {
@@ -441,12 +454,12 @@
             </div>
             <div class="modal-body">
                 <!--                <form action="" >-->
-                <div class="form-group row">
-                    <label for="" class="col-form-label col-md-3">Title:</label>
-                    <div class="col-md-9">
-                        <input type="text" class="form-control" id="titleTextAria" name="title" trigger="manual"  data-toggle="tooltip" data-placement="right" title="Please input title"  >
-                    </div>
-                </div>
+<!--                <div class="form-group row">-->
+<!--                    <label for="" class="col-form-label col-md-3">Title:</label>-->
+<!--                    <div class="col-md-9">-->
+<!--                        <input type="text" class="form-control" id="titleTextAria" name="title" trigger="manual"  data-toggle="tooltip" data-placement="right" title="Please input title"  >-->
+<!--                    </div>-->
+<!--                </div>-->
                 <div class="form-group row">
                     <div class= "col-md-3 media ">
                         <label for="" class="col-form-label media-left media-middle">Question:</label>
