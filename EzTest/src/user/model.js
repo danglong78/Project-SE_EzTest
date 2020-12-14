@@ -25,7 +25,10 @@ const userSchema = mongoose.Schema({
         unique: true
     },
 
-    trust_lable: Boolean,
+    trust_lable: {
+        type: Boolean,
+        default: false
+    },
     test_taking: [{
         score: Number,
         answer_list: [{ answer: Number }],

@@ -4,14 +4,14 @@ mongoose.Promise = global.Promise;
 const quizSchema = mongoose.Schema({
     _id: mongoose.Schema.Types.ObjectId,
     uploader: {
-        type: mongoose.Schema.type.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
     },
     title: String,
     count_taker: Number,
     rate: [{
         user: {
-            type: mongoose.Schema.type.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: 'user',
         },
         score: Number,
@@ -23,14 +23,14 @@ const quizSchema = mongoose.Schema({
     }],
     description: String,
     questions: [{
-        _id: mongoose.Schema.type.ObjectId,
+        _id: mongoose.Schema.Types.ObjectId,
         question: String,
         right_answer: Number,
-        answers: [{ answer: String }],
+        answers: [{ type: String }],
         comments: [{
             comment: String,
             user: {
-                type: mongoose.Schema.type.ObjectId,
+                type: mongoose.Schema.Types.ObjectId,
                 ref: 'user',
             }
         }],
@@ -38,9 +38,9 @@ const quizSchema = mongoose.Schema({
     }],
 });
 
-var GetbyID = function (req) {
+var GetbyID = function (in_id) {
     var quiz = mongoose.model('quiz', quizSchema);
-    const id = req.body.id;
+    const id = in_id;
     quiz.findById(id)
         .then((aQuiz) => {
             return aQuiz;
@@ -101,4 +101,5 @@ module.exports = {
     GetChecked: GetChecked,
     GetUnchecked: GetUnchecked,
     GetAll: GetAll,
+    model: mongoose.model('quiz', quizSchema)
 }

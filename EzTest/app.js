@@ -41,7 +41,7 @@ passport.use(facebookStrategy);
 
 // Flash messages
 app.use((req, res, next) => {
-    // res.locals.currentUser = req.user;
+    res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next();
