@@ -2,47 +2,61 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 const quizSchema = mongoose.Schema({
-    _id: mongoose.Schema.Types.ObjectId,
     uploader: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'user',
+        ref: 'User',
     },
+
     title: String,
+
     count_taker: Number,
+
     rate: [{
         user: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: 'user',
+            ref: 'User',
         },
         score: Number,
         comment: String,
     }],
+
     checked: Boolean,
-    lable: [{
-        name: String,
-    }],
+
+    labels: {
+        free: Boolean,
+        field: [{ name: String }]
+
+    },
+
     description: String,
+
     questions: [{
         _id: mongoose.Schema.Types.ObjectId,
+
         question: String,
+
         right_answer: Number,
+
         answers: [{ type: String }],
+
         comments: [{
             comment: String,
             user: {
                 type: mongoose.Schema.Types.ObjectId,
-                ref: 'user',
+                ref: 'User',
             }
         }],
+
         right_ans_count: Number,
     }],
 });
 
-const quiz = mongoose.model('quiz', quizSchema);
+const Quiz = mongoose.model('Quiz', quizSchema);
+
 
 var GetbyID = function (in_id) {
     const id = in_id;
-    quiz.findById(id)
+    Quiz.findById(id)
         .then((aQuiz) => {
             return aQuiz;
         })
@@ -53,9 +67,9 @@ var GetbyID = function (in_id) {
 
 var GetByUploader = function (req) {
     const uploader_id = req.body.uploader_id;
-    quiz.find({ uploader: uploader_id })
-        .then((Quiz) => {
-            return Quiz;
+    Quiz.find({ uploader: uploader_id })
+        .then((quiz) => {
+            return quiz;
         })
         .catch((err) => {
             return null;
@@ -63,9 +77,9 @@ var GetByUploader = function (req) {
 };
 
 var GetChecked = function () {
-    quiz.find({ checked: true })
-        .then((Quiz) => {
-            return Quiz;
+    Quiz.find({ checked: true })
+        .then((quiz) => {
+            return quiz;
         })
         .catch((err) => {
             return null;
@@ -73,9 +87,9 @@ var GetChecked = function () {
 };
 
 var GetUnchecked = function () {
-    quiz.find({ checked: false })
-        .then((Quiz) => {
-            return Quiz;
+    Quiz.find({ checked: false })
+        .then((quiz) => {
+            return quiz;
         })
         .catch((err) => {
             return null;
@@ -83,14 +97,45 @@ var GetUnchecked = function () {
 };
 
 var GetAll = function () {
-    quiz.find()
-        .then((Quiz) => {
-            return Quiz;
+    Quiz.find()
+        .then((quiz) => {
+            return quiz;
         })
         .catch((err) => {
             return null;
         })
 };
+
+const GetLatestQuizzes = function () {
+    Quiz.find()
+        .sort({ _id: 1 })
+        .limit(10)
+        .then(quizzes => {
+            quizzes = quizzes.map(quiz => {
+                const avgRate = quiz.rate.reduce((a, b) => a + b.score, 0) / quiz.rate.length
+                const questions = quiz.questions.map(ques => {
+                    return {
+                        question: ques.question,
+                        answers: ques.answers
+                    };
+                });
+
+                return {
+                    _id: quiz._id,
+                    title: quiz.title,
+                    count_taker: quiz.count_taker,
+                    avgRate,
+                    labels: quiz.labels,
+                    description: quiz.description,
+                    questions
+                };
+            });
+            return quizzes;
+        })
+        .catch((err) => {
+            return null;
+        });
+}
 
 module.exports = {
     GetByID: GetbyID,
@@ -98,5 +143,5 @@ module.exports = {
     GetChecked: GetChecked,
     GetUnchecked: GetUnchecked,
     GetAll: GetAll,
-    model: mongoose.model('Quiz', quizSchema)
+    model: Quiz
 }
