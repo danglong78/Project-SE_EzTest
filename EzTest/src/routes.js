@@ -10,7 +10,7 @@ const router = express.Router();
 router.use('/login', loginRouter);
 // router.use('/user', userRoutes);
 // router.use('/test', testRoutes);
-router.use('/quiz', quizRouter);
+//router.use('/quiz', quizRouter);
 router.get('/dashboard', (req, res) => {
 
 
@@ -33,7 +33,13 @@ router.get('/logout', isAuthenticated, (req, res) => {
 
 router.get('/take_quiz/:quizid', (req, res) => {
     var id = req.params.quizid;
-    quiz_controller.take_quiz(id, res);
+    quizController.take_quiz(id, res);
 });
+
+router.post('/quiz_result', (req, res) => {
+    res.render('quiz-edit');
+});
+
+
 
 module.exports = router;
