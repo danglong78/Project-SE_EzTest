@@ -1,0 +1,516 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html lang="en">
+
+
+<!-- Mirrored from learnplus.frontendmatter.com/instructor-quiz-edit.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:42:45 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Instructor - Edit quiz</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Simplebar -->
+    <link type="text/css" href="/vendor/simplebar.css" rel="stylesheet">
+
+    <!-- Material Design Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Roboto Web Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+
+    <!-- MDK -->
+    <link type="text/css" href="/vendor/material-design-kit.css" rel="stylesheet">
+
+    <!-- Sidebar Collapse -->
+    <link type="text/css" href="/vendor/sidebar-collapse.min.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="/css/style.css" rel="stylesheet">
+
+
+    <!-- Touchspin -->
+    <link rel="stylesheet" href="/css/bootstrap-touchspin.css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="/css/nestable.css">
+    <script src="https://www.wiris.net/demo/editor/editor"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+    <script src="/js/mathml.js"></script>
+    <style type="text/css">
+        mjx-math{
+            white-space: normal !important;
+            line-height: 1 !important;
+        }
+    </style>
+
+<body>
+
+<div class="d-flex flex-column h-100">
+    <!-- Navbar -->
+    <%- include ('../partials/navbar.ejs') %>
+
+
+    <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push data-has-scrolling-region>
+        <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
+            <div class="container-fluid">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                        <li class="breadcrumb-item"><a href="quiz">Quiz Manager</a></li>
+                        <li class="breadcrumb-item active">Edit Quiz</li>
+                    </ol>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Basic</h4>
+                        </div>
+                        <div class="card-body">
+                                <div class="form-group row">
+                                    <label for="course_title" class="col-sm-3 col-form-label">Quiz Title:</label>
+                                    <div class="col-sm-9 col-md-4">
+                                        <div class="input-group">
+                                            <span class="input-group-addon" id="sizing-addon2">#</span>
+                                            <input type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon2" name="title" autofocus required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label for="time_toggle" class="col-sm-3 col-form-label">Timeframe</label>
+                                    <div class="col-sm-9">
+                                        <div class="switch">
+                                            <input id="cmn-toggle" class="switch-toggle switch-toggle-round" type="checkbox" checked>
+                                            <label for="cmn-toggle"></label>
+                                        </div>
+                                        <div class="form-inline">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control text-center" value="60" name="timeframe" style="width:60px;" required>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">Questions</h4>
+                        </div>
+                        <div class="card-header bg-white">
+                            <a href="#" data-toggle="modal" data-target="#editQuiz" class="btn btn-success launchModal">Add Question <i class="material-icons">add</i></a>
+                        </div>
+                        <div class="nestable" id="nestable">
+                            <ul class="list-group list-group-fit nestable-list-plain mb-0" id="nestlist" >
+<!--                                <li class="list-group-item nestable-item">-->
+<!--                                    <div class="media">-->
+<!--                                        <div class="media-left media-middle">-->
+<!--                                            <a href="#" class="btn btn-default nestable-handle"><i class="material-icons">menu</i></a>-->
+<!--                                        </div>-->
+<!--                                        <div class="media-body media-middle">-->
+<!--                                            Installation-->
+<!--                                        </div>-->
+<!--                                        <div class="media-right text-right">-->
+<!--                                            <div style="width:100px">-->
+<!--                                                <a href="#" data-toggle="modal" data-target="#editQuiz" class="btn btn-primary btn-sm launchModal"><i class="material-icons">edit</i></a>-->
+<!--                                            </div>-->
+<!--                                        </div>-->
+<!--                                    </div>-->
+<!--                                </li>-->
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center m-4 out">
+                        <button class="btn btn-primary position-absolute top-50 start-50" type="button" id="submitBtn"> Finish</button>
+                    </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <%- include ('../partials/user_menu.ejs') %>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- jQuery -->
+<script src="/vendor/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="/vendor/popper.min.js"></script>
+<script src="/vendor/bootstrap.min.js"></script>
+
+<!-- Simplebar -->
+<!-- Used for adding a custom scrollbar to the drawer -->
+<script src="/vendor/simplebar.js"></script>
+
+<!-- MDK -->
+<script src="/vendor/dom-factory.js"></script>
+<script src="/vendor/material-design-kit.js"></script>
+
+<!-- Sidebar Collapse -->
+<script src="/vendor/sidebar-collapse.js"></script>
+
+<!-- App JS -->
+<script src="/js/main.js"></script>
+
+
+<!-- Vendor JS -->
+<script src="/vendor/jquery.nestable.js"></script>
+<script src="/vendor/jquery.bootstrap-touchspin.js"></script>
+
+
+
+<!-- Initialize -->
+<script src="/js/nestable.js"></script>
+<script src="/js/touchspin.js"></script>
+
+<script>
+
+    var countQuestion=0;
+    var countAnswer=0;
+    var answerList=[];
+    var questionList=[];
+
+    $("input[name='timeframe']").TouchSpin({
+        min: 0,
+        max: 120,
+        step: 1,
+        boostat: 5,
+        maxboostedstep: 10,
+        postfix:' minutes'
+    });
+
+    $.extend({
+        el: function(el, props) {
+            var $el = $(document.createElement(el));
+            $el.attr(props);
+            return $el;
+        }
+    });
+    $(document).ready(function(){
+        $("#editQuiz").on('shown.bs.modal', function(){
+            $(this).find('#titleTextAria').focus();
+        });
+        $(".close").click(function (){
+           if($(this).attr("id")=="closeQuiz")
+           {
+               $('#titleTextAria').val("");
+               $('#mathmltext').text("");
+               $('input[name="score"]').val("60");
+               $('#questionTextAria').html("");
+               $('.answerLi').each(function(){
+                   $(this).remove();
+               });
+           }
+           if($(this).attr("id")=="closeEditor"){
+               editor.setMathML("<math></math>");
+
+           }
+        });
+        $('.openEditor').on("click",function(){
+           $('#editormodal').attr('data-id',$(this).attr("id"));
+            if($(this).attr("id")=="editQuestion")
+            {
+                editor.setMathML($('#mathmltext').text());
+            }
+
+        });
+        $('#answerList').on('click','a.editAnswer',function (){
+
+            var id=$('.editAnswer').index($(this));
+            $('#editormodal').attr('data-id',$(this).attr("data-id"));
+            $('#editormodal').attr('data-count',id);
+
+            editor.setMathML($('.answerRadio').eq(id).val());
+
+        });
+        $('#answerList').on('click','a.deleteAnswer',function (){
+
+            let id = $('.deleteAnswer').index($(this));
+            $('.answerLi').eq(id).remove();
+
+        });
+        $('#nestlist').on('click','a.deleteQuiz',function (){
+
+            let id = $('.deleteQuiz').index($(this));
+            $('.quizLi').eq(id).remove();
+            questionList.splice(id,1);
+        });
+        $("#editorsave").click( function(){
+            if( $('#editormodal').attr('data-id')== "editQuestion") {
+                $('#questionTextAria').html(MathJax.mathml2chtml(editor.getMathML()));
+                $('#mathmltext').text(editor.getMathML());
+            }
+            if( $('#editormodal').attr('data-id')== "editAnswer") {
+                var c=$('#editormodal').attr('data-count');
+                $('.answerArea').eq(c).html(MathJax.mathml2chtml(editor.getMathML()));
+                $('.answerRadio').eq(c).val(editor.getMathML());
+            }
+            if( $('#editormodal').attr('data-id')== "addAnswer")
+            {
+                $('#answerList').append(
+                  $.el('li',{'class':'list-group-item nestable-item answerLi'}).append(
+                      $.el('div',{'class':'media form-check'}).append(
+                          $.el('input',{'type':'radio','class':'form-check-input media-left media-middle answerRadio','name':'answerradio','value':editor.getMathML()})
+                      ).append(
+                          $.el('label',{'class':'form-check-label media-body media-middle answerArea'}).html(MathJax.mathml2chtml(editor.getMathML()))
+                      ).append(
+                          $.el('div',{'class':'media-right text-right'}).append(
+                              $.el('div',{'style':'width:80px','class':'clearfix'}).append(
+                                  $.el('a',{'href':'#','class':'btn btn-primary btn-sm openEditor float-left editAnswer','data-id':'editAnswer','data-toggle':'modal','data-target':'#editormodal'}).append(
+                                      $.el('i',{'class':'material-icons'}).text('edit')
+                                  )
+                              ).append(
+                                  $.el('a',{'href':'#','class':'btn btn-primary btn-sm  float-right deleteAnswer'}).append(
+                                      $.el('i',{'class':'material-icons'}).text('delete')
+                                  )
+                              )
+                          )
+                      )
+                  )
+                );
+                // answerList.push({answer:$("#answer"+countAnswer)});
+            }
+            MathJax.startup.document.clear();
+            MathJax.startup.document.updateDocument();
+            editor.setMathML("<math></math>");
+            $('#editormodal').modal('hide');
+        });
+        $("#savequestionBtn").click(function (){
+            if($('#titleTextAria').val()=="")
+            {
+                $('#titleTextAria').tooltip("show");
+            }
+            if($('input[name="score"]').val()=="")
+            {
+                $('input[name="score"]').tooltip("show");
+            }
+            if($('#mathmltext').text()=="")
+            {
+                $('#questionTextAria').tooltip("show");
+            }
+            if($("input[name='answerradio']:checked").val()==undefined)
+            {
+                alert("Please choose the right answer");
+            }
+            if(($('#titleTextAria').val()!="") && ($('#mathmltext').text()!="") &&($('#touch-spin-2').val()!="")&& ($("input[name='answerradio']:checked").val()!=undefined))
+            {
+                if($('#editQuiz').attr('data-id')!="editQuiz")
+                {
+                    $('#nestlist').append(
+                        $.el('li',{'class':'list-group-item nestable-item'}).append(
+                            $.el('div',{'class':'media quizLi'}).append(
+                                $.el('div', {'class':'media-left media-middle'}).append(
+                                    $.el('a',{'href':'#','class':'btn btn-default nestable-handle'}).append(
+                                        $.el('i',{'class':'material-icons'}).text('menu')
+                                    )
+                                )
+                            ).append(
+                                $.el('div',{'class':'media-body media-middle'}).text($('#titleTextAria').val())
+                            ).append(
+                                $.el('div',{'class':'media-right text-right'}).append(
+                                    $.el('div',{'style':'width:80px','class':'clearfix'}).append(
+                                        $.el('a',{'class':'btn btn-primary btn-sm  float-left launchModal editQuiz','href':'#','data-toggle':'modal','data-target':'#editQuiz'}).append(
+                                            $.el('i',{'class':'material-icons'}).text('edit')
+                                        )
+                                    ).append(
+                                        $.el('a',{'href':'#','class':'btn btn-primary btn-sm  float-right deleteQuiz'}).append(
+                                            $.el('i',{'class':'material-icons'}).text('delete')
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    );
+                }
+                $('.answerRadio').each(function(){
+                    answerList.push({answer:$(this).val()});
+                });
+                if($('#editQuiz').attr('data-id')!="editQuiz"){
+                    questionList.push({
+                        title:$('#titleTextAria').val(),
+                        question:$('#mathmltext').text(),
+                        answers:answerList,
+                        right_answer:$(".answerRadio").index($(".answerRadio:checked")),
+                        score:$('input[name="score"]').val()
+                    });
+                }
+                else{
+                    var x1= $('#editQuiz').attr('data-count');
+                    var n={
+                        title:$('#titleTextAria').val(),
+                        question:$('#mathmltext').text(),
+                        answers:answerList,
+                        result:$(".answerRadio").index($(".answerRadio:checked")),
+                        score:$('input[name="score"]').val()
+                    }
+                    questionList[x1]=n;
+                }
+                countQuestion+=1;
+                answerList=[]
+                $('#titleTextAria').val("");
+                $('#mathmltext').text("");
+                $('input[name="score"]').val("60");
+                $('#questionTextAria').html("");
+                $('.answerLi').each(function(){
+                    $(this).remove();
+                });
+                $('#editQuiz').modal('hide');
+            }
+        });
+        $('#nestlist').on('click','a.editQuiz',function () {
+            $('#editQuiz').attr('data-id',"edidQuiz");
+            var id=$('.editQuiz').index($(this));
+            $('#editQuiz').attr('data-count',id);
+            $('#titleTextAria').val(questionList[id].title);
+            $('#mathmltext').text(questionList[id].question);
+            $('#questionTextAria').html((MathJax.mathml2chtml(questionList[id].question)));
+            $('input[name="score"]').val(questionList[id].score);
+            for(x of questionList[id].answer)
+            {
+                $('#answerList').append(
+                    $.el('li',{'class':'list-group-item nestable-item answerLi'}).append(
+                        $.el('div',{'class':'media form-check'}).append(
+                            $.el('input',{'type':'radio','class':'form-check-input media-left media-middle answerRadio','name':'answerradio','value':x})
+                        ).append(
+                            $.el('label',{'class':'form-check-label media-body media-middle answerArea'}).html(x)
+                        ).append(
+                            $.el('div',{'class':'media-right text-right'}).append(
+                                $.el('div',{'style':'width:80px','class':'clearfix'}).append(
+                                    $.el('a',{'href':'#','class':'btn btn-primary btn-sm openEditor float-left editAnswer','data-id':'editAnswer','data-toggle':'modal','data-target':'#editormodal'}).append(
+                                        $.el('i',{'class':'material-icons'}).text('edit')
+                                    )
+                                ).append(
+                                    $.el('a',{'href':'#','class':'btn btn-primary btn-sm openEditor float-right deleteAnswer'}).append(
+                                        $.el('i',{'class':'material-icons'}).text('delete')
+                                    )
+                                )
+                            )
+                        )
+                    )
+                );
+            }
+            $('.answerRadio').eq(questionList[id].result).prop( "checked", true );
+        });
+        $('#submitBtn').click(function (e) {
+            var rs={
+                title: $('input[name="title"]').val(),
+                timeframe: $('input[name="timeframe"]').val(),
+                questionList: questionList,
+
+            }
+            $.ajax({
+                url: "/quiz/add",
+                type: 'POST',
+                contentType: "application/json; charset=UTF-8",
+                data:JSON.stringify(rs),
+                success: function() {
+                        window.location.href = "/quiz";
+                    },
+                error: function(result) {
+                    alert('error '+ result);
+                }
+
+            })
+        })
+    });
+</script>
+
+
+<div class="modal fade" id="editQuiz" data-id="" data-count="" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title">Add/Edit Question</h5>
+                <button type="button"  class="close" id="closeQuiz" data-dismiss="modal"  >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+<!--                <form action="" >-->
+                    <div class="form-group row">
+                        <label for="" class="col-form-label col-md-3">Title:</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control" id="titleTextAria" name="title" trigger="manual"  data-toggle="tooltip" data-placement="right" title="Please input title"  >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class= "col-md-3 media ">
+                            <label for="" class="col-form-label media-left media-middle">Question:</label>
+                            <a href="#" id="editQuestion" data-toggle="modal" data-target="#editormodal" class="btn btn-primary btn-sm media-right text-right openEditor" ><i class="material-icons">edit</i>Input</a>
+                        </div>
+                        <div class="col-md-9" >
+                            <p id="questionTextAria" class="border border rounded" trigger="manual"  data-toggle="tooltip" data-placement="right" title="Input Question by click to edit button" style="min-height:32px;padding: 6px 12px; border-color:internal-light-dark "></p>
+                            <textarea rows="1" cols="1" class="d-none" id="mathmltext" name="question" required ></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-3  ">
+                            <label for="" class="col-form-label media-left media-middle "> Answers:</label>
+                            <a href="#" id="addAnswer" data-toggle="modal" data-target="#editormodal" class="btn btn-primary btn-sm media-right text-right openEditor"><i class="material-icons">add</i>Add </a>
+
+                        </div>
+                        <div class="col-md-9">
+                            <ul class="list-group list-group-fit mb-0" id="answerList" >
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="" class="col-form-label col-md-3">Question Score:</label>
+                        <div class="col-md-4">
+                            <input id="" type="number" min="10" max="180" name="score"  class="form-control" value="60" trigger="manual"  data-toggle="tooltip" data-placement="right" title="Please input score" >
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-8 offset-md-3">
+                            <button type="button" class="btn btn-success"   id="savequestionBtn" >Save</button>
+                        </div>
+                    </div>
+<!--                </form>-->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal " id="editormodal" data-id="" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <h5 class="modal-title">Editor</h5>
+                <button type="button"  class="close" id="closeEditor"  data-dismiss="modal"  >
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group row">
+                    <div style="max-height: 200px;" class="col-form-group col-12" id="editorContainer"> </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-8 offset-md-3">
+                        <button type="button" class="btn btn-success" id="editorsave" data-dismiss="modal">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+
+<!-- Mirrored from learnplus.frontendmatter.com/dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:41:28 GMT -->
+
+</html>

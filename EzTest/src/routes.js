@@ -1,6 +1,8 @@
 const express = require('express');
 
 const loginRouter = require('./login/routes');
+const quizRouter = require('./quiz/routes');
+
 const isAuthenticated = require('./login/controller/passport_strategies').isAuthenticated;
 const quiz_controller = require("./quiz/controller");
 const router = express.Router();
@@ -8,7 +10,7 @@ const router = express.Router();
 router.use('/login', loginRouter);
 // router.use('/user', userRoutes);
 // router.use('/test', testRoutes);
-
+router.use('/quiz',quizRouter);
 router.get('/dashboard', (req, res) => {
 
 
@@ -21,13 +23,13 @@ router.get('/logout', isAuthenticated, (req, res) => {
     res.redirect('/dashboard');
 });
 
-router.get('/quizzes', (req, res) => {
-    res.render('quizzes');
-});
-
-router.get('/quiz-edit', (req, res) => {
-    res.render('quiz-edit');
-});
+// router.get('/quizzes', (req, res) => {
+//     res.render('quizzes');
+// });
+//
+// router.get('/quiz-edit', (req, res) => {
+//     res.render('quiz-edit');
+// });
 
 router.get('/take_quiz/:quizid', (req, res) => {
     var id = req.params.quizid;

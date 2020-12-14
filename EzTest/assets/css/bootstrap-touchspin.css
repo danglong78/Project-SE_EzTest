@@ -1,14 +1,38 @@
-Copyright Joyent, Inc. and other Node contributors. All rights reserved.
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to
-deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+/*
+ *  Bootstrap TouchSpin - v4.3.0
+ *  A mobile and touch friendly input spinner component for Bootstrap 3 & 4.
+ *  http://www.virtuosoft.eu/code/bootstrap-touchspin/
+ *
+ *  Made by István Ujj-Mészáros
+ *  Under Apache License v2.0 License
+ */
+/* This CSS file is unnecessary if you are not using vertical buttons functionality */
 
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+.bootstrap-touchspin .input-group-btn-vertical {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    z-index: 11;
+}
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTI
+.bootstrap-touchspin .input-group-btn-vertical > .btn {
+    position: absolute;
+    right: 0;
+    height: 50%;
+    padding: 0;
+    width: 2em;
+    text-align: center;
+    line-height: 1;
+}
+
+.bootstrap-touchspin .input-group-btn-vertical .bootstrap-touchspin-up {
+    border-radius: 0 4px 0 0;
+    top: 0;
+}
+
+.bootstrap-touchspin .input-group-btn-vertical .bootstrap-touchspin-down {
+    border-radius: 0 0 4px 0;
+    bottom: 0;
+}
+
+

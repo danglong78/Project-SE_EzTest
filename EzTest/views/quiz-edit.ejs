@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html lang="en">
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<!-- Mirrored from learnplus.frontendmatter.com/dashboard by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:41:25 GMT -->
 
+<!-- Mirrored from learnplus.frontendmatter.com/instructor-quiz-edit.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:42:45 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Dashboard</title>
+    <title>Instructor - Edit quiz</title>
 
     <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
     <meta name="robots" content="noindex">
@@ -20,9 +19,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <!-- Roboto Web Font -->
-    <link
-            href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
-            rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
 
     <!-- MDK -->
     <link type="text/css" href="/vendor/material-design-kit.css" rel="stylesheet">
@@ -33,12 +30,34 @@
     <!-- App CSS -->
     <link type="text/css" href="/css/style.css" rel="stylesheet">
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Touchspin -->
+    <link rel="stylesheet" href="/css/bootstrap-touchspin.css">
+
+    <!-- Vendor CSS -->
+    <link rel="stylesheet" href="/css/nestable.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+    <script>
+        function convert() {
+            var input = document.getElementById("input").value.trim();
+            output = document.getElementById('output');
+            output.innerHTML = '';
+            output.appendChild(MathJax.mathml2chtml(input));
+            MathJax.startup.document.clear();
+            MathJax.startup.document.updateDocument();
+        }
+    </script>
+    <script src="https://www.wiris.net/demo/editor/editor"></script>
+    <script>
+        var editor;
+        window.onload = function () {
+            editor = com.wiris.jsEditor.JsEditor.newInstance({'language': 'en'});
+            editor.insertInto(document.getElementById('editorContainer'));
+        }
+    </script>
 
 
-</head>
 
 <body>
 
@@ -53,7 +72,7 @@
 
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-                    <li class="breadcrumb-item"><a href="quizzes">Quiz Manager</a></li>
+                    <li class="breadcrumb-item"><a href="quiz">Quiz Manager</a></li>
                     <li class="breadcrumb-item active">Edit Quiz</li>
                 </ol>
                     <h1 class="page-heading h2">Vue.js Deploy Quiz</h1>
@@ -68,7 +87,7 @@
                                 <div class="col-sm-9 col-md-4">
                                     <div class="input-group">
                                         <span class="input-group-addon" id="sizing-addon2">#</span>
-                                        <input type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon2" value="Vue.js Introduction">
+                                        <input type="text" class="form-control" placeholder="Title" aria-describedby="sizing-addon2" name="title" value="Vue.js Introduction" autofocus required>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +95,7 @@
                             <div class="form-group row">
                                 <label for="course_title" class="col-sm-3 col-form-label">Quiz Image:</label>
                                 <div class="col-sm-9 col-md-4">
-                                    <p><img src="assets/images/vuejs.png" alt="" width="150" class="rounded"></p>
+                                    <p><img src="/images/vuejs.png" alt="" width="150" class="rounded"></p>
                                     <label class="custom-file">
                                         <input type="file" id="file">
                                         <span class="custom-file-control"></span>
@@ -200,7 +219,7 @@
                                     </div>
                                     <div class="media-right text-right">
                                         <div style="width:100px">
-                                            <a href="#" data-toggle="modal" data-target="#editQuiz" class="btn btn-primary btn-sm"><i class="material-icons">edit</i></a>
+                                            <a href="#" data-toggle="modal" data-target="#editQuiz" class="btn btn-primary btn-sm launchModal"><i class="material-icons">edit</i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -250,21 +269,26 @@
 <!-- App JS -->
 <script src="/js/main.js"></script>
 
+
+<!-- Vendor JS -->
+<script src="/vendor/jquery.nestable.js"></script>
+<script src="/vendor/jquery.bootstrap-touchspin.js"></script>
+
+
+
+<!-- Initialize -->
 <script src="/js/nestable.js"></script>
 <script src="/js/touchspin.js"></script>
 <script>
     $(document).ready(function(){
-        $(".launchModal").click(function(){
-            $("#editQuiz").modal({
-                backdrop: 'static',
-            });
+        $("#editQuiz").on('shown.bs.modal', function(){
+            $(this).find('#titleTextAria').focus();
         });
     });
 </script>
 
 
-
-<div class="modal fade" id="editQuiz" role="dialog">
+<div class="modal fade" id="editQuiz"  data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-primary">
@@ -274,23 +298,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="#">
+                <form action="/quiz/questio" method="post">
                     <div class="form-group row">
                         <label for="" class="col-form-label col-md-3">Title:</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control" value="Database Access">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="" class="col-form-label col-md-3">Type:</label>
-                        <div class="col-md-4">
-                            <select class="custom-control custom-select form-control">
-
-                                <option value="1">Input</option>
-                                <option value="2">Textarea</option>
-                                <option value="3">Checkbox</option>
-                                <option value="3">Radio</option>
-                            </select>
+                            <input type="text" class="form-control" id="titleTextAria" value="Database Access" >
                         </div>
                     </div>
                     <div class="form-group row">
@@ -313,7 +325,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-8 offset-md-3">
-                            <button type="submit" class="btn btn-success">Save</button>
+                            <button type="submit" class="btn btn-success" data-dismiss="modal">Save</button>
                         </div>
                     </div>
                 </form>
