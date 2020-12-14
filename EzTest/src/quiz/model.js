@@ -38,8 +38,9 @@ const quizSchema = mongoose.Schema({
     }],
 });
 
+const quiz = mongoose.model('quiz', quizSchema);
+
 var GetbyID = function (in_id) {
-    var quiz = mongoose.model('quiz', quizSchema);
     const id = in_id;
     quiz.findById(id)
         .then((aQuiz) => {
@@ -51,7 +52,6 @@ var GetbyID = function (in_id) {
 };
 
 var GetByUploader = function (req) {
-    var quiz = mongoose.model('quiz', quizSchema);
     const uploader_id = req.body.uploader_id;
     quiz.find({ uploader: uploader_id })
         .then((Quiz) => {
@@ -63,7 +63,6 @@ var GetByUploader = function (req) {
 };
 
 var GetChecked = function () {
-    var quiz = mongoose.model('quiz', quizSchema);
     quiz.find({ checked: true })
         .then((Quiz) => {
             return Quiz;
@@ -74,7 +73,6 @@ var GetChecked = function () {
 };
 
 var GetUnchecked = function () {
-    var quiz = mongoose.model('quiz', quizSchema);
     quiz.find({ checked: false })
         .then((Quiz) => {
             return Quiz;
@@ -85,7 +83,6 @@ var GetUnchecked = function () {
 };
 
 var GetAll = function () {
-    var quiz = mongoose.model('quiz', quizSchema);
     quiz.find()
         .then((Quiz) => {
             return Quiz;
@@ -101,5 +98,5 @@ module.exports = {
     GetChecked: GetChecked,
     GetUnchecked: GetUnchecked,
     GetAll: GetAll,
-    model: mongoose.model('quiz', quizSchema)
+    model: mongoose.model('Quiz', quizSchema)
 }

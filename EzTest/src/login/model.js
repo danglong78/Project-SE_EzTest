@@ -12,10 +12,11 @@ const loginSchema = mongoose.Schema({
     }
 });
 
+
+const Login = mongoose.model('login_data', loginSchema);
 var GetByUserID = function (req) {
-    var login_data = mongoose.model('login_data', loginSchema);
     const id = req.body.id;
-    login_data.find({ userID: id })
+    Login.find({ userID: id })
         .then((data) => {
             return data[0];
         })
@@ -25,9 +26,8 @@ var GetByUserID = function (req) {
 };
 
 var GetByUsername = function (req) {
-    var login_data = mongoose.model('login_data', loginSchema);
     const name = req.body.username;
-    login_data.find({ username: name })
+    Login.find({ username: name })
         .then((data) => {
             return data[0];
         })
@@ -37,9 +37,8 @@ var GetByUsername = function (req) {
 };
 
 var GetByEmail = function (req) {
-    var login_data = mongoose.model('login_data', loginSchema);
     const mail = req.body.email;
-    login_data.find({ email: mail })
+    Login.find({ email: mail })
         .then((data) => {
             return data[0];
         })
@@ -52,4 +51,5 @@ module.exports = {
     GetByUserID: GetByUserID,
     GetByEmail: GetByEmail,
     GetByUsername: GetByUsername,
+    model: Login
 }

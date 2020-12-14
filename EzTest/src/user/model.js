@@ -43,11 +43,10 @@ const userSchema = mongoose.Schema({
     }]
 });
 
-
+const User = mongoose.model('User', userSchema);
 
 var GetAllUser = function () {
-    var user = mongoose.model('user', userSchema);
-    user.find()
+    User.find()
         .then((allUser) => {
             return allUser;
         })
@@ -57,9 +56,8 @@ var GetAllUser = function () {
 };
 
 var GetByID = function (req) {
-    var user = mongoose.model('user', userSchema);
     const id = req.body.id;
-    user.findById(id)
+    User.findById(id)
         .then((aUser) => {
             return aUser[0];
         })
@@ -69,9 +67,8 @@ var GetByID = function (req) {
 };
 
 var GetByEmail = function (req) {
-    var user = mongoose.model('user', userSchema);
     const mail = req.body.email;
-    user.find({ email: mail })
+    User.find({ email: mail })
         .then((aUser) => {
             return aUser[0];
         })
@@ -81,7 +78,7 @@ var GetByEmail = function (req) {
 };
 
 module.exports = {
-    model: mongoose.model('User', userSchema),
+    model: User,
     GetAllUser: GetAllUser,
     GetByID: GetByID,
     GetByEmail: GetByEmail
