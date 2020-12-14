@@ -114,6 +114,6 @@ module.exports.isAuthenticated = (req, res, next) => {
         next();
     } else {
         req.flash('error', 'You are not logged in right now. Please try login again.');
-        res.send('You are not logged in right now. Please try login again.');
+        res.redirect("http://localhost:3000/dashboard");
     }
 }
