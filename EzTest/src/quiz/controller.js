@@ -1,4 +1,6 @@
-const model = require("./model");
+const Quiz = require("./model").model;
+const GetLatestQuizzes = require("./model").GetLatestQuizzes;
+const GetTopViewQuizzes = require("./model").GetTopViewQuizzes;
 const GetByID = require("./model").GetByID;
 
 var Get_quiz_taking = async function (id, res) {
@@ -11,34 +13,67 @@ var Get_quiz_taking = async function (id, res) {
 
 }
 
-const GetRecentQuizzes = () => {
+const GetRecentQuizzes = async () => {
+    let quizzes = await GetLatestQuizzes(5);
 
+    if (quizzes.length === 0) {
+        return null;
+    }
 
-    quizzes => {
-        quizzes = quizzes.map(quiz => {
-            const avgRate = quiz.rate.reduce((a, b) => a + b.score, 0) / quiz.rate.length
-            const questions = quiz.questions.map(ques => {
-                return {
-                    question: ques.question,
-                    answers: ques.answers
-                };
-            });
-
+    quizzes = quizzes.map(quiz => {
+        const avgRate = (quiz.rate.reduce((a, b) => a + b.score, 0) / quiz.rate.length).toFixed(1);
+        const questions = quiz.questions.map(ques => {
             return {
-                _id: quiz._id,
-                title: quiz.title,
-                count_taker: quiz.count_taker,
-                avgRate,
-                labels: quiz.labels,
-                description: quiz.description,
-                questions
+                question: ques.question,
+                answers: ques.answers
             };
         });
-        return quizzes;
+
+        return {
+            _id: quiz._id,
+            title: quiz.title,
+            count_taker: quiz.count_taker,
+            avgRate,
+            labels: quiz.labels,
+            description: quiz.description,
+            questions
+        };
+    });
+    return quizzes;
+};
+
+const GetPopularQuizzes = async () => {
+    let quizzes = await GetTopViewQuizzes(5);
+
+    if (quizzes.length === 0) {
+        return null;
     }
-}
+
+    quizzes = quizzes.map(quiz => {
+        const avgRate = (quiz.rate.reduce((a, b) => a + b.score, 0) / quiz.rate.length).toFixed(1);
+        const questions = quiz.questions.map(ques => {
+            return {
+                question: ques.question,
+                answers: ques.answers
+            };
+        });
+
+        return {
+            _id: quiz._id,
+            title: quiz.title,
+            count_taker: quiz.count_taker,
+            avgRate,
+            labels: quiz.labels,
+            description: quiz.description,
+            questions
+        };
+    });
+    return quizzes;
+};
 
 
 module.exports = {
-    take_quiz: Get_quiz_taking
+    take_quiz: Get_quiz_taking,
+    GetRecentQuizzes,
+    GetPopularQuizzes
 }

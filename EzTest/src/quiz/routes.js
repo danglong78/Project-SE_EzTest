@@ -13,7 +13,7 @@ quizRouter.get('/add', function (req, res) {
 });
 quizRouter.post('/add', async function (req, res) {
     // let temp = JSON.parse((req.body));
-    let temp=req.body;
+    let temp = req.body;
 
     let quiz = new quizModel({
         uploader: req.user._id,
@@ -26,7 +26,7 @@ quizRouter.post('/add', async function (req, res) {
         questions: temp.questionList,
         right_ans_count: 0
     })
-     await quiz.save();
+    await quiz.save();
     console.log("Success");
     res.redirect("/quiz")
 
@@ -46,7 +46,7 @@ quizRouter.get('/edit', async function (req, res) {
 });
 quizRouter.post('/edit', async function (req, res) {
     // let temp = JSON.parse((req.body));
-    let temp=req.body;
+    let temp = req.body;
 
     // let quiz = new quizModel({
     //     _id: temp.id,
@@ -60,7 +60,7 @@ quizRouter.post('/edit', async function (req, res) {
     //     questions: temp.questionList,
     //     right_ans_count: 0
     // })
-    await quizModel.update({_id:temp.id},{title: temp.title,questions: temp.questionList});
+    await quizModel.update({ _id: temp.id }, { title: temp.title, questions: temp.questionList });
     console.log("Success");
     res.redirect("/quiz")
 

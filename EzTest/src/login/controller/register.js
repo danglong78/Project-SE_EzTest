@@ -39,7 +39,8 @@ module.exports = async (req, res) => {
             if (err) {
                 throw new Error('Something wrong happend. Try again!');
             }
-            return res.redirect('/users/' + req.user.username);
+            req.flash("success", "Welcome to EzTest!");
+            return res.redirect('localhost:3000/dashboard');
         });
 
     } catch (e) {

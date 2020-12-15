@@ -5,16 +5,24 @@ const quizRouter = require('./quiz/routes');
 
 const isAuthenticated = require('./login/controller/passport_strategies').isAuthenticated;
 const quizController = require("./quiz/controller");
+const userController = require('./user/controller');
 const router = express.Router();
 
 router.use('/login', loginRouter);
 // router.use('/user', userRoutes);
 // router.use('/test', testRoutes);
 router.use('/quiz', quizRouter);
-router.get('/dashboard', (req, res) => {
 
+router.get('/dashboard', async (req, res) => {
+    res.locals.currentScene = "dashboard";
 
-    res.render('dashboard', {});
+    const recent = await quizController.GetRecentQuizzes();
+    const popular = await quizController.GetPopularQuizzes();
+    const topActive = await userController.GetTopActive();
+
+    console.log(topActive);
+
+    res.render('dashboard', { recent, popular, topActive });
 });
 
 router.get('/logout', isAuthenticated, (req, res) => {
