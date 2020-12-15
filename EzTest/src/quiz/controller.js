@@ -11,6 +11,18 @@ var Get_quiz_taking = async function (id, res) {
 
 }
 
+var Quiz_Result = async function (id, ans_list, res) {
+    try {
+        var aquiz = await GetByID(id);
+        res.render('quiz_result', {
+            quiz: aquiz,
+            ans_list: ans_list
+        });
+    } catch (e) {
+        res.send("Load Quiz Error...");
+    }
+}
+
 const GetRecentQuizzes = () => {
 
 
@@ -40,5 +52,6 @@ const GetRecentQuizzes = () => {
 
 
 module.exports = {
-    take_quiz: Get_quiz_taking
+    take_quiz: Get_quiz_taking,
+    quiz_result: Quiz_Result
 }
