@@ -1,7 +1,7 @@
 const express = require('express');
 const quizModel = require('./model').model;
-
 const quizRouter = express.Router();
+const quizController = require('./controller');
 
 quizRouter.get('/', async function (req, res) {
     const x = req.user['_id'];
@@ -65,5 +65,13 @@ quizRouter.post('/edit', async function (req, res) {
     res.redirect("/quiz")
 
 });
+
+quizRouter.get('/preview/:id', async function (req, res) {
+    console.log(req.params.id);
+    const q = await quizController.GetPreview(req.params.id);
+    console.log(q);
+    res.json(q);
+    
+})
 
 module.exports = quizRouter;

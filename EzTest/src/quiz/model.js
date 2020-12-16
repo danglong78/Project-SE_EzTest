@@ -114,6 +114,40 @@ const GetTopViewQuizzes = async (n) => {
     return quizzes;
 }
 
+const GetSimpleQuiz = async (id) => {
+    // let q = await Quiz.aggregate(
+    //     [
+    //         {
+    //             "$project": {
+    //                 "title": 1,
+    //                 "questions": {
+    //                     "$map": {
+    //                         "input": "$questions",
+    //                         "as": "ques",
+    //                         "in": {
+    //                             "question": "$ques.question",
+    //                             "answers": "$ques.answers"
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         },
+    //         { "$match": { _id: id } }
+    //     ]
+    // )
+
+    let q = await GetbyID(id);
+
+
+    if (!q) return {};
+
+    let questions = q.questions.map((ques) => {
+        return { question: ques.question, answers: ques.answers };
+    })
+
+    return { title: q.title, questions };
+}
+
 module.exports = {
     GetByID: GetbyID,
     GetByUploader: GetByUploader,
@@ -122,5 +156,6 @@ module.exports = {
     GetAll: GetAll,
     GetLatestQuizzes,
     GetTopViewQuizzes,
+    GetSimpleQuiz,
     model: Quiz
 }

@@ -92,50 +92,56 @@
                                             </div>
                                         </div>
                                         <ul class="list-group list-group-fit mb-0">
-                                            <% for (let quiz of recent){%>
-                                                <li class="list-group-item">
-                                                    <div class="media align-items-center">
-                                                        <div class="media-body">
-                                                            <a href="../test/view/<%=quiz._id%>">
-                                                                <%= quiz.title %>
-                                                            </a>
-                                                            <br>
+                                            <% let i=0; %>
+                                                <% for (let quiz of recent){%>
+                                                    <li class="list-group-item">
+                                                        <div class="media align-items-center">
+                                                            <div class="media-body">
+                                                                <a href="../test/view/<%=quiz._id%>">
+                                                                    <%= quiz.title %>
+                                                                </a>
+                                                                <br>
 
-                                                            <span class="badge badge-pill badge-info">
-                                                                <%=quiz.count_taker%>
-                                                            </span>
-                                                            <span class="badge badge-pill badge-info">
-                                                                <%=quiz.avgRate%>
-                                                            </span>
-                                                            <% for (let field of quiz.labels.field) {%>
                                                                 <span class="badge badge-pill badge-info">
-                                                                    <%= field.name %>
+                                                                    <%=quiz.count_taker%>
                                                                 </span>
-                                                                <% } %>
-                                                                    <% if (quiz.labels.free) {%>
-                                                                        <span
-                                                                            class="badge badge-pill badge-success">Free</span>
-                                                                        <% } else {%>
+                                                                <span class="badge badge-pill badge-info">
+                                                                    <%=quiz.avgRate%>
+                                                                </span>
+                                                                <% for (let field of quiz.labels.field) {%>
+                                                                    <span class="badge badge-pill badge-info">
+                                                                        <%= field.name %>
+                                                                    </span>
+                                                                    <% } %>
+                                                                        <% if (quiz.labels.free) {%>
                                                                             <span
-                                                                                class="badge badge-pill badge-danger">Paid</span>
-                                                                            <% } %>
+                                                                                class="badge badge-pill badge-success">Free</span>
+                                                                            <% } else {%>
+                                                                                <span
+                                                                                    class="badge badge-pill badge-danger">Paid</span>
+                                                                                <% } %>
+
+                                                            </div>
+                                                            <button type="button"
+                                                                class="btn btn-white btn-circle prvBtn"
+                                                                id="<%=quiz._id%>">
+                                                                <i class="material-icons preview" data-target="#preview"
+                                                                    data-toggle="modal" id="recentPreview<%=i %>">
+                                                                    visibility
+
+                                                                    <span class="mdk-tooltip js-mdk-tooltip"
+                                                                        data-for="recentPreview<%=i %>">
+                                                                        Take a look
+                                                                    </span>
+                                                                </i>
+
+
+                                                            </button>
 
                                                         </div>
-                                                        <button type="button" class="btn btn-white btn-circle">
-                                                            <i class="material-icons preview" data-target="#editQuiz"
-                                                                data-toggle="modal" id="preview1">
-                                                                visibility
-                                                            </i>
-
-                                                            <span class="mdk-tooltip js-mdk-tooltip"
-                                                                data-for="preview1">
-                                                                Take a look
-                                                            </span>
-                                                        </button>
-
-                                                    </div>
-                                                </li>
-                                                <% } %>
+                                                    </li>
+                                                    <% i++ %>
+                                                        <% } %>
 
                                         </ul>
                                     </div>
@@ -153,50 +159,56 @@
                                             </div>
                                         </div>
                                         <ul class="list-group list-group-fit mb-0">
-                                            <% for (let quiz of popular){%>
-                                                <li class="list-group-item">
-                                                    <div class="media align-items-center">
-                                                        <div class="media-body">
-                                                            <a href="../test/view/<%=quiz._id%>">
-                                                                <%= quiz.title %>
-                                                            </a>
-                                                            <br>
+                                            <% let j=0; %>
+                                                <% for (let quiz of popular){%>
+                                                    <li class="list-group-item">
+                                                        <div class="media align-items-center">
+                                                            <div class="media-body">
+                                                                <a href="../test/view/<%=quiz._id%>">
+                                                                    <%= quiz.title %>
+                                                                </a>
+                                                                <br>
 
-                                                            <span class="badge badge-pill badge-info">
-                                                                <%=quiz.count_taker%>
-                                                            </span>
-                                                            <span class="badge badge-pill badge-info">
-                                                                <%=quiz.avgRate%>
-                                                            </span>
-                                                            <% for (let field of quiz.labels.field) {%>
                                                                 <span class="badge badge-pill badge-info">
-                                                                    <%= field.name %>
+                                                                    <%=quiz.count_taker%>
                                                                 </span>
-                                                                <% } %>
-                                                                    <% if (quiz.labels.free) {%>
-                                                                        <span
-                                                                            class="badge badge-pill badge-success">Free</span>
-                                                                        <% } else {%>
+                                                                <span class="badge badge-pill badge-info">
+                                                                    <%=quiz.avgRate%>
+                                                                </span>
+                                                                <% for (let field of quiz.labels.field) {%>
+                                                                    <span class="badge badge-pill badge-info">
+                                                                        <%= field.name %>
+                                                                    </span>
+                                                                    <% } %>
+                                                                        <% if (quiz.labels.free) {%>
                                                                             <span
-                                                                                class="badge badge-pill badge-danger">Paid</span>
-                                                                            <% } %>
+                                                                                class="badge badge-pill badge-success">Free</span>
+                                                                            <% } else {%>
+                                                                                <span
+                                                                                    class="badge badge-pill badge-danger">Paid</span>
+                                                                                <% } %>
+
+                                                            </div>
+                                                            <button type="button"
+                                                                class="btn btn-white btn-circle prvBtn"
+                                                                id="<%=quiz._id%>">
+                                                                <i class="material-icons preview" data-target="#preview"
+                                                                    data-toggle="modal" id="popPreview<%=j %>">
+                                                                    visibility
+
+                                                                    <span class="mdk-tooltip js-mdk-tooltip"
+                                                                        data-for="popPreview<%=j %>">
+                                                                        Take a look
+                                                                    </span>
+                                                                </i>
+
+
+                                                            </button>
 
                                                         </div>
-                                                        <button type="button" class="btn btn-white btn-circle">
-                                                            <i class="material-icons preview" data-target="#editQuiz"
-                                                                data-toggle="modal" id="preview1">
-                                                                visibility
-                                                            </i>
-
-                                                            <span class="mdk-tooltip js-mdk-tooltip"
-                                                                data-for="preview1">
-                                                                Take a look
-                                                            </span>
-                                                        </button>
-
-                                                    </div>
-                                                </li>
-                                                <% } %>
+                                                    </li>
+                                                    <% j++; %>
+                                                        <% } %>
 
                                         </ul>
                                     </div>
@@ -262,7 +274,7 @@
 
 
 
-        <div class="modal fade" id="editQuiz">
+        <div class="modal fade" id="preview">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content">
                     <div class="modal-header bg-primary">
@@ -275,74 +287,8 @@
                         <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push
                             data-has-scrolling-region>
                             <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
-                                <div class="container-fluid">
+                                <div class="container-fluid" id="prvContent">
 
-                                    <div class="card-group">
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                                <h4 class="mb-0"><strong>25</strong></h4>
-                                                <small class="text-muted-light">TOTAL</small>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                                <h4 class="text-success mb-0"><strong>3</strong></h4>
-                                                <small class="text-muted-light">CORECT</small>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                                <h4 class="text-danger mb-0"><strong>5</strong></h4>
-                                                <small class="text-muted-light">WRONG</small>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body text-center">
-                                                <h4 class="text-primary mb-0"><strong>17</strong></h4>
-                                                <small class="text-muted-light">LEFT</small>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="card">
-                                        <div id="9" class="card-header bg-white">
-                                            <div class="media align-items-center">
-                                                <div class="media-left">
-                                                    <h4 class="mb-0"><strong>Question 1</strong></h4>
-                                                </div>
-                                                <div class="media-body">
-                                                    <h4 class="card-title"> Github command
-                                                        to deploy comits?
-                                                    </h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card-body">
-                                            <div class="form-group">
-                                                <label class="custom-control custom-checkbox mb-0">
-                                                    <input type="checkbox" class="custom-control-input">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-description">git push</span>
-                                                </label>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="custom-control custom-checkbox mb-0">
-                                                    <input type="checkbox" class="custom-control-input">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-description">git commit -m
-                                                        &quot;message&quot;</span>
-                                                </label>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="custom-control custom-checkbox mb-0">
-                                                    <input type="checkbox" class="custom-control-input">
-                                                    <span class="custom-control-indicator"></span>
-                                                    <span class="custom-control-description">git pull</span>
-                                                </label>
-                                            </div>
-                                        </div>
-
-                                    </div>
                                     <div class="card">
                                         <div id="10" class="card-header bg-white">
                                             <div class="media align-items-center">
@@ -417,6 +363,53 @@
 
         <!-- App JS -->
         <script src="/js/main.js"></script>
+
+        <script>
+            const generateQuestion = (i, ques, ans) => {
+                let html = `<div class="card">
+                                        <div id="10" class="card-header bg-white">
+                                            <div class="media align-items-center">
+                                                <div class="media-left">
+                                                    <h4 class="mb-0"><strong>Question ${i}</strong></h4>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="card-title">
+                                                        ${ques}
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">`;
+
+
+                for (let a of ans) {
+                    html += `<div class="form-group">
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">${a}</span>
+                                                </label>
+                                            </div>`;
+                }
+                html += `</div></div>`;
+                return html;
+            }
+
+
+            $(document).ready(function () {
+                $(".prvBtn").click(function (event) {
+                    $.getJSON(`../quiz/preview/${this.id}`, function (data) {
+                        $("#prvContent").html("");
+
+                        let i = 1;
+                        for (let q of data.questions) {
+                            $("#prvContent").html($("#prvContent").html() + generateQuestion(i, q.question, q.answers));
+                            i++;
+                        }
+                    });
+                });
+            });
+        </script>
 
 
 

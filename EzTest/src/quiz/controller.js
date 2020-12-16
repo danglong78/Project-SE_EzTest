@@ -1,6 +1,7 @@
 const Quiz = require("./model").model;
 const GetLatestQuizzes = require("./model").GetLatestQuizzes;
 const GetTopViewQuizzes = require("./model").GetTopViewQuizzes;
+const GetSimpleQuiz = require("./model").GetSimpleQuiz;
 const GetByID = require("./model").GetByID;
 
 var Get_quiz_taking = async function (id, res) {
@@ -83,10 +84,20 @@ const GetPopularQuizzes = async () => {
     return quizzes;
 };
 
+const GetPreview = async (id) => {
+
+
+    let q = await GetSimpleQuiz(id);
+    q.questions = q.questions.slice(0, 5);
+
+    return q;
+}
+
 
 module.exports = {
     take_quiz: Get_quiz_taking,
     GetRecentQuizzes,
     GetPopularQuizzes,
-    quiz_result: Quiz_Result
+    GetPreview,
+    quiz_result: Quiz_Result,
 }
