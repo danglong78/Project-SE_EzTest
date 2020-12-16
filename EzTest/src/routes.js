@@ -52,7 +52,7 @@ router.post('/quiz_result', (req, res) => {
         ans_list.push(parseInt(temp[i]));
     }
     var id = req.body.quiz_id;
-    res.render('quiz-edit');
+    quizController.quiz_result(id, ans_list, res);
 });
 
 

@@ -13,8 +13,19 @@ var Get_quiz_taking = async function (id, res) {
 
 }
 
-const GetRecentQuizzes = async () => {
-    let quizzes = await GetLatestQuizzes(5);
+var Quiz_Result = async function (id, ans_list, res) {
+    try {
+        var aquiz = await GetByID(id);
+        res.render('quiz_result', {
+            quiz: aquiz,
+            ans_list: ans_list
+        });
+    } catch (e) {
+        res.send("Load Quiz Error...");
+    }
+}
+
+const GetRecentQuizzes = () => {
 
     if (quizzes.length === 0) {
         return null;
@@ -75,5 +86,6 @@ const GetPopularQuizzes = async () => {
 module.exports = {
     take_quiz: Get_quiz_taking,
     GetRecentQuizzes,
-    GetPopularQuizzes
+    GetPopularQuizzes,
+    quiz_result: Quiz_Result
 }
