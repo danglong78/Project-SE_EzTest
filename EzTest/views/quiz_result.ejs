@@ -34,8 +34,8 @@
     <link type="text/css" href="css/style.css" rel="stylesheet">
 
     <script type="text/javascript" async
-            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
     <style>
         p {
             color: #000;
@@ -160,7 +160,7 @@
                                         <div id="9" class="card-header bg-white">
                                             <div class="media align-items-center">
                                                 <div class="media-left">
-                                                    <h4 class="mb-0"><strong>Câu <%=(i+1)%></strong></h4>
+                                                    <h4 class="mb-0"><strong>Question <%=(i+1)%>:</strong></h4>
                                                 </div>
                                                 <div class="media-body">
                                                     <h4 class="card-title">
@@ -180,7 +180,7 @@
                                     <div class="card-body">
                                         <%for(var z=0;z<quiz.questions[i].answers.length;z++){%>
                                             <!-- 1 cau tra loi -->
-                                            <%if((z+1)==quiz.questions[i].right_answer && (z+1)==ans_list[i]){%>
+                                            <%if((z)==quiz.questions[i].right_answer && (z)==ans_list[i]){%>
                                                 <div class="form-group">
                                                     <label class="custom-control custom-checkbox mb-0"
                                                         style="color: green;">
@@ -193,7 +193,7 @@
                                                     </label>
                                                 </div>
                                                 <%}%>
-                                                    <%if((z+1)==quiz.questions[i].right_answer && (z+1)!=ans_list[i]){%>
+                                                    <%if((z)==quiz.questions[i].right_answer && (z)!=ans_list[i]){%>
                                                         <div class="form-group">
                                                             <label class="custom-control custom-checkbox mb-0"
                                                                 style="color: green;">
@@ -206,8 +206,8 @@
                                                             </label>
                                                         </div>
                                                         <%}%>
-                                                            <%if((z+1)!=quiz.questions[i].right_answer &&
-                                                                (z+1)==ans_list[i]){%>
+                                                            <%if((z)!=quiz.questions[i].right_answer &&
+                                                                (z)==ans_list[i]){%>
                                                                 <div class="form-group">
                                                                     <label class="custom-control custom-checkbox mb-0"
                                                                         style="color:red;">
@@ -222,8 +222,8 @@
                                                                     </label>
                                                                 </div>
                                                                 <%}%>
-                                                                    <%if((z+1)!=quiz.questions[i].right_answer &&
-                                                                        (z+1)!=ans_list[i]){%>
+                                                                    <%if((z)!=quiz.questions[i].right_answer &&
+                                                                        (z)!=ans_list[i]){%>
                                                                         <div class="form-group">
                                                                             <label
                                                                                 class="custom-control custom-checkbox mb-0">
@@ -379,51 +379,62 @@
 
 <script>
     var ctx = document.getElementById('barChart').getContext('2d');
+    var n = <%=quiz.questions.length%>;
+    var scal = <%=quiz.count_taker%> /10;
+    var label = [];
+    for (var i = 1; i <= n; i++) {
+        label.push('Question ' + i);
+    }
+    var dat = [];
+    <%for (var i = 0; i < quiz.questions.length; i++) {%>
+        dat.push(<%=quiz.questions[i].right_ans_count %>);
+    <%}%>
     var myChart = new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Câu 1', 'Câu 2', 'Câu 3', 'Câu 4', 'Câu 5', 'Câu 6'],
-            datasets: [{
-                label: 'Người làm đúng',
-                data: [1, 2, 3, 4, 5, 6],
-                backgroundColor: "rgba(159,170,174,0.8)",
-                borderWidth: 1,
-                hoverBackgroundColor: "rgba(232,105,90,0.8)",
-                hoverBorderColor: "orange",
-                scaleStepWidth: 1,
+            type: 'bar',
+            data: {
+                labels: label,
+                datasets: [{
+                    label: 'Correct Users',
+                    data: dat,
+                    backgroundColor: "rgba(159,170,174,0.8)",
+                    borderWidth: 1,
+                    hoverBackgroundColor: "rgba(232,105,90,0.8)",
+                    hoverBorderColor: "orange",
+                    scaleStepWidth: 1,
 
-            }]
-        },
-        options: {
-            legend: {
-                labels: {
-                    fontColor: "blue",
-                    fontSize: 18
-                }
-            },
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        fontColor: "green",
-                        fontSize: 18,
-                        stepSize: 1,
-                        beginAtZero: true
-                    }
-                }],
-                xAxes: [{
-                    ticks: {
-                        fontColor: "purple",
-                        fontSize: 14,
-                        stepSize: 1,
-                        beginAtZero: true
-                    }
                 }]
+            },
+            options: {
+                legend: {
+                    labels: {
+                        fontColor: "blue",
+                        fontSize: 18
+                    }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            fontColor: "green",
+                            fontSize: 18,
+                            stepSize: scal,
+                            display: false,
+                            beginAtZero: true
+                        }
+                    }],
+                    xAxes: [{
+                        ticks: {
+                            fontColor: "purple",
+                            fontSize: 14,
+                            stepSize: 1,
+                            beginAtZero: true
+                        }
+                    }]
+                }
             }
-        }
 
 
 
-    });
+        });
     // var ctx = document.getElementById("barChart");
     // var myChart = new Chart(ctx, {
     //     type: "bar",
