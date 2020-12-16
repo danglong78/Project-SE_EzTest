@@ -33,6 +33,9 @@
     <!-- App CSS -->
     <link type="text/css" href="css/style.css" rel="stylesheet">
 
+    <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
     <style>
         p {
             color: #000;
@@ -161,7 +164,7 @@
                                                 </div>
                                                 <div class="media-body">
                                                     <h4 class="card-title">
-                                                        <%=quiz.questions[i].question%>
+                                                        <%- quiz.questions[i].question%>
                                                     </h4>
                                                 </div>
                                                 <div class="media-right">
@@ -185,7 +188,7 @@
                                                             id="customCheckBox" checked onclick="return false;" />
                                                         <span class="custom-control-indicator"></span>
                                                         <span class="custom-control-description"></span>
-                                                        <%=quiz.questions[i].answers[z]%>
+                                                        <%- quiz.questions[i].answers[z]%>
                                                             </span>
                                                     </label>
                                                 </div>
@@ -198,7 +201,7 @@
                                                                     id="customCheckBox" onclick="return false;" />
                                                                 <span class="custom-control-indicator"></span>
                                                                 <span class="custom-control-description">
-                                                                    <%=quiz.questions[i].answers[z]%>
+                                                                    <%- quiz.questions[i].answers[z]%>
                                                                 </span>
                                                             </label>
                                                         </div>
@@ -214,7 +217,7 @@
                                                                             onclick="return false;" />
                                                                         <span class="custom-control-indicator"></span>
                                                                         <span class="custom-control-description">
-                                                                            <%=quiz.questions[i].answers[z]%>
+                                                                            <%-quiz.questions[i].answers[z]%>
                                                                         </span>
                                                                     </label>
                                                                 </div>
@@ -232,7 +235,7 @@
                                                                                     class="custom-control-indicator"></span>
                                                                                 <span
                                                                                     class="custom-control-description">
-                                                                                    <%=quiz.questions[i].answers[z]%>
+                                                                                    <%-quiz.questions[i].answers[z]%>
                                                                                 </span>
                                                                             </label>
                                                                         </div>

@@ -35,8 +35,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/mml-chtml.js"></script>
+
     <script type="text/javascript" async
             src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
@@ -141,6 +140,7 @@
                     </div>
                     <% for(var i=0;i<quiz.questions.length;i++){ %>
                             <!-- 1 cau hoi -->
+                            <form id=question<%=i%>>
                             <div class="card">
                                 <div id="<%=i%>" class="card-header bg-white">
                                     <div class="media align-items-center">
@@ -159,7 +159,7 @@
                                         <!-- 1 answer -->
                                     <div class="form-group">
                                         <label class="custom-control custom-radio mb-0">
-                                            <input type="radio" class="custom-control-input"type="radio" name=ques<%=i%> id=ans<%=z%>
+                                            <input type="radio" class="custom-control-input" type="radio" name=ques<%=i%> id=ans<%=z%>
                                                    value=<%=(z+1)%>>
                                             <span class="custom-control-indicator"></span>
                                             <span class="custom-control-description"><%- quiz.questions[i].answers[z]%></span>
@@ -168,8 +168,8 @@
 
                                         <%}%>
                                 </div>
-
                 </div>
+                            </form>
                 <%}%>
                     <!-- het 1 cau hoi -->
 
@@ -320,7 +320,6 @@
 
         var ans = [];
         $(document).ready(function () {
-            MathJax.startup.document.updateDocument();
             $('#submit').click(function () {
                 var n = <%=quiz.questions.length%>;
 
