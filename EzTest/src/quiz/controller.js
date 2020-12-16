@@ -25,7 +25,8 @@ var Quiz_Result = async function (id, ans_list, res) {
     }
 }
 
-const GetRecentQuizzes = () => {
+const GetRecentQuizzes = async () => {
+    let quizzes = await GetLatestQuizzes(5);
 
     if (quizzes.length === 0) {
         return null;
