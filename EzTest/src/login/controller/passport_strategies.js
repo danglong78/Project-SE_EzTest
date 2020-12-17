@@ -49,6 +49,8 @@ module.exports.localStrategy = new LocalStrategy({
     passReqToCallback: true
 },
     function (req, email, password, done) {
+        console.log("In local strategy");
+
         User.findOne({ email: email }, async (err, user) => {
             // console.log(user);
             if (err) {
@@ -139,7 +141,10 @@ module.exports.isAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
         next();
     } else {
-        req.flash('error', 'You are not logged in right now. Please try login again.');
-        res.redirect("http://localhost:3000/dashboard");
+        req.flash('error', 'You are not logged in right now. Please login first.');
+        req.session.redirectUrl = req.originalUrl;
+        console.log("In authenticated");
+        console.log(req.originalUrl);
+        res.redirect("http://localhost:3000/login");
     }
 }

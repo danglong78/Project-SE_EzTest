@@ -40,7 +40,10 @@ module.exports = async (req, res) => {
                 throw new Error('Something wrong happend. Try again!');
             }
             req.flash("success", "Welcome to EzTest!");
-            return res.redirect('localhost:3000/dashboard');
+
+            let redirectUrl = req.session.redirectUrl || "http://localhost:3000/dashboard";
+
+            return res.redirect(redirectUrl);
         });
 
     } catch (e) {

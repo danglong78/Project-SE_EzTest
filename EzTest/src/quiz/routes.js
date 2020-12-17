@@ -2,16 +2,17 @@ const express = require('express');
 const quizModel = require('./model').model;
 const quizRouter = express.Router();
 const quizController = require('./controller');
+const isAuthenticated = require('../login/controller/passport_strategies').isAuthenticated;
 
-quizRouter.get('/', async function (req, res) {
+quizRouter.get('/', isAuthenticated, async function (req, res) {
     const x = req.user['_id'];
     const list = await quizModel.find({ uploader: x });
     res.render('quiz/quiz-manager', { quizzes: list });
 });
-quizRouter.get('/add', function (req, res) {
+quizRouter.get('/add', isAuthenticated, function (req, res) {
     res.render('quiz/add');
 });
-quizRouter.post('/add', async function (req, res) {
+quizRouter.post('/add', isAuthenticated, async function (req, res) {
     // let temp = JSON.parse((req.body));
     let temp = req.body;
 
@@ -31,20 +32,20 @@ quizRouter.post('/add', async function (req, res) {
     res.redirect("/quiz")
 
 });
-quizRouter.post('/delete', async function (req, res) {
+quizRouter.post('/delete', isAuthenticated, async function (req, res) {
     let id = req.body.id;
     console.log(id);
     await quizModel.deleteOne({ _id: id });
     res.redirect("/quiz");
 });
-quizRouter.get('/edit', async function (req, res) {
+quizRouter.get('/edit', isAuthenticated, async function (req, res) {
     let id = req.query.id;
 
     let quiz = await quizModel.find({ _id: id });
     console.log(quiz[0].questions);
     res.render("quiz/edit", { quiz: quiz[0] });
 });
-quizRouter.post('/edit', async function (req, res) {
+quizRouter.post('/edit', isAuthenticated, async function (req, res) {
     // let temp = JSON.parse((req.body));
     let temp = req.body;
 
@@ -71,7 +72,6 @@ quizRouter.get('/preview/:id', async function (req, res) {
     const q = await quizController.GetPreview(req.params.id);
     console.log(q);
     res.json(q);
-    
 })
 
 module.exports = quizRouter;
