@@ -1,4 +1,5 @@
 const express = require('express');
+const mongoose = require('mongoose');
 
 const loginRouter = require('./login/routes');
 const quizRouter = require('./quiz/routes');
@@ -7,6 +8,8 @@ const isAuthenticated = require('./login/controller/passport_strategies').isAuth
 const quizController = require("./quiz/controller");
 const userController = require('./user/controller');
 const router = express.Router();
+const UserByID = require('./user/model').GetByID;
+const QuizByID = require('./quiz/model').GetByID;
 
 router.use('/login', loginRouter);
 // router.use('/test', testRoutes);
@@ -61,24 +64,42 @@ router.post('/quiz_result', (req, res) => {
     for (var i = 0; i < temp.length; i++) {
         ans_list.push(parseInt(temp[i]));
     }
-    console.log(ans_list)
+    console.log(ans_list);
     var id = req.body.quiz_id;
+    console.log(id);
+    console.log(typeof (id));
     quizController.quiz_result(id, ans_list, res);
 });
 
-router.get('/profile',async (req, res) => {
+router.get('/quiz_results/:userid', async (req, res) => {
+    var id = req.params.userid;
+    var per = await UserByID(id);
+    var quiz_take = per.test_taking;
+    var quiz_title = [];
+    for (var i = 0; i < quiz_take.length; i++) {
+        var aquiz = await QuizByID(mongoose.Types.ObjectId(quiz_take[i].quiz));
+        quiz_title.push(aquiz.title);
+    }
+    res.render('quiz_results', {
+        quiz_take: quiz_take,
+        quiz_title: quiz_title
+    });
+});
 
-   await userController.accountSetting(req,res);
+router.get('/profile', async (req, res) => {
+    await userController.accountSetting(req, res);
 
 });
-router.post('/change-name',async (req, res) => {
 
-    await userController.changeName(req,res);
+
+router.post('/change-name', async (req, res) => {
+
+    await userController.changeName(req, res);
 
 });
-router.post('/change-password',async (req, res) => {
+router.post('/change-password', async (req, res) => {
 
-    await userController.changePassword(req,res);
+    await userController.changePassword(req, res);
 
 });
 
