@@ -66,7 +66,7 @@ router.post('/quiz_result', (req, res) => {
     var id = req.body.quiz_id;
     console.log(id);
     console.log(typeof (id));
-    quizController.quiz_result(id, ans_list, res);
+    quizController.quiz_result(id, ans_list, req, res);
 });
 
 router.get('/quiz-results', isAuthenticated, async (req, res) => {

@@ -3,6 +3,8 @@ const GetLatestQuizzes = require("./model").GetLatestQuizzes;
 const GetTopViewQuizzes = require("./model").GetTopViewQuizzes;
 const FullTextSearch = require("./model").FullTextSearch;
 const GetByID = require("./model").GetByID;
+const UserByID = require("../user/model").GetByID;
+const UserModel = require("../user/model").model;
 
 var Get_quiz_taking = async function (id, res) {
     try {
@@ -14,12 +16,29 @@ var Get_quiz_taking = async function (id, res) {
 
 }
 
-var Quiz_Result = async function (id, ans_list, res) {
+var Quiz_Result = async function (id, ans_list, req, res) {
     try {
         var aquiz = await GetByID(id);
+        aquiz.count_taker += 1;
+        var score = 0;
+        for (var i = 0; i < ans_list.length; i++) {
+            if (ans_list[i] == aquiz.questions[i].right_answer) {
+                aquiz.questions[i].right_ans_count += 1;
+                score += 1;
+            }
+        }
+        var auser = await UserByID(req.user._id);
+        auser.test_taking.push({
+            score: score,
+            answer_list: ans_list,
+            quiz: id
+        });
+        UserModel.update({ _id: req.user._id }, { $set: auser });
+        Quiz.update({ _id: id }, { $set: aquiz });
         res.render('quiz_result', {
             quiz: aquiz,
-            ans_list: ans_list
+            ans_list: ans_list,
+            score: score
         });
     } catch (e) {
         res.send("Load Quiz Error...");
