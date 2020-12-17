@@ -71,8 +71,8 @@ router.post('/quiz_result', (req, res) => {
     quizController.quiz_result(id, ans_list, res);
 });
 
-router.get('/quiz_results/:userid', async (req, res) => {
-    var id = req.params.userid;
+router.get('/quiz-results', async (req, res) => {
+    var id = req.user._id;
     var per = await UserByID(id);
     var quiz_take = per.test_taking;
     var quiz_title = [];
