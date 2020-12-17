@@ -78,9 +78,7 @@ router.get('/quiz-results', async (req, res) => {
     var quiz_title = [];
     for (var i = 0; i < quiz_take.length; i++) {
         var aquiz = await QuizByID(mongoose.Types.ObjectId(quiz_take[i].quiz));
-        if (aquiz) {
-            quiz_title.push(aquiz.title);
-        }
+        quiz_title.push(aquiz.title);
     }
     res.render('quiz_results', {
         quiz_take: quiz_take,
