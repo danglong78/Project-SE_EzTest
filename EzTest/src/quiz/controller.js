@@ -33,8 +33,11 @@ var Quiz_Result = async function (id, ans_list, req, res) {
             answer_list: ans_list,
             quiz: id
         });
-        UserModel.update({ _id: req.user._id }, { $set: auser });
-        Quiz.update({ _id: id }, { $set: aquiz });
+        console.log(auser);
+        console.log(req.user._id);
+        console.log(aquiz);
+        UserModel.update({ _id: req.user._id }, { $set: auser }).exec();
+        Quiz.update({ _id: id }, { $set: aquiz }).exec();
         res.render('quiz_result', {
             quiz: aquiz,
             ans_list: ans_list,
