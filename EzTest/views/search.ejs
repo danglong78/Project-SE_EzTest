@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <!-- Mirrored from learnplus.frontendmatter.com/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:41:25 GMT -->
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Dashboard</title>
+
+        <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+        <meta name="robots" content="noindex">
+
+        <!-- Simplebar -->
+        <link type="text/css" href="/vendor/simplebar.css" rel="stylesheet">
+
+        <!-- Material Design Icons  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <!-- Roboto Web Font -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+            rel="stylesheet">
+
+        <!-- MDK -->
+        <link type="text/css" href="/vendor/material-design-kit.css" rel="stylesheet">
+
+        <!-- Sidebar Collapse -->
+        <link type="text/css" href="/vendor/sidebar-collapse.min.css" rel="stylesheet">
+
+        <!-- App CSS -->
+        <link type="text/css" href="/css/style.css" rel="stylesheet">
+
+        <!-- FontAwesome -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+    </head>
+
+    <body>
+
+        <div class="d-flex flex-column h-100">
+            <!-- Navbar -->
+            <%- include ('partials/navbar.ejs') %>
+                <!-- // END Navbar -->
+
+                <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push
+                    data-has-scrolling-region>
+                    <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
+                        <div class="container-fluid">
+
+                            <div class="row">
+
+                                <div class="col-lg">
+                                    <div class="card">
+                                        <div class="card-header bg-light">
+                                            <div class="media">
+                                                <div class="media-body">
+                                                    <h4 class="card-title ">Search results for: </h4>
+                                                    <p class="card-subtitle font-weight-bold">
+                                                        <%=key %>
+                                                    </p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                        <ul class="list-group list-group-fit mb-0">
+                                            <% if (results) {%>
+                                                <% console.log("True"); %>
+                                                    <% let j=0; %>
+                                                        <% for (let quiz of results){%>
+                                                            <li class="list-group-item">
+                                                                <div class="media align-items-center">
+                                                                    <div class="media-body">
+                                                                        <a href="../test/view/<%=quiz._id%>">
+                                                                            <%= quiz.title %>
+                                                                        </a>
+                                                                        <br>
+
+                                                                        <span class="badge badge-pill badge-info">
+                                                                            <%=quiz.count_taker%>
+                                                                        </span>
+                                                                        <span class="badge badge-pill badge-info">
+                                                                            <% if (isNaN(quiz.avgRate)) {%>
+                                                                                <%="5.0"%>
+                                                                                    <% } else {%>=
+                                                                                        quiz.avgRate
+                                                                                        <% } %>
+                                                                        </span>
+                                                                        <% for (let field of quiz.labels.field) {%>
+                                                                            <span class="badge badge-pill badge-info">
+                                                                                <%= field.name %>
+                                                                            </span>
+                                                                            <% } %>
+                                                                                <% if (quiz.labels.free===true) {%>
+                                                                                    <span
+                                                                                        class="badge badge-pill badge-danger">Paid</span>
+                                                                                    <% } else {%>
+
+                                                                                        <span
+                                                                                            class="badge badge-pill badge-success">Free</span>
+                                                                                        <% } %>
+                                                                    </div>
+                                                                    <button type="button"
+                                                                        class="btn btn-white btn-circle prvBtn"
+                                                                        id="<%=quiz._id%>">
+                                                                        <i class="material-icons preview"
+                                                                            data-target="#preview" data-toggle="modal"
+                                                                            id="popPreview<%=j %>">
+                                                                            visibility
+
+                                                                            <span class="mdk-tooltip js-mdk-tooltip"
+                                                                                data-for="popPreview<%=j %>">
+                                                                                Take a look
+                                                                            </span>
+                                                                        </i>
+
+
+                                                                    </button>
+
+                                                                </div>
+                                                            </li>
+                                                            <% j++; %>
+                                                                <% } }%>
+
+                                        </ul>
+
+
+
+
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <%- include ('partials/user_menu.ejs') %>
+                </div>
+        </div>
+
+
+
+        <div class="modal fade" id="preview">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary">
+                        <h5 class="modal-title">Preview</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push
+                            data-has-scrolling-region>
+                            <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
+                                <div class="container-fluid" id="prvContent">
+
+
+                                </div>
+                            </div>
+                            <!-- Sidebar -->
+                            <div class="mdk-drawer js-mdk-drawer" data-align="end">
+                                <div class="mdk-drawer__content">
+
+                                </div>
+                            </div>
+                            <!-- // END Sidebar -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="/vendor/popper.min.js"></script>
+        <script src="/vendor/bootstrap.min.js"></script>
+
+        <!-- Simplebar -->
+        <!-- Used for adding a custom scrollbar to the drawer -->
+        <script src="/vendor/simplebar.js"></script>
+
+        <!-- MDK -->
+        <script src="/vendor/dom-factory.js"></script>
+        <script src="/vendor/material-design-kit.js"></script>
+
+        <!-- Sidebar Collapse -->
+        <script src="/vendor/sidebar-collapse.js"></script>
+
+        <!-- App JS -->
+        <script src="/js/main.js"></script>
+
+        <script>
+            const generateQuestion = (i, ques, ans) => {
+                let html = `<div class="card">
+                                        <div id="10" class="card-header bg-white">
+                                            <div class="media align-items-center">
+                                                <div class="media-left">
+                                                    <h4 class="mb-0"><strong>Question ${i}</strong></h4>
+                                                </div>
+                                                <div class="media-body">
+                                                    <h4 class="card-title">
+                                                        ${ques}
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">`;
+
+
+                for (let a of ans) {
+                    html += `<div class="form-group">
+                                                <label class="custom-control custom-checkbox mb-0">
+                                                    <input type="checkbox" class="custom-control-input">
+                                                    <span class="custom-control-indicator"></span>
+                                                    <span class="custom-control-description">${a}</span>
+                                                </label>
+                                            </div>`;
+                }
+                html += `</div></div>`;
+                return html;
+            }
+
+
+            $(document).ready(function () {
+                $(".prvBtn").click(function (event) {
+                    $.getJSON(`../quiz/preview/${this.id}`, function (data) {
+                        $("#prvContent").html("");
+
+                        let i = 1;
+                        for (let q of data.questions) {
+                            $("#prvContent").html($("#prvContent").html() + generateQuestion(i, q.question, q.answers));
+                            i++;
+                        }
+                    });
+                });
+            });
+        </script>
+
+
+
+
+    </body>
+
+
+    <!-- Mirrored from learnplus.frontendmatter.com/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:41:28 GMT -->
+
+</html>

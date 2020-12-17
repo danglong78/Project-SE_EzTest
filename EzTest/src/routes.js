@@ -13,14 +13,31 @@ router.use('/login', loginRouter);
 // router.use('/test', testRoutes);
 router.use('/quiz', quizRouter);
 
+
+router.get('/search', async (req, res) => {
+    console.log(req.query);
+
+    let result;
+    if (req.query.key.length === 0) {
+        results = await quizController.GetPopularQuizzes();
+    }
+    else {
+        results = await quizController.Search(req.query.key);
+    }
+
+    console.log("before ejs")
+    console.log(results);
+    const key = req.query.key;
+
+    res.render('search', { key, results });
+})
+
 router.get('/dashboard', async (req, res) => {
     res.locals.currentScene = "dashboard";
 
     const recent = await quizController.GetRecentQuizzes();
     const popular = await quizController.GetPopularQuizzes();
     const topActive = await userController.GetTopActive();
-
-    console.log(topActive);
 
     res.render('dashboard', { recent, popular, topActive });
 });

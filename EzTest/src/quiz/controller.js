@@ -1,7 +1,7 @@
 const Quiz = require("./model").model;
 const GetLatestQuizzes = require("./model").GetLatestQuizzes;
 const GetTopViewQuizzes = require("./model").GetTopViewQuizzes;
-const GetSimpleQuiz = require("./model").GetSimpleQuiz;
+const FullTextSearch = require("./model").FullTextSearch;
 const GetByID = require("./model").GetByID;
 
 var Get_quiz_taking = async function (id, res) {
@@ -85,12 +85,49 @@ const GetPopularQuizzes = async () => {
 };
 
 const GetPreview = async (id) => {
+    let q = await GetByID(id);
 
 
-    let q = await GetSimpleQuiz(id);
+    if (!q) return null;
+
+    let questions = q.questions.map((ques) => {
+        return { question: ques.question, answers: ques.answers };
+    })
+
+    q = { title: q.title, questions };
     q.questions = q.questions.slice(0, 5);
 
     return q;
+}
+
+const Search = async (keywords) => {
+    let quizzes = await FullTextSearch(keywords);
+    console.log(quizzes);
+
+    if (quizzes.length === 0) {
+        return null;
+    }
+
+    quizzes = quizzes.map(quiz => {
+        const avgRate = (quiz.rate.reduce((a, b) => a + b.score, 0) / quiz.rate.length).toFixed(1);
+        const questions = quiz.questions.map(ques => {
+            return {
+                question: ques.question,
+                answers: ques.answers
+            };
+        });
+
+        return {
+            _id: quiz._id,
+            title: quiz.title,
+            count_taker: quiz.count_taker,
+            avgRate,
+            labels: quiz.labels,
+            description: quiz.description,
+            questions
+        };
+    });
+    return quizzes;
 }
 
 
@@ -99,5 +136,6 @@ module.exports = {
     GetRecentQuizzes,
     GetPopularQuizzes,
     GetPreview,
+    Search,
     quiz_result: Quiz_Result,
 }

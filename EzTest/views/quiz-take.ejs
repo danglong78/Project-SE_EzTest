@@ -2,376 +2,382 @@
 <html lang="en">
 
 
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Student - Take quiz</title>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Student - Take quiz</title>
 
-    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
-    <meta name="robots" content="noindex">
+        <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+        <meta name="robots" content="noindex">
 
-    <!-- Simplebar -->
-    <link type="text/css" href="/vendor/simplebar.css" rel="stylesheet">
+        <!-- Simplebar -->
+        <link type="text/css" href="/vendor/simplebar.css" rel="stylesheet">
 
-    <!-- Material Design Icons  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Material Design Icons  -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Roboto Web Font -->
-    <link
-        href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
-        rel="stylesheet">
+        <!-- Roboto Web Font -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+            rel="stylesheet">
 
-    <!-- MDK -->
-    <link type="text/css" href="/vendor/material-design-kit.css" rel="stylesheet">
+        <!-- MDK -->
+        <link type="text/css" href="/vendor/material-design-kit.css" rel="stylesheet">
 
-    <!-- Sidebar Collapse -->
-    <link type="text/css" href="/vendor/sidebar-collapse.min.css" rel="stylesheet">
+        <!-- Sidebar Collapse -->
+        <link type="text/css" href="/vendor/sidebar-collapse.min.css" rel="stylesheet">
 
-    <!-- App CSS -->
-    <link type="text/css" href="/css/style.css" rel="stylesheet">
+        <!-- App CSS -->
+        <link type="text/css" href="/css/style.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+            integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 
-    <script type="text/javascript" async
-        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-        </script>
-    <style>
-        .countdown p {
-            margin: auto;
-        }
+        <script type="text/javascript" async
+            src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+            </script>
+        <style>
+            .countdown p {
+                margin: auto;
+            }
 
-        mjx-math {
-            white-space: normal !important;
-            line-height: 1 !important;
-        }
-    </style>
+            mjx-math {
+                white-space: normal !important;
+                line-height: 1 !important;
+            }
+        </style>
 
-</head>
+    </head>
 
-<body>
+    <body>
 
-    <div class="d-flex flex-column h-100">
-        <!-- Navbar -->
-        <nav class="navbar navbar-expand navbar-dark bg-primary m-0">
+        <div class="d-flex flex-column h-100">
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand navbar-dark bg-primary m-0">
 
-            <!-- Toggle sidebar -->
-            <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
-                <span class="material-icons">menu</span>
-            </button>
+                <!-- Toggle sidebar -->
+                <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
+                    <span class="material-icons">menu</span>
+                </button>
 
-            <!-- Brand -->
-            <a href="dashboard.html" class="navbar-brand"><i class="material-icons">
-                    school</i> EzTest</a>
+                <!-- Brand -->
+                <a href="dashboard.html" class="navbar-brand"><i class="material-icons">
+                        school</i> EzTest</a>
 
-            <!-- Search -->
-            <form class="navbar-search-form d-none d-md-flex">
-                <input type="text" class="form-control" placeholder="Search">
-                <button class="btn" type="button"><i class="material-icons">
-                        search</i></button>
-            </form>
-            <!-- // END Search -->
-            <div class="nav navbar-nav d-none d-md-flex bg-light rounded ">
-                <div class="sidebar-heading " style="margin:auto">Time left</div>
-                <div class="countdown sidebar-p-x " data-value="0.5" data-unit="hour"></div>
-            </div>
+                <!-- Search -->
+                <form class="navbar-search-form d-none d-md-flex">
+                    <input type="text" class="form-control" placeholder="Search">
+                    <button class="btn" type="button"><i class="material-icons">
+                            search</i></button>
+                </form>
+                <!-- // END Search -->
+                <div class="nav navbar-nav d-none d-md-flex bg-light rounded ">
+                    <div class="sidebar-heading " style="margin:auto">Time left</div>
+                    <div class="countdown sidebar-p-x " data-value="0.5" data-unit="hour"></div>
+                </div>
 
 
-            <div class="navbar-spacer"></div>
+                <div class="navbar-spacer"></div>
 
-            <!-- Menu -->
-            <ul class="nav navbar-nav d-none d-md-flex">
-                <li class="nav-item">
-                    <a class="nav-link" href="forum.html">Forum</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="help-center.html">Get Help</a>
-                </li>
-            </ul>
+                <!-- Menu -->
+                <ul class="nav navbar-nav d-none d-md-flex">
+                    <li class="nav-item">
+                        <a class="nav-link" href="forum.html">Forum</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="help-center.html">Get Help</a>
+                    </li>
+                </ul>
 
-            <!-- Menu -->
-            <ul class="nav navbar-nav">
+                <!-- Menu -->
+                <ul class="nav navbar-nav">
 
-                <li class="nav-item">
-                    <a href="cart.html" class="nav-link">
-                        <i class="material-icons">shopping_cart</i>
-                    </a>
-                </li>
-
-                <!-- User dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button"><img
-                            src="assets/images/people/50/guy-6.jpg" alt="Avatar" class="rounded-circle" width="40"></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="account-edit.html">
-                            <i class="material-icons">edit</i> Edit Account
+                    <li class="nav-item">
+                        <a href="cart.html" class="nav-link">
+                            <i class="material-icons">shopping_cart</i>
                         </a>
-                        <a class="dropdown-item" href="profile.html">
-                            <i class="material-icons">person</i> Public Profile
-                        </a>
-                        <a class="dropdown-item" href="guest-login.html">
-                            <i class="material-icons">lock</i> Logout
-                        </a>
-                    </div>
-                </li>
-                <!-- // END User dropdown -->
+                    </li>
 
-            </ul>
-            <!-- // END Menu -->
+                    <!-- User dropdown -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button"><img
+                                src="assets/images/people/50/guy-6.jpg" alt="Avatar" class="rounded-circle"
+                                width="40"></a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <a class="dropdown-item" href="account-edit.html">
+                                <i class="material-icons">edit</i> Edit Account
+                            </a>
+                            <a class="dropdown-item" href="profile.html">
+                                <i class="material-icons">person</i> Public Profile
+                            </a>
+                            <a class="dropdown-item" href="guest-login.html">
+                                <i class="material-icons">lock</i> Logout
+                            </a>
+                        </div>
+                    </li>
+                    <!-- // END User dropdown -->
 
-        </nav>
-        <!-- // END Navbar -->
+                </ul>
+                <!-- // END Menu -->
 
-        <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push data-has-scrolling-region>
-            <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
-                <div class="container-fluid" id="body-main">
+            </nav>
+            <!-- // END Navbar -->
 
-                    <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="dashboard.html">
-                                Home</a></li>
-                        <li class="breadcrumb-item active">Quiz</li>
-                    </ol>
-                    <div class="media-body media-middle">
-                        <h3 class="mb-0" style="text-align: center;font-weight: bolder;color: blue;">
-                            <%=quiz.title%>
-                        </h3>
-                    </div>
-                    <% for(var i=0;i<quiz.questions.length;i++){ %>
-                        <!-- 1 cau hoi -->
-                        <form id=question<%=i%>>
-                            <div class="card">
-                                <div id="<%=i%>" class="card-header bg-white">
-                                    <div class="media align-items-center">
-                                        <div class="media-left">
-                                            <h4 class="mb-0"><strong>Question <%=(i+1)%>:</strong></h4>
-                                        </div>
-                                        <div class="media-body">
-                                            <h4 class="card-title">
-                                                <%- quiz.questions[i].question%>
-                                            </h4>
+            <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push data-has-scrolling-region>
+                <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
+                    <div class="container-fluid" id="body-main">
+
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="dashboard.html">
+                                    Home</a></li>
+                            <li class="breadcrumb-item active">Quiz</li>
+                        </ol>
+                        <div class="media-body media-middle">
+                            <h3 class="mb-0" style="text-align: center;font-weight: bolder;color: blue;">
+                                <%=quiz.title%>
+                            </h3>
+                        </div>
+                        <% for(var i=0;i<quiz.questions.length;i++){ %>
+                            <!-- 1 cau hoi -->
+                            <form id=question<%=i%>>
+                                <div class="card">
+                                    <div id="<%=i%>" class="card-header bg-white">
+                                        <div class="media align-items-center">
+                                            <div class="media-left">
+                                                <h4 class="mb-0"><strong>Question <%=(i+1)%>:</strong></h4>
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="card-title">
+                                                    <%- quiz.questions[i].question%>
+                                                </h4>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="card-body">
-                                    <%for(var z=0;z<quiz.questions[i].answers.length;z++){ %>
-                                        <!-- 1 answer -->
-                                        <div class="form-group">
-                                            <label class="custom-control custom-radio mb-0">
-                                                <input type="radio" class="custom-control-input" type="radio"
-                                                    name=ques<%=i%> id=ans<%=z%>
-                                                    value=<%=(z)%>>
-                                                        <span class="custom-control-indicator"></span>
-                                                        <span class="custom-control-description">
-                                                            <%- quiz.questions[i].answers[z]%>
-                                                        </span>
-                                            </label>
-                                        </div>
-
-                                        <%}%>
-                                </div>
-                            </div>
-                        </form>
-                        <%}%>
-                            <!-- het 1 cau hoi -->
-
-                            <div class="card-footer">
-                                <a class="btn btn-success float-right" id="submit">
-                                    Submit <i class="material-icons btn__icon--right">
-                                        send</i></a>
-                            </div>
-                </div>
-            </div>
-            <!-- Sidebar -->
-            <div class="mdk-drawer js-mdk-drawer" data-align="end">
-                <div class="mdk-drawer__content">
-                    <div class="sidebar sidebar-right sidebar-light bg-white o-hidden">
-                        <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
-                            <div class="sidebar-heading">Question</div>
-                            <ul class="list-group list-group-fit mb-0">
-                                <% for(var i=0;i<quiz.questions.length;i++){ %>
-                                    <!-- question tag -->
-                                    <a href=#<%=i%> class="list-group-item list-group-item-action card">
-                                        <span class="media align-items-center">
-                                            <div class="media-left">
-                                                <span class="fa-stack fa-1x">
-
-                                                    <i class="fa fa-circle fa-stack-2x" style="color:rgb(5, 5, 5)"></i>
-                                                    <strong class="fa-stack-1x" style="color:white">
-                                                        <%=(i+1)%>
-                                                    </strong>
-                                                </span>
-
+                                    <div class="card-body">
+                                        <%for(var z=0;z<quiz.questions[i].answers.length;z++){ %>
+                                            <!-- 1 answer -->
+                                            <div class="form-group">
+                                                <label class="custom-control custom-radio mb-0">
+                                                    <input type="radio" class="custom-control-input" type="radio"
+                                                        name=ques<%=i%> id=ans<%=z%>
+                                                        value=<%=(z)%>>
+                                                            <span class="custom-control-indicator"></span>
+                                                            <span class="custom-control-description">
+                                                                <%- quiz.questions[i].answers[z]%>
+                                                            </span>
+                                                </label>
                                             </div>
-                                            <span class="media-body media-middle">
-                                                Question <%=(i+1)%>
+
+                                            <%}%>
+                                    </div>
+                                </div>
+                            </form>
+                            <%}%>
+                                <!-- het 1 cau hoi -->
+
+                                <div class="card-footer">
+                                    <a class="btn btn-success float-right" id="submit">
+                                        Submit <i class="material-icons btn__icon--right">
+                                            send</i></a>
+                                </div>
+                    </div>
+                </div>
+                <!-- Sidebar -->
+                <div class="mdk-drawer js-mdk-drawer" data-align="end">
+                    <div class="mdk-drawer__content">
+                        <div class="sidebar sidebar-right sidebar-light bg-white o-hidden">
+                            <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
+                                <div class="sidebar-heading">Question</div>
+                                <ul class="list-group list-group-fit mb-0">
+                                    <% for(var i=0;i<quiz.questions.length;i++){ %>
+                                        <!-- question tag -->
+                                        <a href=#<%=i%> class="list-group-item list-group-item-action card">
+                                            <span class="media align-items-center">
+                                                <div class="media-left">
+                                                    <span class="fa-stack fa-1x">
+
+                                                        <i class="fa fa-circle fa-stack-2x"
+                                                            style="color:rgb(5, 5, 5)"></i>
+                                                        <strong class="fa-stack-1x" style="color:white">
+                                                            <%=(i+1)%>
+                                                        </strong>
+                                                    </span>
+
+                                                </div>
+                                                <span class="media-body media-middle">
+                                                    Question <%=(i+1)%>
+                                                </span>
                                             </span>
-                                        </span>
+                                        </a>
+                                        <!-- end question tag -->
+                                        <%}%>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- // END Sidebar -->
+            </div>
+
+
+
+
+            <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
+                <div class="mdk-drawer__content ls-top-navbar-xs-up">
+                    <div class="sidebar sidebar-left sidebar-light bg-white o-hidden">
+                        <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
+                            <ul class="sidebar-menu">
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="dashboard.html">
+                                        <i
+                                            class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dashboard</i>
+                                        Dashboard
                                     </a>
-                                    <!-- end question tag -->
-                                    <%}%>
+                                </li>
+                                <li class="sidebar-menu-item active">
+                                    <a class="sidebar-menu-button" href="take-quiz.html">
+                                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
+                                        Take a Quiz
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="quiz-results.html">
+                                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">poll</i>
+                                        Quiz Results
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="quizzes.html">
+                                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">help</i>
+                                        Quiz
+                                        Manager
+                                    </a>
+                                </li>
+
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="account-edit.html">
+                                        <i
+                                            class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i>
+                                        Account Settings
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="statement.html">
+                                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">receipt</i>
+                                        Statement
+                                    </a>
+                                </li>
+
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="billing.html">
+                                        <i
+                                            class="sidebar-menu-icon sidebar-menu-icon--left material-icons">monetization_on</i>
+                                        Billing
+                                        <span class="sidebar-menu-badge badge badge-default ml-auto">$25</span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-menu-item">
+                                    <a class="sidebar-menu-button" href="guest-login.html">
+                                        <i
+                                            class="sidebar-menu-icon sidebar-menu-icon--left material-icons">lock_open</i>
+                                        Logout
+                                    </a>
+                                </li>
                             </ul>
+                            <!-- // END Components Menu -->
                         </div>
                     </div>
                 </div>
             </div>
-            <!-- // END Sidebar -->
+
         </div>
 
+        <!-- jQuery -->
+        <script src="/vendor/jquery.min.js"></script>
+
+        <!-- Bootstrap -->
+        <script src="/vendor/popper.min.js"></script>
+        <script src="/vendor/bootstrap.min.js"></script>
+
+        <!-- Simplebar -->
+        <!-- Used for adding a custom scrollbar to the drawer -->
+        <script src="/vendor/simplebar.js"></script>
+
+        <!-- MDK -->
+        <script src="/vendor/dom-factory.js"></script>
+        <script src="/vendor/material-design-kit.js"></script>
+
+        <!-- Sidebar Collapse -->
+        <script src="/vendor/sidebar-collapse.js"></script>
+
+        <!-- App JS -->
+        <script src="/js/main.js"></script>
+
+
+        <!-- Required by countdown -->
+        <script src="/vendor/moment.min.js"></script>
+        <!-- Easy Countdown -->
+        <script src="/vendor/jquery.countdown.min.js"></script>
 
 
 
-        <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
-            <div class="mdk-drawer__content ls-top-navbar-xs-up">
-                <div class="sidebar sidebar-left sidebar-light bg-white o-hidden">
-                    <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
-                        <ul class="sidebar-menu">
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="dashboard.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dashboard</i>
-                                    Dashboard
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item active">
-                                <a class="sidebar-menu-button" href="take-quiz.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                                    Take a Quiz
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="quiz-results.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">poll</i>
-                                    Quiz Results
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="quizzes.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">help</i> Quiz
-                                    Manager
-                                </a>
-                            </li>
+        <!-- Init -->
+        <script src="/js/countdown.js"></script>
 
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="account-edit.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i>
-                                    Account Settings
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="statement.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">receipt</i>
-                                    Statement
-                                </a>
-                            </li>
+        <script>
 
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="billing.html">
-                                    <i
-                                        class="sidebar-menu-icon sidebar-menu-icon--left material-icons">monetization_on</i>
-                                    Billing
-                                    <span class="sidebar-menu-badge badge badge-default ml-auto">$25</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="guest-login.html">
-                                    <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">lock_open</i>
-                                    Logout
-                                </a>
-                            </li>
-                        </ul>
-                        <!-- // END Components Menu -->
-                    </div>
-                </div>
-            </div>
-        </div>
+            var ans = [];
+            $(document).ready(function () {
+                $('#submit').click(function () {
+                    var n = <%=quiz.questions.length%>;
 
-    </div>
-
-    <!-- jQuery -->
-    <script src="/vendor/jquery.min.js"></script>
-
-    <!-- Bootstrap -->
-    <script src="/vendor/popper.min.js"></script>
-    <script src="/vendor/bootstrap.min.js"></script>
-
-    <!-- Simplebar -->
-    <!-- Used for adding a custom scrollbar to the drawer -->
-    <script src="/vendor/simplebar.js"></script>
-
-    <!-- MDK -->
-    <script src="/vendor/dom-factory.js"></script>
-    <script src="/vendor/material-design-kit.js"></script>
-
-    <!-- Sidebar Collapse -->
-    <script src="/vendor/sidebar-collapse.js"></script>
-
-    <!-- App JS -->
-    <script src="/js/main.js"></script>
-
-
-    <!-- Required by countdown -->
-    <script src="/vendor/moment.min.js"></script>
-    <!-- Easy Countdown -->
-    <script src="/vendor/jquery.countdown.min.js"></script>
-
-
-
-    <!-- Init -->
-    <script src="/js/countdown.js"></script>
-
-    <script>
-
-        var ans = [];
-        $(document).ready(function () {
-            $('#submit').click(function () {
-                var n = <%=quiz.questions.length%>;
-
-                for (var i = 0; i < n; i++) {
-                    var temp = $('input[name=ques' + i + ']:checked', '#question' + i).val();
-                    if (temp == undefined) {
-                        ans.push(-1);
-                    } else {
-                        ans.push($('input[name=ques' + i + ']:checked', '#question' + i).val());
+                    for (var i = 0; i < n; i++) {
+                        var temp = $('input[name=ques' + i + ']:checked', '#question' + i).val();
+                        if (temp == undefined) {
+                            ans.push(-1);
+                        } else {
+                            ans.push($('input[name=ques' + i + ']:checked', '#question' + i).val());
+                        }
                     }
-                }
-                var abc = "<%= quiz._id %>";
+                    var abc = "<%= quiz._id %>";
 
-                var rs = {
-                    ans_list: ans,
-                    quiz_id: abc
-                }
-                // $.ajax({
-                //     url: "http://localhost:3000/quiz/submit",
-                //     type: 'POST',
-                //     contentType: "application/json",
-                //     data: JSON.stringify(ans),
-                //     success: function () {
+                    var rs = {
+                        ans_list: ans,
+                        quiz_id: abc
+                    }
+                    // $.ajax({
+                    //     url: "http://localhost:3000/quiz/submit",
+                    //     type: 'POST',
+                    //     contentType: "application/json",
+                    //     data: JSON.stringify(ans),
+                    //     success: function () {
 
-                //     },
-                //     error: function (result) {
-                //         console.log('fail...');
-                //     }
-                // })
-                var $form = $("<form />");
-                $form.attr("action", "http://localhost:3000/quiz_result");
-                $form.attr("method", "POST");
-                $form.append('<input type="hidden" name="ans_list" value="' + rs.ans_list + '" />');
-                $form.append('<input type="hidden" name="quiz_id" value="' + rs.quiz_id + '" />');
-                $("body").append($form);
-                $form.submit();
-                console.log("done");
+                    //     },
+                    //     error: function (result) {
+                    //         console.log('fail...');
+                    //     }
+                    // })
+                    var $form = $("<form />");
+                    $form.attr("action", "http://localhost:3000/quiz_result");
+                    $form.attr("method", "POST");
+                    $form.append('<input type="hidden" name="ans_list" value="' + rs.ans_list + '" />');
+                    $form.append('<input type="hidden" name="quiz_id" value="' + rs.quiz_id + '" />');
+                    $("body").append($form);
+                    $form.submit();
+                    console.log("done");
+                });
             });
-        });
-    </script>
+        </script>
 
 
-</body>
+    </body>
 
 
 
 
-<!-- Mirrored from learnplus.frontendmatter.com/take-quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:42:35 GMT -->
+    <!-- Mirrored from learnplus.frontendmatter.com/take-quiz.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:42:35 GMT -->
 
 </html>

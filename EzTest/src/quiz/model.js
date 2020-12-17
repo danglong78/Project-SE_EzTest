@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+mongoose.set('useCreateIndex', true);
+
 mongoose.Promise = global.Promise;
 
 const quizSchema = mongoose.Schema({
@@ -7,7 +9,10 @@ const quizSchema = mongoose.Schema({
         ref: 'User',
     },
 
-    title: String,
+    title: {
+        type: String,
+        text: true
+    },
 
     count_taker: Number,
 
@@ -25,7 +30,6 @@ const quizSchema = mongoose.Schema({
     labels: {
         free: Boolean,
         field: [{ name: String }]
-
     },
 
     description: String,
@@ -51,10 +55,12 @@ const quizSchema = mongoose.Schema({
     }],
 });
 
+// quizSchema.index({ "questions.question": "text" });
+
 const Quiz = mongoose.model('Quiz', quizSchema);
 
 
-var GetbyID = async function (in_id) {
+var GetByID = async function (in_id) {
     const id = in_id;
     var aquiz = await Quiz.findById(id);
     return aquiz;
@@ -136,20 +142,21 @@ const GetSimpleQuiz = async (id) => {
     //     ]
     // )
 
-    let q = await GetbyID(id);
 
+}
 
-    if (!q) return {};
+const FullTextSearch = async (keywords) => {
+    const rs = await Quiz.find({ $text: { $search: keywords } });
+    console.log("IN full text search");
+    console.log(rs);
 
-    let questions = q.questions.map((ques) => {
-        return { question: ques.question, answers: ques.answers };
-    })
+    if (!rs) return {};
 
-    return { title: q.title, questions };
+    return rs;
 }
 
 module.exports = {
-    GetByID: GetbyID,
+    GetByID: GetByID,
     GetByUploader: GetByUploader,
     GetChecked: GetChecked,
     GetUnchecked: GetUnchecked,
@@ -157,5 +164,6 @@ module.exports = {
     GetLatestQuizzes,
     GetTopViewQuizzes,
     GetSimpleQuiz,
+    FullTextSearch,
     model: Quiz
 }
