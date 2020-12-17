@@ -4,7 +4,7 @@ const quizRouter = express.Router();
 const quizController = require('./controller');
 const isAuthenticated = require('../login/controller/passport_strategies').isAuthenticated;
 
-quizRouter.get('/', isAuthenticated, async function (req, res) {
+quizRouter.get('/', async function (req, res) {
     const x = req.user['_id'];
     const list = await quizModel.find({ uploader: x });
     res.render('quiz/quiz-manager', { quizzes: list });

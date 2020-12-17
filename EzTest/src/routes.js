@@ -13,7 +13,7 @@ const QuizByID = require('./quiz/model').GetByID;
 
 router.use('/login', loginRouter);
 // router.use('/test', testRoutes);
-router.use('/quiz', quizRouter);
+router.use('/quiz', isAuthenticated, quizRouter);
 
 
 router.get('/search', async (req, res) => {
@@ -27,8 +27,6 @@ router.get('/search', async (req, res) => {
         results = await quizController.Search(req.query.key);
     }
 
-    console.log("before ejs")
-    console.log(results);
     const key = req.query.key;
 
     res.render('search', { key, results });
@@ -71,7 +69,7 @@ router.post('/quiz_result', (req, res) => {
     quizController.quiz_result(id, ans_list, res);
 });
 
-router.get('/quiz-results', async (req, res) => {
+router.get('/quiz-results', isAuthenticated, async (req, res) => {
     var id = req.user._id;
     var per = await UserByID(id);
     var quiz_take = per.test_taking;
@@ -86,18 +84,18 @@ router.get('/quiz-results', async (req, res) => {
     });
 });
 
-router.get('/profile', async (req, res) => {
+router.get('/profile', isAuthenticated, async (req, res) => {
     await userController.accountSetting(req, res);
 
 });
 
 
-router.post('/change-name', async (req, res) => {
+router.post('/change-name', isAuthenticated, async (req, res) => {
 
     await userController.changeName(req, res);
 
 });
-router.post('/change-password', async (req, res) => {
+router.post('/change-password', isAuthenticated, async (req, res) => {
 
     await userController.changePassword(req, res);
 
