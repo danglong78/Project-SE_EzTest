@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from learnplus.frontendmatter.com/account-edit.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:40:58 GMT -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Instructor - Edit account</title>
+
+    <!-- Prevent the demo from appearing in search engines (REMOVE THIS) -->
+    <meta name="robots" content="noindex">
+
+    <!-- Simplebar -->
+    <link type="text/css" href="vendor/simplebar.css" rel="stylesheet">
+
+    <!-- Material Design Icons  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Roboto Web Font -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en"
+            rel="stylesheet">
+
+    <!-- MDK -->
+    <link type="text/css" href="vendor/material-design-kit.css" rel="stylesheet">
+
+    <!-- Sidebar Collapse -->
+    <link type="text/css" href="vendor/sidebar-collapse.min.css" rel="stylesheet">
+
+    <!-- App CSS -->
+    <link type="text/css" href="css/style.css" rel="stylesheet">
+
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+</head>
+
+<body>
+
+<div class="d-flex flex-column h-100">
+    <%- include ('partials/navbar.ejs') %>
+
+    <!-- // END Navbar -->
+
+    <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push data-has-scrolling-region>
+        <div class="mdk-drawer-layout__content mdk-drawer-layout__content--scrollable">
+            <div class="container-fluid">
+
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active">Account Settings</li>
+                </ol>
+
+                <div class="card">
+                    <ul class="nav nav-tabs">
+
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#first" data-toggle="tab">Edit</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#third" data-toggle="tab">
+                                <%if(user.password){%>
+                                    Change Password
+                                <%}else{%>
+                                    Create Password
+                                <%}%>
+                            </a>
+                        </li>
+
+                    </ul>
+                    <div class="tab-content card-body">
+
+
+                        <div class="tab-pane active" id="first">
+                            <form action="/change-name" class="form-horizontal" method="post">
+                                <div class="form-group row">
+                                    <label for="name" class="col-sm-3 col-form-label">Full Name</label>
+                                    <div class="col-sm-8">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <input type="text" class="form-control" placeholder="Fullname"
+                                                       value="<%=user.name%>" name="name">
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="email" class="col-sm-3 col-form-label">Email</label>
+                                    <div class="col-sm-6 col-md-6">
+                                        <div class="input-group">
+                                                    <span class="input-group-addon" id="basic-addon1">
+                                                        <i class="material-icons md-18 text-muted">mail</i>
+                                                    </span>
+                                            <input type="text" class="form-control" placeholder="Email Address" name="email"
+                                                   value=<%=user.email%> disabled>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group row">
+                                    <div class="col-sm-8 offset-sm-3">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <button href="#" type="submit" class="btn btn-success">Save Changes</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="tab-pane" id="third">
+                            <form action="/change-password" class="form-horizontal" id="savePassword" method="post">
+                                <div class="form-group row">
+                                    <label for="password" class="col-sm-3 col-form-label">
+                                        <%if(user.password){%>
+                                        Change Password
+                                        <%}else{%>
+                                            Create Password
+                                        <%}%>
+                                    </label>
+                                    <div class="col-sm-6 col-md-4">
+                                        <%if(user.password){%>
+                                        <div class="input-group">
+                                                    <span class="input-group-addon" id="basic-addon3" >
+                                                        <i class="material-icons md-18 text-muted">lock_open</i>
+
+                                                    </span>
+                                            <input type="password" class="form-control" name="oldPass"
+                                                   placeholder="Enter old password" >
+                                        </div>
+                                        <div class="input-group">
+                                                    <span class="input-group-addon" id="basic-addon3">
+                                                        <i class="material-icons md-18 text-muted">lock</i>
+                                                    </span>
+                                            <input type="password" class="form-control" name="newPass"
+                                                   placeholder="Enter new password" required>
+                                        </div>
+                                        <%}else{%>
+                                                <div class="input-group">
+                                                    <span class="input-group-addon" id="basic-addon3" >
+                                                        <i class="material-icons md-18 text-muted">lock_open</i>
+
+                                                    </span>
+                                                    <input type="password" class="form-control" name="Password"
+                                                           placeholder="Enter password" required>
+                                                </div>
+
+                                        <%}%>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-8 offset-sm-3">
+                                        <div class="media">
+                                            <div class="media-left">
+                                                <button type="submit" href="#" class="btn btn-success">Save Changes</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+        <%- include ('partials/user_menu.ejs') %>
+
+    </div>
+</div>
+
+<!-- jQuery -->
+<script src="vendor/jquery.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="vendor/popper.min.js"></script>
+<script src="vendor/bootstrap.min.js"></script>
+
+<!-- Simplebar -->
+<!-- Used for adding a custom scrollbar to the drawer -->
+<script src="vendor/simplebar.js"></script>
+
+<!-- MDK -->
+<script src="vendor/dom-factory.js"></script>
+<script src="vendor/material-design-kit.js"></script>
+
+<!-- Sidebar Collapse -->
+<script src="vendor/sidebar-collapse.js"></script>
+
+<!-- App JS -->
+<script src="js/main.js"></script>
+
+
+
+
+
+
+</body>
+
+
+<!-- Mirrored from learnplus.frontendmatter.com/account-edit.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 09 Jun 2018 08:40:59 GMT -->
+
+</html>

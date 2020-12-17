@@ -9,7 +9,6 @@ const userController = require('./user/controller');
 const router = express.Router();
 
 router.use('/login', loginRouter);
-// router.use('/user', userRoutes);
 // router.use('/test', testRoutes);
 router.use('/quiz', quizRouter);
 
@@ -48,13 +47,7 @@ router.get('/logout', isAuthenticated, (req, res) => {
     res.redirect('/dashboard');
 });
 
-// router.get('/quizzes', (req, res) => {
-//     res.render('quizzes');
-// });
-//
-// router.get('/quiz-edit', (req, res) => {
-//     res.render('quiz-edit');
-// });
+
 
 router.get('/take_quiz/:quizid', (req, res) => {
     var id = req.params.quizid;
@@ -68,10 +61,25 @@ router.post('/quiz_result', (req, res) => {
     for (var i = 0; i < temp.length; i++) {
         ans_list.push(parseInt(temp[i]));
     }
+    console.log(ans_list)
     var id = req.body.quiz_id;
     quizController.quiz_result(id, ans_list, res);
 });
 
+router.get('/profile',async (req, res) => {
 
+   await userController.accountSetting(req,res);
+
+});
+router.post('/change-name',async (req, res) => {
+
+    await userController.changeName(req,res);
+
+});
+router.post('/change-password',async (req, res) => {
+
+    await userController.changePassword(req,res);
+
+});
 
 module.exports = router;
