@@ -29,7 +29,7 @@ const userSchema = mongoose.Schema({
     },
     test_taking: [{
         score: Number,
-        answer_list: [{ answer: Number }],
+        answer_list: [Number],
         quiz: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'quiz',
