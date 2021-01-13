@@ -168,7 +168,11 @@ const tag_checked = async function(req,res){
     return true;
 }
 
-
+const del_quiz = async function(req,res){
+    var id = req.body.quiz_id;
+    Quiz.findByIdAndDelete(id).exec();
+    return true;
+}
 
 
 module.exports = {
@@ -179,5 +183,6 @@ module.exports = {
     Search,
     quiz_result: Quiz_Result,
     GetAllQuiz: getAllQuiz,
-    setChecked: tag_checked
+    setChecked: tag_checked,
+    deleteQuiz:del_quiz
 }
