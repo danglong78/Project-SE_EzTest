@@ -85,10 +85,10 @@
                 <!-- Menu -->
                 <ul class="nav navbar-nav d-none d-md-flex">
                     <li class="nav-item">
-                        <a class="nav-link" href="forum.html">Forum</a>
+                        <a class="nav-link" href="#">Forum</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="help-center.html">Get Help</a>
+                        <a class="nav-link" href="#">Get Help</a>
                     </li>
                 </ul>
 
@@ -96,7 +96,7 @@
                 <ul class="nav navbar-nav">
 
                     <li class="nav-item">
-                        <a href="cart.html" class="nav-link">
+                        <a href="#" class="nav-link">
                             <i class="material-icons">shopping_cart</i>
                         </a>
                     </li>
@@ -104,16 +104,13 @@
                     <!-- User dropdown -->
                     <li class="nav-item dropdown">
                         <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button"><img
-                                src="assets/images/people/50/guy-6.jpg" alt="Avatar" class="rounded-circle"
+                                src="/assets/images/people/50/guy-6.jpg" alt="Avatar" class="rounded-circle"
                                 width="40"></a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="account-edit.html">
-                                <i class="material-icons">edit</i> Edit Account
-                            </a>
-                            <a class="dropdown-item" href="profile.html">
+                            <a class="dropdown-item" href="../profile">
                                 <i class="material-icons">person</i> Public Profile
                             </a>
-                            <a class="dropdown-item" href="guest-login.html">
+                            <a class="dropdown-item" href="../logout">
                                 <i class="material-icons">lock</i> Logout
                             </a>
                         </div>
@@ -131,7 +128,7 @@
                     <div class="container-fluid" id="body-main">
 
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="dashboard.html">
+                            <li class="breadcrumb-item"><a href="/dashboard">
                                     Home</a></li>
                             <li class="breadcrumb-item active">Quiz</li>
                         </ol>
@@ -194,7 +191,7 @@
                                 <ul class="list-group list-group-fit mb-0">
                                     <% for(var i=0;i<quiz.questions.length;i++){ %>
                                         <!-- question tag -->
-                                        <a href=#<%=i%> class="list-group-item list-group-item-action card">
+                                        <a href='#<%=i%>' class="list-group-item list-group-item-action card">
                                             <span class="media align-items-center">
                                                 <div class="media-left">
                                                     <span class="fa-stack fa-1x">
@@ -348,18 +345,7 @@
                         ans_list: ans,
                         quiz_id: abc
                     }
-                    // $.ajax({
-                    //     url: "http://localhost:3000/quiz/submit",
-                    //     type: 'POST',
-                    //     contentType: "application/json",
-                    //     data: JSON.stringify(ans),
-                    //     success: function () {
 
-                    //     },
-                    //     error: function (result) {
-                    //         console.log('fail...');
-                    //     }
-                    // })
                     var $form = $("<form />");
                     $form.attr("action", "http://localhost:3000/quiz_result");
                     $form.attr("method", "POST");

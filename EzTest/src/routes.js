@@ -10,7 +10,9 @@ const userController = require('./user/controller');
 const router = express.Router();
 const UserByID = require('./user/model').GetByID;
 const QuizByID = require('./quiz/model').GetByID;
-
+const getAllQuiz = require('./quiz/controller').GetAllQuiz;
+const deleteQuiz = require('./quiz/controller').deleteQuiz;
+const verifyQuiz = require('./quiz/controller').setChecked;
 router.use('/login', loginRouter);
 // router.use('/test', testRoutes);
 router.use('/quiz', isAuthenticated, quizRouter);
@@ -31,7 +33,9 @@ router.get('/search', async (req, res) => {
 
     res.render('search', { key, results });
 })
-
+router.get('/',async (req,res)=>{
+    res.redirect('/dashboard')
+})
 router.get('/dashboard', async (req, res) => {
     res.locals.currentScene = "dashboard";
 
@@ -100,5 +104,15 @@ router.post('/change-password', isAuthenticated, async (req, res) => {
     await userController.changePassword(req, res);
 
 });
+router.get('/admin/courses', async (req,res) =>{
+    let quiz = await getAllQuiz();
+    res.render('admin/courses',{quiz})
+})
 
+router.post('/admin/deleteCourse', async (req,res) =>{
+    await deleteQuiz(req,res)
+})
+router.post('/admin/verifyCourse', async (req,res) =>{
+    await verifyQuiz(req,res)
+})
 module.exports = router;

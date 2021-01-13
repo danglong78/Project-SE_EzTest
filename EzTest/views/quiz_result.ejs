@@ -14,7 +14,7 @@
     <meta name="robots" content="noindex">
 
     <!-- Simplebar -->
-    <link type="text/css" href="vendor/simplebar.css" rel="stylesheet">
+    <link type="text/css" href="/vendor/simplebar.css" rel="stylesheet">
 
     <!-- Material Design Icons  -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -25,13 +25,13 @@
         rel="stylesheet">
 
     <!-- MDK -->
-    <link type="text/css" href="vendor/material-design-kit.css" rel="stylesheet">
+    <link type="text/css" href="/vendor/material-design-kit.css" rel="stylesheet">
 
     <!-- Sidebar Collapse -->
-    <link type="text/css" href="vendor/sidebar-collapse.min.css" rel="stylesheet">
+    <link type="text/css" href="/vendor/sidebar-collapse.min.css" rel="stylesheet">
 
     <!-- App CSS -->
-    <link type="text/css" href="css/style.css" rel="stylesheet">
+    <link type="text/css" href="/css/style.css" rel="stylesheet">
 
     <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
@@ -50,66 +50,8 @@
 
     <div class="d-flex flex-column h-100">
         <!-- Navbar -->
-        <nav class="navbar navbar-expand navbar-dark bg-primary m-0">
+        <%- include ('partials/navbar.ejs') %>
 
-            <!-- Toggle sidebar -->
-            <button class="navbar-toggler d-block" data-toggle="sidebar" type="button">
-                <span class="material-icons">menu</span>
-            </button>
-
-            <!-- Brand -->
-            <a href="dashboard.html" class="navbar-brand"><i class="material-icons">school</i> EzTest</a>
-
-            <!-- Search -->
-            <form class="navbar-search-form d-none d-md-flex">
-                <input type="text" class="form-control" placeholder="Search">
-                <button class="btn" type="button"><i class="material-icons">search</i></button>
-            </form>
-            <!-- // END Search -->
-
-            <div class="navbar-spacer"></div>
-
-            <!-- Menu -->
-            <ul class="nav navbar-nav d-none d-md-flex">
-                <li class="nav-item">
-                    <a class="nav-link" href="forum.html">Forum</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="help-center.html">Get Help</a>
-                </li>
-            </ul>
-
-            <!-- Menu -->
-            <ul class="nav navbar-nav">
-
-                <li class="nav-item">
-                    <a href="cart.html" class="nav-link">
-                        <i class="material-icons">shopping_cart</i>
-                    </a>
-                </li>
-
-                <!-- User dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button"><img
-                            src="images/people/50/guy-6.jpg" alt="Avatar" class="rounded-circle" width="40"></a>
-                    <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item" href="account-edit.html">
-                            <i class="material-icons">edit</i> Edit Account
-                        </a>
-                        <a class="dropdown-item" href="profile.html">
-                            <i class="material-icons">person</i> Public Profile
-                        </a>
-                        <a class="dropdown-item" href="guest-login.html">
-                            <i class="material-icons">lock</i> Logout
-                        </a>
-                    </div>
-                </li>
-                <!-- // END User dropdown -->
-
-            </ul>
-            <!-- // END Menu -->
-
-        </nav>
         <!-- // END Navbar -->
 
         <div class="mdk-drawer-layout js-mdk-drawer-layout flex" data-fullbleed data-push data-has-scrolling-region>
@@ -270,73 +212,7 @@
 
 
 
-            <div class="mdk-drawer js-mdk-drawer" id="default-drawer">
-                <div class="mdk-drawer__content ">
-                    <div class="sidebar sidebar-left sidebar-light sidebar-transparent-sm-up o-hidden">
-                        <div class="sidebar-p-y" data-simplebar data-simplebar-force-enabled="true">
-
-                            <ul class="sidebar-menu">
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="dashboard.html">
-                                        <i
-                                            class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dashboard</i>
-                                        Dashboard
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="take-quiz.html">
-                                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">dvr</i>
-                                        Take a Quiz
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item active">
-                                    <a class="sidebar-menu-button" href="quiz-results.html">
-                                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">poll</i>
-                                        Quiz Results
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="quizzes.html">
-                                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">help</i>
-                                        Quiz Manager
-                                    </a>
-                                </li>
-
-                                <li class="sidebar-menu-item ">
-                                    <a class="sidebar-menu-button" href="account-edit.html">
-                                        <i
-                                            class="sidebar-menu-icon sidebar-menu-icon--left material-icons">account_box</i>
-                                        Account Settings
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="statement.html">
-                                        <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">receipt</i>
-                                        Statement
-                                    </a>
-                                </li>
-
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="billing.html">
-                                        <i
-                                            class="sidebar-menu-icon sidebar-menu-icon--left material-icons">monetization_on</i>
-                                        Billing
-                                        <span class="sidebar-menu-badge badge badge-default ml-auto">$25</span>
-                                    </a>
-                                </li>
-                                <li class="sidebar-menu-item">
-                                    <a class="sidebar-menu-button" href="guest-login.html">
-                                        <i
-                                            class="sidebar-menu-icon sidebar-menu-icon--left material-icons">lock_open</i>
-                                        Logout
-                                    </a>
-                                </li>
-                            </ul>
-                            <!-- // END Components Menu -->
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <%- include ('partials/user_menu.ejs') %>
 
         </div>
     </div>
@@ -345,35 +221,24 @@
 
 
 
-    <script src="vendor/simplebar.js"></script>
-    <script src="vendor/jquery.min.js"></script>
+    <script src="/vendor/simplebar.js"></script>
+    <script src="/vendor/jquery.min.js"></script>
 
 
-    <script src="vendor/popper.min.js"></script>
-    <script src="vendor/bootstrap.min.js"></script>
+    <script src="/vendor/popper.min.js"></script>
+    <script src="/vendor/bootstrap.min.js"></script>
 
-    <script src="vendor/dom-factory.js"></script>
-    <script src="vendor/material-design-kit.js"></script>
-
-
-    <script src="vendor/sidebar-collapse.js"></script>
+    <script src="/vendor/dom-factory.js"></script>
+    <script src="/vendor/material-design-kit.js"></script>
 
 
-    <script src="js/main.js"></script>
-
-
-
-    <script src="js/colors.js"></script>
-
-
-    <script src="vendor/raphael.min.js"></script>
-    <script src="vendor/morris.min.js"></script>
-
-    <script src="vendor/Chart.min.js"></script>
-
-
-
-    <script src="js/chart.js"></script>
+    <script src="/vendor/sidebar-collapse.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/colors.js"></script>
+    <script src="/vendor/raphael.min.js"></script>
+    <script src="/vendor/morris.min.js"></script>
+    <script src="/vendor/Chart.min.js"></script>
+    <script src="/js/chart.js"></script>
     <!-- <script src="assets/js/chartjs.js"></script> -->
 
 </body>

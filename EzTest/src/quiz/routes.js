@@ -22,10 +22,11 @@ quizRouter.post('/add', isAuthenticated, async function (req, res) {
         count_taker: 0,
         rate: [],
         checked: false,
-        label: [],
         description: "",
         questions: temp.questionList,
-        right_ans_count: 0
+        right_ans_count: 0,
+        date_created: new Date(),
+        wireframe: temp.timeframe,
     })
     await quiz.save();
     console.log("Success");
@@ -36,7 +37,7 @@ quizRouter.post('/delete', isAuthenticated, async function (req, res) {
     let id = req.body.id;
     console.log(id);
     await quizModel.deleteOne({ _id: id });
-    res.redirect("/quiz");
+    res.send(true);
 });
 quizRouter.get('/edit', isAuthenticated, async function (req, res) {
     let id = req.query.id;
