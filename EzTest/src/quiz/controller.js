@@ -170,6 +170,17 @@ const tag_checked = async function(req,res){
 
 const del_quiz = async function(req,res){
     var id = req.body.quiz_id;
+    var user_list =await UserModel.find({ "test_taking.quiz" : id });
+    for(var i=0;i<user_list.length;i++){
+        var temp = [];
+        for(var z=0;z<user_list[i].test_taking.length;z++){
+            if (user_list[i].test_taking[z].quiz!=id){
+                temp.push(user_list[i].test_taking[z]);
+            }
+        }
+        user_list[i].test_taking = temp;
+        UserModel.updateOne({ _id: user_list[i]._id }, { $set: user_list[i]}).exec();
+    }
     Quiz.findByIdAndDelete(id).exec();
     return true;
 }
