@@ -152,6 +152,24 @@ const Search = async (keywords) => {
     return quizzes;
 }
 
+const getAllQuiz = async function(req,res){
+    var quiz_list = await Quiz.find();
+    return quiz_list;
+}
+
+const tag_checked = async function(req,res){
+    var id = req.body.quiz_id;
+    var aQuiz = await Quiz.findById(id);
+    if(aQuiz==null){
+        return false;
+    }
+    aQuiz.checked = true;
+    Quiz.updateOne({_id:id},{$set:aQuiz}).exec();
+    return true;
+}
+
+
+
 
 module.exports = {
     take_quiz: Get_quiz_taking,
@@ -160,4 +178,6 @@ module.exports = {
     GetPreview,
     Search,
     quiz_result: Quiz_Result,
+    GetAllQuiz: getAllQuiz,
+    setChecked: tag_checked
 }
